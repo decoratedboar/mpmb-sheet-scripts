@@ -187,7 +187,7 @@ ClassList["gunslinger"] = {
 			name : "Fortune Favors the Bold",
 			source : ["HB", 0],
 			minlevel : 2,
-			description : "\n   " + "I gain Luck Points and Luck Strikes. I can have a number of Luck Points equal to my" + "\n   " + "Proficiency Bonus, and I regain all Luck Points after a short or long rest. Luck Points fuel Luck" + "\n   " + "Strikes, but I can also spend a single Luck Point after making a firearm attack to convert it to" + "\n   " + "a critical hit" + "\n   " + "Whenever I critically hit, I can choose to regain a Luck Point up to my maximum or" + "\n   " + "immediately apply the effect of a known Luck Strike instead of dealing critical damage" + "\n   " + "My known Luck Strikes per level are shown on the Gunslinger feature table, and currently" + "\n   " + "available Luck Strikes can be found in the third page notes",
+			description : "\n   " + "I gain a number of Luck Points equal to my proficiency bonus, and I regain all Luck Points after" + "\n   " + "a short or long rest. I gain Luck Strikes based on level, which cost Luck Points to use" + "\n   " + "I can spend a single Luck Point after making a firearm attack to convert it to a critical hit, and" + "\n   " + "whenever I critically hit, I can choose to regain a Luck Point up to my maximum or" + "\n   " + "immediately apply the effect of a known Luck Strike instead of dealing critical damage" + "\n   " + "My known Luck Strikes per level are shown on the Gunslinger feature table, and currently" + "\n   " + "available Luck Strikes can be found in the third page notes",
 			
 			limfeaname : "Luck Points",
 			usages : "Proficiency Bonus per ",
@@ -199,14 +199,14 @@ ClassList["gunslinger"] = {
 				extraname: "Luck Strike",
 				source : ["HB", 0],
 				minlevel : 2,
-				description : " [1 Luck Point]" + desc("After missing a firearm attack, roll again to hit either the same target or a different one within normal range. You must use this new roll" + "\n   " + "This attack ignores cover"),
+				description : " [1 Luck Point]" + desc("After missing a firearm attack, roll again to hit either the same target or a different one within" + "\n   " + "normal range. You must use this new roll. This attack ignores cover"),
 			},
 			"mightier than the sword" : {
 				name : "Mightier than the Sword",
 				extraname: "Luck Strike",
 				source : ["HB", 0],
 				minlevel : 2,
-				description : " [1 Luck Point]" + desc("As a reaction when a Large or smaller enemy makes a non-firearm attack against myself or a creature I can see within normal range, force them to reroll, taking the lower roll" + "\n   " + "Ranged weapon attacks fail automatically"),
+				description : " [1 Luck Point]" + desc("As a reaction when a Large or smaller enemy makes a non-firearm attack against myself or a" + "\n   " + "creature I can see within normal range, force them to reroll, taking the lower roll. Ranged" + "\n   " + "weapon attacks fail automatically"),
 				action : ["reaction", ""],
 			},
 			"leg shot" : {
@@ -214,7 +214,7 @@ ClassList["gunslinger"] = {
 				extraname: "Luck Strike",
 				source : ["HB", 0],
 				minlevel : 2,
-				description : " [1 or more Luck Points]" + desc("Reduce the target\'s speed by 20ft for every Luck Point spent until the end of its next turn. If the target has no movement speed left, it is knocked prone" + "\n   " + "Huge and larger creatures are immune to this Luck Strike" + "\n   " + "This Luck Strike can be used as a reaction whenever an enemy moves within my normal range, in which case a normal attack is made, and all Luck Points are wasted if I miss"),
+				description : " [1 or more Luck Points]" + desc("Reduce the target\'s speed by 20ft for every Luck Point spent until the end of its next turn. If the" + "\n   " + "target has no movement speed left, it is knocked prone. Huge and larger creatures are immune" + "\n   " + "to this Luck Strike" + "\n   " + "This Luck Strike can be used as a reaction whenever an enemy moves within my normal range, in" + "\n   " + "which case a normal attack is made, and all Luck Points are wasted if I miss"),
 				action : ["reaction", ""]
 			},
 			"dizzying shot" : {
@@ -229,21 +229,21 @@ ClassList["gunslinger"] = {
 				extraname: "Luck Strike",
 				source : ["HB", 0],
 				minlevel : 3,
-				description : " [1 Luck Point]" + desc("The target of the firearm attack is pushed 10 ft away from me. Large creatures are moved only 5 ft, and Huge and larger creatures are immune to this Luck Strike"),
+				description : " [1 Luck Point]" + desc("The target of the firearm attack is pushed 10 ft away from me. Large creatures are moved only" + "\n   " + "5 ft, and Huge and larger creatures are immune to this Luck Strike"),
 			},
 			"piercing shot" : {
 				name : "Piercing Shot",
 				extraname: "Luck Strike",
 				source : ["HB", 0],
 				minlevel : 6,
-				description : " [1 Luck Point]" + desc("The attack now targets a number of enemies in a straight line behind the target equal to my Charisma modifier. I use the same attack roll for each target, but make seperate damage rolls" + "\n   " + "I can grant an attack this benefit even if it misses the original target" + "\n   " + "The bullet loses all force after exiting my normal range"),
+				description : " [1 Luck Point]" + desc("The attack now targets a number of enemies in a straight line behind the target equal to my" + "\n   " + "Charisma modifier. I use the same attack roll for each target, but make seperate damage rolls" + "\n   " + "I can grant an attack this benefit even if it misses the original target, and the bullet loses all force" + "\n   " + "after exiting my normal range"),
 			},
 			"counterbullet" : {
 				name : "Counter-Bullet",
 				extraname: "Luck Strike",
 				source : ["HB", 0],
 				minlevel : 7,
-				description : " [2 Luck Points]" + desc("As a reaction to seeing an enemy cast a spell within my normal range, I can make an attack roll to interrupt them. The target AC equals 10 + the spell's level" + "\n   " + "On a hit, the spell fails and has no effect, still consuming any resources required for it, and leaving the enemy unharmed"),
+				description : " [2 Luck Points]" + desc("As a reaction to seeing an enemy cast a spell within my normal range, I can make an attack roll" + "\n   " + "to interrupt them. The target AC equals 10 + the spell's level" + "\n   " + "On a hit, the spell fails and has no effect, still consuming any resources required for it, and" + "\n   " + " leaving the enemy unharmed"),
 				action : ["reaction", ""],
 			},
 			"exposing shot" : {
@@ -251,21 +251,21 @@ ClassList["gunslinger"] = {
 				extraname: "Luck Strike",
 				source : ["HB", 0],
 				minlevel : 7,
-				description : " [2 or more Luck Points]" + desc("Until the start of my next turn, the target creature\'s AC is reduced by 2 points + 1 point per additional Luck Point spent"),
+				description : " [2 or more Luck Points]" + desc("Until the start of my next turn, the target creature\'s AC is reduced by 2 points + 1 point per" + "\n   " + "additional Luck Point spent"),
 			},
 			"compelling shot" : {
 				name : "Compelling Shot",
 				extraname: "Luck Strike",
 				source : ["HB", 0],
 				minlevel : 7,
-				description : " [1 Luck Point]" + desc("The target creature has disadvantage on attack rolls and can't make opportunity attacks against targets other than me" + "\n   " + "This effect lasts until the target creature is attacked or affected by a spell from someone other than myself, or until I end my turn more than 60 ft away from it"),
+				description : " [1 Luck Point]" + desc("The target creature has disadvantage on attack rolls and can't make opportunity attacks against" + "\n   " + "targets other than me" + "\n   " + "This effect lasts until the target creature is attacked or affected by a spell from someone other" + "\n   " + "than myself, or until I end my turn more than 60 ft away from it"),
 			},
 			"anti aerial shot" : {
 				name : "Anti-Aerial Shot",
 				extraname: "Luck Strike",
 				source : ["HB", 0],
 				minlevel : 10,
-				description : " [1 or more Luck Points]" + desc("If the airbone target creature gains flying speed via physical means, reduce their flying speed by 40 ft per Luck Point spent"),
+				description : " [1 or more Luck Points]" + desc("If the airbone target creature gains flying speed via physical means, reduce their flying speed by" + "\n   " + "40 ft per Luck Point spent"),
 			},
 			"disarming shot" : {
 				name : "Disarming Shot",
@@ -279,7 +279,7 @@ ClassList["gunslinger"] = {
 				extraname: "Luck Strike",
 				source : ["HB", 0],
 				minlevel : 14,
-				description : " [1 Luck Point]" + desc("If the target is under the effect of the Shield spell (including one cast as a reaction to this attack), ignore the AC bonus from the spell and immediately end it"),
+				description : " [1 Luck Point]" + desc("If the target is under the effect of the Shield spell (including one cast as a reaction to this attack)," + "\n   " + "ignore the AC bonus from the spell and immediately end it"),
 			},
 			
 			"weakening shot" : {
@@ -299,6 +299,9 @@ ClassList["gunslinger"] = {
 			}, {
 				extrachoice : 'leg shot',
 				minlevel : 2,
+			}, {
+				extrachoice : 'dizzying shot',
+				minlevel : 3,
 			}, {
 				extrachoice : 'pushing shot',
 				minlevel : 3,
