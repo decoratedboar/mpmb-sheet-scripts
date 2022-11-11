@@ -112,6 +112,7 @@ ClassList["gunslinger"] = {
 			source : ["HB", 0],
 			minlevel : 1,
 			description : "\n   I can use an action to change my firearm's sight" + "\n   " + "Use the \"Choose Feature\" button above to select your current sight",
+			action : ["action", "Change gun sight"],
 			extraname : "Sights",
 			extrachoices : ["Iron Sights", "No Sight", "Scope"],
 			extraTimes: [1],
