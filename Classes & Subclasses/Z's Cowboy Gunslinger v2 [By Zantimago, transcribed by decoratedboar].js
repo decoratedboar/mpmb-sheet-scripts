@@ -648,7 +648,7 @@ FeatsList["twice as deadly"] = {
 	name: "Twice as Deadly",
 	source: [["HB", 0]],
 	descriptionFull : "Prequisite: Desperado \nYou are now so skilled in using revolvers that you can wield and shoot two of them at the same time, gaining these benefits when you do so: \n \u2022 You can make twice as many attacks whenever you take the Attack action. When you use this ability you don't add your dexterity modifier to the attack rolls nor damage of those attacks, even if you instead make Deadeye attacks. \n \u2022 You can reload every revolver you are wielding, even if you have no free hands, as a bonus action. \n \u2022 In addition, you can now draw or stow two revolvers when you would normally be able to draw or stow only one. \nIn addition, you can now draw or stow two revolvers when you would normally be able to draw or stow only one.",
-	description: "I can use this feat to make twice as many attacks when taking the Attack, but I don't add my Dexterity modifier to the attack or damage rolls, even while making Deadeye attacks. I can reload every revolver I am wielding as a bonus action, and I can draw or stow two revolvers at once instead of one.",
+	description: "I can use this feat to make twice as many attacks when taking the Attack action, but I don't add my Dexterity modifier to the attack or damage rolls, even while making Deadeye attacks. I can reload every revolver I am wielding as a bonus action, and I can draw or stow two revolvers at once instead of one.",
 	action : ["bonus action", "Reload all revolvers"],
 	
 	prereqeval : "classes.known.gunslinger.subclass === 'gunslinger-the desperado'"	
