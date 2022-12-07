@@ -84,7 +84,7 @@ ClassList["gunslinger"] = {
 			},
 			"sleight of hand" :{
 				name : "Sleight of Hand",
-				description : "\n   I gain advantage on any Sleigh of Hand check made to draw a revolver and aim"
+				description : "\n   I gain advantage on any Sleight of Hand check made to draw a revolver and aim"
 			},
 			"intimidation" :{
 				name : "Intimidation",
