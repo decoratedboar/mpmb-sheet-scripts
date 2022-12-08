@@ -60,7 +60,7 @@ SpellsList["arctic midnight"] = {
 	time : "1 a",
 	range : "Touch",
 	components : "V,S,M",
-	compMaterial : "A silvery scale, feather, or fang.",
+	compMaterial : "A sprig of pine needles.",	
 	duration : "Conc, 1 min",
 	save : "Cha",
 	
@@ -78,7 +78,7 @@ SpellsList["aspect of the sweeping beast"] = {
 	time : "1 a",
 	range : "120-ft",
 	components : "V,S,M",
-	compMaterial : "A sprig of pine needles.",
+	compMaterial : "A silvery scale, feather, or fang.",
 	duration : "Conc, 1 min",
 	save : "Cha",
 	
@@ -96,7 +96,7 @@ SpellsList["aspect of the sweeping beast"] = {
 	time : "1 a",
 	range : "120-ft",
 	components : "V,S,M",
-	compMaterial : "A sprig of pine needles.",
+	compMaterial : "A silvery scale, feather, or fang.",
 	duration : "Conc, 1 min",
 	save : "Cha",
 	
@@ -114,7 +114,7 @@ SpellsList["aspect of the sweeping beast"] = {
 	time : "1 a",
 	range : "120-ft",
 	components : "V,S,M",
-	compMaterial : "A sprig of pine needles.",
+	compMaterial : "A silvery scale, feather, or fang.",
 	duration : "Conc, 1 min",
 	save : "Cha",
 	
