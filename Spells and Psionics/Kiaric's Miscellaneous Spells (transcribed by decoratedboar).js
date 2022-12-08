@@ -1,0 +1,339 @@
+/*	-WHAT IS THIS?-
+	This file adds optional material to "MPMB's Character Record Sheet" found at https://flapkan.com/mpmb/charsheets
+	Import this file using the "Add Extra Materials" bookmark.
+	-KEEP IN MIND-
+	It is recommended to enter the code in a fresh sheet before adding any other information (i.e. before making your character with it).
+*/
+
+/*	-INFORMATION-
+	Subject:	Spells
+	Effect:		
+				This script adds 17 new spells, created by Kiaric
+				You can find them here: https://homebrewery.naturalcrit.com/share/BNat9bCkIdfQ
+	Code by:	u/decoratedblood (decoratedboar)
+	Date:		08-12-2022 (sheet v13.0.6")
+*/
+
+var iFileName = "Kiaric's Miscellaneous Spells (transcribed by decoratedboar).js";
+RequiredSheetVersion("13.0.6");
+
+SpellsList["ancestral memory"] = {
+	name : "Ancestral Memory",
+	source : ["HB", 0],
+
+	classes : ["cleric", "druid", "sorcerer"],
+	level : 4,
+	school : "Div",
+	time : "1 a",
+	range : "S",
+	components : "V,S,M\u0192",
+	compMaterial : "A set of bones with intricate platinum inlay worth at least 600 gp",
+	duration : "Instantaneous",
+
+	description : "Roll percentile die; on 70 + caster level or lower, key piece of information.",
+	descriptionFull : "When you cast this spell, you open your mind to the vast experiences of your ancestors in the hope of learning something pertinent about your current situation. Roll percentile dice. On a 70 + your caster level or lower, you uncover a memory which relates to a specific problem you currently face (such as locating an ancient structure or fighting an opponent with many resistances)." + "From this memory, you glean a key piece of information about the situation, such as a creature's weaknesses, or the rough direction and distance to a site of importance.",
+	dependencies : ["te1-tremorsense", "te2-unwavering eye", "te3-piercing sight", "te4-truesight"],
+	},
+	
+SpellsList["anonymous interaction"] = {
+	name : "Anonymous Interaction",
+	nameShort : "Anon. Interaction",
+	source : ["HB", 0],
+	classes : ["bard", "wizard"],
+	level : 1,
+	school : "Ench",
+	time : "1 a",
+	range : "30-ft",
+	components : "V,S",
+	duration : "Instantaneous",
+	save : "Cha",
+	description : "1+2/SL creature(s) make Cha save; on failed save, they only vaguely remember you.",
+	descriptionFull : ["You attempt to manipulate the mind of one creature you can see within range so that it forgets all but the most general information about you. The target must succeed on a Charisma saving throw. On a failure, the target only remembers a few things about you; your presence and your body type (your basic arrangement of limbs), as well as the gist of your interactions with it (for instance, it might vaguely remember the topic you spoke about with it). It doesn't remember specifically what you said, details of your appearance, or any identifying information about you." + "The spell fails if the creature had interacted face-to-face with you more than 24 hours ago prior to the casting." + AtHigherLevels + "When you cast this spell using a spell slot of 2nd level or higher, you can target an additional two creatures for each slot level above 1st."],
+	}
+	
+SpellsList["arctic midnight"] = {
+	name : "Arctic Midnight",
+	source : ["HB", 0],
+	classes : ["druid", "sorcerer"],
+	level : 6,
+	school : "Evoc",
+	time : "1 a",
+	range : "Touch",
+	components : "V,S,M",
+	compMaterial : "A silvery scale, feather, or fang.",
+	duration : "Conc, 1 min",
+	save : "Cha",
+	
+	description : "30-ft sphere magical darkness; deal 5d8 cold dmg and halve speed of creatures that start turn inside; bns a move it 10 ft",
+	descriptionFull : ["You plunge an area into the brutal chill of the arctic night. Magical darkness spreads from a point you choose within range to fill a 30-foot-radius sphere until the spell ends. The darkness spreads around corners. A creature with darkvision can't see through this darkness. Non-magical light, as well as light created by spells of 6th level or lower, can't illuminate the area." + "Whenever a creature starts its turn in the sphere, it takes 5d8 cold damage and its speed is halved until the end of its next turn." + "As a bonus action, you can move the sphere up to 10 feet in any direction." + "A creature reduced to 0 hit points within the sphere is killed, becoming a frozen statue until it thaws."],
+	}
+
+SpellsList["aspect of the sweeping beast"] = {
+	name : "Aspect of the Sweeping Beast",
+	nameShort : "Aspect of Sweep. Beast",
+	source : ["HB", 0],
+	classes : ["cleric", "paladin"],
+	level : 3,
+	school : "Trans",
+	time : "1 a",
+	range : "120-ft",
+	components : "V,S,M",
+	compMaterial : "A sprig of pine needles.",
+	duration : "Conc, 1 min",
+	save : "Cha",
+	
+	description : "Touch willing creature; target can use bns a to make melee spell attack, 3d4+1d4/SL radiant dmg in 10-ft radius with caster's modifiers.",	
+	descriptionFull : ["You touch one willing creature and impart the essence of a primal, divine, or arcane beast onto it. The creature sprouts a large, sweeping tail for the duration (or its tail is transformed if it already has one). If the caster is a cleric or paladin, the tail appears thin and feathery and its damage type is radiant. If the caster is a druid or ranger, the tail is covered in thick fur and its damage type is thunder. If the caster is a sorcerer, warlock, or other spellcaster, the tail is draconic and its damage type is force." + "Until the spell ends, the target can use a bonus action to make a melee spell attack with the caster's spell attack modifier on all creatures within a 10 foot radius using the tail, dealing 3d4 damage of the specified type on a hit." + AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d4 for each slot level above 3rd."],
+	}
+
+SpellsList["aspect of the sweeping beast"] = {
+	name : "Aspect of the Sweeping Beast",
+	nameShort : "Aspect of Sweep. Beast",
+	source : ["HB", 0],
+	classes : ["druid", "ranger"],
+	level : 3,
+	school : "Trans",
+	time : "1 a",
+	range : "120-ft",
+	components : "V,S,M",
+	compMaterial : "A sprig of pine needles.",
+	duration : "Conc, 1 min",
+	save : "Cha",
+	
+	description : "Touch willing creature; target can use bns a to make melee spell attack, 3d4+1d4/SL thunder dmg in 10-ft radius with caster's modifiers.",
+	descriptionFull : ["You touch one willing creature and impart the essence of a primal, divine, or arcane beast onto it. The creature sprouts a large, sweeping tail for the duration (or its tail is transformed if it already has one). If the caster is a cleric or paladin, the tail appears thin and feathery and its damage type is radiant. If the caster is a druid or ranger, the tail is covered in thick fur and its damage type is thunder. If the caster is a sorcerer, warlock, or other spellcaster, the tail is draconic and its damage type is force." + "Until the spell ends, the target can use a bonus action to make a melee spell attack with the caster's spell attack modifier on all creatures within a 10 foot radius using the tail, dealing 3d4 damage of the specified type on a hit." + AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d4 for each slot level above 3rd."],
+	}
+
+SpellsList["aspect of the sweeping beast"] = {
+	name : "Aspect of the Sweeping Beast",
+	nameShort : "Aspect of Sweep. Beast",
+	source : ["HB", 0],
+	classes : ["sorcerer", "warlock"],
+	level : 3,
+	school : "Trans",
+	time : "1 a",
+	range : "120-ft",
+	components : "V,S,M",
+	compMaterial : "A sprig of pine needles.",
+	duration : "Conc, 1 min",
+	save : "Cha",
+	
+	description : "Touch willing creature; target can use bns a to make melee spell attack, 3d4+1d4/SL thunder dmg in 10-ft radius with caster's modifiers.",
+	descriptionFull : ["You touch one willing creature and impart the essence of a primal, divine, or arcane beast onto it. The creature sprouts a large, sweeping tail for the duration (or its tail is transformed if it already has one). If the caster is a cleric or paladin, the tail appears thin and feathery and its damage type is radiant. If the caster is a druid or ranger, the tail is covered in thick fur and its damage type is thunder. If the caster is a sorcerer, warlock, or other spellcaster, the tail is draconic and its damage type is force." + "Until the spell ends, the target can use a bonus action to make a melee spell attack with the caster's spell attack modifier on all creatures within a 10 foot radius using the tail, dealing 3d4 damage of the specified type on a hit." + AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d4 for each slot level above 3rd."],
+	}
+
+SpellsList["bast's tag of vengeance"] = {
+	name : "Bast's Tag of Vengeance",
+	nameShort : "Bast's Tag of Veng.",
+	source : ["HB", 0],
+	classes : ["cleric", "paladin", "warlock", "wizard"],
+	level : 1,
+	school : "Necro",
+	time : "1 min",
+	ritual : true,
+	range : "Touch",
+	components : "V,S,M",
+	compMaterial : "A small slip of parchment.",
+	duration : "Instantaneous",
+	
+	description : "Tag willing creature; if it dies in combat, rises one round later as a revenant.",
+	descriptionFull : ["As part of casting the spell, you magically scribe holy runes onto a small slip of parchment and affix this magical tag to a willing creature. The tag stays where it is placed through magic and cannot be removed or destroyed except by dispel magic or similar, in which case it burns up into ashes harmlessly." + "When the creature that bears the tag dies in combat, it rises one round later as a revenant and the tag crumbles to ash. The creature's game statistics replaced by the revenant's. It retains its alignment, personality, equipment and ability to cast spells (if it has one). The revenant must then swear vengeance on a creature or several creatures they have met before, assigning each creature as one of the revenant's targets. This oath of vengeance doesn't need to be spoken, but if the reveneant fails to declare one a minute after its transformation, it crumbles to dust." + "If all of the revenant's targets are dead, or if the revenant fails to kill all its targets within exactly one year after being transformed into a revenant, its body crumbles to dust." + "Granted the revenant's soul is freed (such as by another death), its original time of death is within the spell's parameters, and the rest of the spell's conditions are met, the revenant can be restored to life in its original body as it was before it became undead by the use of raise dead or similar."],
+	}
+	
+SpellsList["bloodfire bolts"] = {
+	name : "Bloodfire Bolts",
+	source : ["HB", 0],
+	classes : ["sorcerer", "warlock", "wizard"],
+	level : 2,
+	school : "Evoc",
+	time : "1 a",
+	range : "60-ft",
+	components : "V,S,M",
+	compMaterial : "A chunk of realgar.",
+	duration : "Instantaneous",
+	
+	description : "Conjure 1d6+1/SL motes of fire; make ranged spell attack against target creature(s) for each bolt; each bolt deals 1d6 necrotic dmg and 1d6 fire dmg.",
+	descriptionFull : ["You conjure 1d6 motes of glowing red fire, which streak towards targets in range of your choice. You can target one creature or several." + "Make a ranged spell attack for each mote. On a hit, the target takes 1d6 necrotic damage and 1d6 fire damage." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, you create an additional mote for each slot level above 2nd."],
+	}
+	
+SpellsList["compelling epiphany"] = {
+	name : "Compelling Epiphany",
+	source : ["HB", 0],
+	classes : ["artificer", "bard", "sorcerer", "wizard"],
+	level : 3,
+	school : "Ench",
+	time : "1 a",
+	range : "S: 60-ft rad",
+	components : "V,S,M",
+	compMaterial : "A handwritten series of notes.",
+	duration : "Conc, 1 min",
+	save : "Wis",
+	
+	description : "If sentient creature(s) in range fail Wis save, they become charmed by you, incapacitated, and have 0ft of movement.",
+	descriptionFull : ["You deliver a confusing but fascinating monologue, relaying grand conspiracies or vague revelations that entrance your audience, speaking until the spell ends. Creatures with an Intelligence score higher than 4 within range that can hear your monologue must succeed on a Wisdom saving throw or become charmed by you for the duration. While charmed by this spell, the creature is incapacitated and has a speed of 0." + "A creature charmed by you in this way becomes hostile to any creature that tries to harm or discredit you, regaining its movement speed and supressing its incapacitated condition at the start of its next turn and until the target of its hostility is neutralized in some way or the spell ends. A creature reacts to hostility directed towards itself while under the spell's effect in the same way, supressing some effects of the spell until the hostile creature is dealt with."],
+	}
+	
+SpellsList["critical reassessment"] = {
+	name : "Critical Reassessment",
+	source : ["HB", 0],
+	classes : ["bard", "paladin"],
+	level : 1,
+	school : "Ench",
+	time : "1 bns",
+	range : "30-ft",
+	components : "V",
+	duration : "Instantaneous",
+	save : "Wis",
+	
+	description : "In combat, add or subtract spellcasting modifier to a target creature's initiative roll. Unwilling creatures must fail a Wis save first.",
+	descriptionFull : ["You whisper words of helpful advice or misleading doubt to one creature you can see within range. If the target is unwilling, it can make a Wisdom saving throw. On a success, the spell has no effect." + "If the target is currently engaged in combat, it must immediately use its reaction, if available, to reroll its initiative. At your discretion, the target either adds or subtracts your spellcasting ability modifier from its roll." + "The target can't gain or miss a turn as a result of this spell-- if the target's turn hadn't yet passed and its initiative was set higher than yours, it takes its turn immediately after you, and then on its new initiative from the next round onwards. Likewise, if the target has already had a turn this round, and its initiative was set lower than yours, it acts on its new initiative from the next round onwards."],
+	}
+	
+SpellsList["eyes of fortune"] = {
+	name : "Eyes of Fortune",
+	source : ["HB", 0],
+	classes : ["cleric", "sorcerer", "wizard"],
+	level : 2,
+	school : "Div",
+	time : "10 min",
+	range : "S",
+	components : "V,S,M\u0192",
+	compMaterial : "A polished silver mirror worth at least 100 gp.",
+	duration: "Instantaneous",
+	
+	description : "Percentile die roll + caster level to determine result on spell outcome table.",
+	descriptionFull : ["You gaze into the nebulous flow of fate in an attempt to predict possible events in your near future. Roll percentile dice and add your caster level to determine the result." + "\n   " + toUni("1-15") + ": The twisting threads of fate are hard to follow. You forsee nothing specific." + "\n   " + toUni("16-35") + ": You predict an event so likely to happen that it is obvious, such as the collapse of a derelict building, or your next meal." + "\n   " + toUni("35-50") + ": You accurately predict a minor event likely to happen in the following week with no context, such as the meeting of an aquaintance." + "\n   " + toUni("51-75") + ": You accurately predict a positive or negative event likely to happen in the following week within a broad category, such as the academic or political lives of you and those around you. The prediction should come with the context to know how your actions within the past week have influenced the possible outcome." + "\n   " + toUni("76-100") + ": You accurately predict a major event likely to happen in the following week, such as an enemy ambush or the discovery of a sought-after item, though the exact details of the event are left unknown to you." + "\n   " + toUni("101+") + ": You accurately predict a major event likely to happen in the following month as well as key moments and details leading up to it. For example, you might see a meeting of regicidial conspirators, the death of a king, and then the fall of a monarchy. These predictions are almost always relevant to your current goals."],
+	}
+
+
+	
+SpellsList["frightful transformation"] = {
+	name : "Frightful Transformation",
+	source : ["HB", 0],
+	classes : ["bard", "paladin", "sorcerer", "warlock"],
+	level : 5,
+	school : "Trans",
+	time : "1 a",
+	range : "S",
+	components : "V,S,M",
+	compMaterial : "The skin of a toad.",
+	duration : "Conc, 10 min",
+	save : "Wis",
+	
+	description : "Become Large, gain +2 AC, frighten nearby enemies (Wis save, 30-ft rad), and gain other effects.",
+	descriptionFull : ["You tap into the darkness that dwells within to become a larger, terrifying version of yourself. You gain the following benefits, which last until the spell ends:" + "\n " + "\u2022 If you are smaller than Large, you become Large, along with anything you are wearing. If you lack the room to become Large, your size doesn't change." + "\n " + "\u2022 You have advantage on Strength checks, Strength saving throws, and Constitution saving throws." + "\n " + "\u2022 You have a +2 bonus to AC." + "\n " + "\u2022 You have advantage on saving throws against spells and other magical effects." + "\n " + "\u2022 You emit an ominous, shadowy aura that affects all hostile creatures in a 30-foot-radius around you. A creature that enters this aura for the first time must make a Wisdom saving throw or be frightened of you until the spell ends."],
+	}
+	
+SpellsList["home is where the hearth is"] = {
+	name : "Home is Where the Hearth is",
+	source : ["HB", 0],
+	classes : ["bard", "druid", "ranger", "wizard"],
+	level : 2,
+	school : "Conj",
+	time : "1 h",
+	ritual : true,
+	range : "10-ft",
+	components : "V,S,M\u2020",
+	compMaterial : "Herbs and incense worth at least 10 gp, which the spell consumes.",
+	duration : "Instantaneous",
+	save : "Wis",
+	
+	description : "You and 1+2/SL other creature(s) appear within 10-ft of a fire visited within the last day.",
+	descriptionFull : ["As you finish casting the spell, you and one other willing creature you can see within range appear safely within 10 feet of a fireplace, wood-fired stove, or campfire that you had visited sometime within the last 24 hours in a puff of harmless flames and incense smoke. The fixture you choose doesn't need to be currently lit to be a valid destination, but it does need to be intact and a fire must have burned there in the past. In the case of an open fire, it must have an intact structural component (for example, a pit, or an unbroken circle of stones enclosing it)-- a pile of charred wood is not a valid destination." + AtHigherLevels + "When you cast this spell using a spell slot of 3rd level or higher, you can bring two additional creatures with you for each slot level above 2nd."],
+	}
+	
+SpellsList["olivili's potent elixir"] = {
+	name : "Olivili's Potent Elixir",
+	source : ["HB", 0],
+	classes : ["artificer", "wizard"],
+	level : 4,
+	school : "Trans",
+	time : "10 min",
+	range : "Touch",
+	components : "V,S,M\u0192",
+	compMaterial : "A minature crystal bottle full of absinthe worth at least 500 gp.",
+	duration : "Instantaneous",
+	
+	description : "Make ability check using spellcasting ability to determine unstable alchemy outcome.",
+	descriptionFull : ["You touch a potion, imbuing it with unstable alchemical energy in an attempt to amplify its effect. Make an ability check using your spellcasting ability to determine the outcome:"  + "\n   " + toUni("1-5") + ": The potion creates a magical explosion, dealing 6d10 force damage to the caster and 1d10 force damage to each creature within 5 feet of the caster." + "\n   " + toUni("6-19") + ": The potion loses its effect." + "\n   " + toUni("20") + ": The potion's effect becomes permanent as its contents emit a faint glow. If the effect of the permanent potion isn't clear, the DM decides its effect. For example, a potion of healing might increase the drinker's hit point maximum by 4, or oil of etherealness might permanently trap the user in the Ethereal Plane. A remove curse spell ends the potion's effect, as does a successful dispel magic spell (consider the potion's effect to be a spell cast at 4th-level)."],
+	}
+	
+SpellsList["possession"] = {
+	name : "Possession",
+	source : ["HB", 0],
+	classes : ["sorcerer", "warlock", "wizard"],
+	level : 5,
+	school : "Necro",
+	time : "1 a",
+	range : "30-ft",
+	components : "V,S",
+	duration : "10 min",
+	save : "Cha",
+	
+	description : "Target must succeed on Cha save or become possessed by you for duration.",
+	descriptionFull : ["You attempt to possess a creature you can see within range by projecting your soul into its body (creatures warded by a protection from evil and good or magic circle spell can't be possessed). The creature must succeed on a Charisma saving throw or be possessed by you for the duration; your material body is rendered unconscious, and the target is incapacitated and loses control of its body. You now control the body but don't deprive the target of awareness, and you can choose to telepathically communicate with the host as if you share a language." + "You retain your alignment, Intelligence, Wisdom, and Charisma scores, as well as your resistances and immunities to being charmed or frightened, if you have them. You otherwise use the possessed target's statistics, but don't gain access to the target's knowledge, legendary or lair actions, class features, or proficiencies." + "The possession lasts until the body drops to 0 hit points, you choose to end it as a bonus action, or if you are forced out by an effect like the dispel magic spell. When the possession ends, you reappears in your own material body in the space where you left it. The target is immune to subsequent possession spells cast by you for 24 hours after succeeding on the saving throw or after the possession ends." + "If your physical body is reduced to 0 hit points, the spell ends and you return to your body unconscious." + AtHigherLevels + "When you cast this spell using a spell slot of 7th level or higher, your physical body disappears for the duration. You reappear in an unoccupied space within 5 feet of the host's body after the spell ends."],
+	}
+	
+SpellsList["permanency"] = {
+	name : "Permanency",
+	source : ["HB", 0],
+	classes : ["artificer", "sorcerer", "wizard"],
+	level : 5,
+	school : "Trans",
+	time : "1 a",
+	range : "60-ft",
+	components : "V,S,M\u2020",
+	compMaterial : "Diamond dust worth at least 2,500 gp which the spell consumes.",
+	duration : "Instantaneous",
+	
+	description : "Make nearby 5th+1/SL level spell effect, or choice of 5th+1/SL level spell effect permanent.",
+	descriptionFull : ["Choose an ongoing effect from a spell of 5th-level or lower within range that can be made permanent with repeat castings (such as teleportation circle). As you cast this spell, the target effect becomes permanent, lasting until dispelled." + "Alternatively, you may choose to make the effect from any of the following spells permanent:" + "\n " + "\u2022 Bestow Curse" + "\n " + "\u2022 Comprehend Languages" + "\n " + "\u2022 Darkvision" + "\n " + "\u2022 Detect Magic" + "\n " + "\u2022 Enlarge/Reduce" + "\n " + "\u2022 Fog Cloud" + "\n " + "\u2022 Nystul's Magic Aura" + "\n " + "\u2022 See Invisibility" + "\n " + "\u2022 Tongues" + "Making one of the listed effects permanent is physically draining. After casting the spell in this way, you suffer a level of exhaustion." + "At the DM's option, you may choose another spell effect of 5th-level or lower to make permanent, however doing so may incur addtional material costs or other penalties." + AtHigherLevels + "When you cast this spell using a spell slot of 6th level or higher, you can consume an additional 2,500 gp of diamond dust for each slot level above 5th to make a spell effect of the same level permanent."],
+	}
+	
+SpellsList["season's guard"] = {
+	name : "Season's Guard",
+	source : ["HB", 0],
+	classes : ["druid", "paladin", "ranger"],
+	level : 2,
+	school : "Abjur",
+	time : "1 bns",
+	range : "Touch",
+	components : "V,S",
+	duration : "Conc, 10 min",
+	
+	description : "Choose one of four effects to apply to target creature.",
+	descriptionFull : ["You harness one of the four seasons to protect a willing creature with its power. When you cast this spell and as a bonus action until the spell ends, choose from one of the following options to apply to the target (the target can only benefit from one effect at a time):" + "\n   " + toUni("Spring.") + ": The target is wrapped in light vines, culminating in a crown of bright, beautiful flowers. Until the spell ends, the target regains 1 hit point at the end of each of its turns. The target is automatically stabilized if it drops to 0 hit points while under this effect." + "\n   " + toUni("Summer.") + "The target is surrounded by tiny motes of light. Until the spell ends, the target’s walking speed is doubled, and the target has resistance to fire damage." + "\n   " + toUni("Fall.") + "A cloak of autumn leaves appears on the target. Until the spell ends, the target is resistant to poison damage, immune to the poisoned condition, and the target can add the caster's spellcasting ability modifier to any saving throw." + "\n   " + toUni("Winter.") + "A flurry of snow and crisp air surrounds the target. Until the spell ends, the target is unaffected by difficult terrain, has resistance to cold damage, and gains temporary hit points equal to your spellcasting ability modifier at the start of each of its turns."],
+	}
+	
+SpellsList["temporal anchor"] = {
+	name : "Temporal Anchor",
+	source : ["HB", 0],
+	classes : ["sorcerer", "wizard"],
+	level : 8,
+	school : "Conj",
+	time : "1 a",
+	range : "S",
+	components : "V,S,M\u0192",
+	compMaterial : "An hourglass filled with powdered platinum worth at least 1,500 gp.",
+	duration : "1 h",
+	
+	description : "Create pyschic anchor; 1 a to reset to marked location and status within duration.",
+	descriptionFull : ["You set in place a psychic anchor to tether yourself to the present moment in time. As you cast this spell, note your current location and status, including conditions, spell effects, and hit point total. Until the spell ends, you can use an action to reset yourself to the your marked location and status. This effect does not restore lost items, nor does it restore item charges or spell slots. After using this effect, the spell ends."],
+	}
+	
+SpellsList["zazz's psychic swords"] = {
+	name : "Zazz's Psychic Swords",
+	source : ["HB", 0],
+	classes : ["artificer", "sorcerer", "wizard"],
+	level : 4,
+	school : "Conj",
+	time : "1 a",
+	range : "60-ft",
+	components : "V,S",
+	compMaterial : "An hourglass filled with powdered platinum worth at least 1,500 gp.",
+	duration : "Instantaneous",
+	save : "Int",
+	
+	description : "Spell attack for 4d4 pyschic dmg; target and creatures within 10-ft then succeed on Int save or take 8d8+1d8/SL piercing damage.",
+	descriptionFull : ["You fire off a glowing blade of psychic energy which hits a creature you can see within range, dealing 4d4 psychic damage to its target (this damage is negated by effects that block magic missile, such as the shield spell)." + "A circle of similar blades then appears around the target before each blade flies inwards at the speed of thought, passing straight through the target. The target and each creature within 10 feet of it must succeed on an Intelligence saving throw or take 8d8 piercing damage." + AtHigherLevels + "When you cast this spell using a spell slot of 5th level or higher, the piercing damage increases by 1d8 for each slot level above 4th."],
+	}
