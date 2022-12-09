@@ -54,7 +54,7 @@ ClassList["gunslinger"] = {
 	"\n \nAlternatively, choose 5d4 \xD7 10 gp worth of starting equipment instead of both the class' and the background's starting equipment.",
 
 	subclasses : ["Gunslinger Paths", ["the desperado", "the marksman", ]], 
-	attacks : [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+	attacks : levels.map(function(n){return n < 5 ? 1 : 2}),	
 	abilitySave : 2,
 	abilitySaveAlt : 6,
 	features : {
@@ -526,6 +526,7 @@ AddSubClass("gunslinger", "the desperado", {
 				description : "\n   I gain one additional attack whenever I take the Attack action" + 
 				"\n   Additionally, I no longer spend my reaction when using Luck Strikes that would otherwise" + 
 				"\n   require it",
+				attacks : levels.map(function(n){return n < 5 ? 1 : n < 11 ? 2 : 3}),
 			},
 			"subclassfeature15" : {
 				name : "High Noon",
