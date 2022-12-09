@@ -72,7 +72,7 @@ SpellsList["aspect of the sweeping beast"] = {
 	name : "Aspect of the Sweeping Beast",
 	nameShort : "Aspect of Sweep. Beast",
 	source : ["HB", 0],
-	classes : ["cleric", "paladin"],
+	classes : ["cleric", "druid", "paladin", "ranger", "sorcerer", "warlock"],
 	level : 3,
 	school : "Trans",
 	time : "1 a",
@@ -82,45 +82,15 @@ SpellsList["aspect of the sweeping beast"] = {
 	duration : "Conc, 1 min",
 	save : "Cha",
 	
-	description : "Touch willing creature; target can use bns a to make melee spell attack, 3d4+1d4/SL radiant dmg in 10-ft radius with caster's modifiers.",	
+	description : "Touch willing creature; target can use bns a to make melee spell attack, 3d4+1d4/SL Radiant/Thunder/Force dmg in 10-ft radius with caster's modifiers.",	
 	descriptionFull : ["You touch one willing creature and impart the essence of a primal, divine, or arcane beast onto it. The creature sprouts a large, sweeping tail for the duration (or its tail is transformed if it already has one). If the caster is a cleric or paladin, the tail appears thin and feathery and its damage type is radiant. If the caster is a druid or ranger, the tail is covered in thick fur and its damage type is thunder. If the caster is a sorcerer, warlock, or other spellcaster, the tail is draconic and its damage type is force." + "Until the spell ends, the target can use a bonus action to make a melee spell attack with the caster's spell attack modifier on all creatures within a 10 foot radius using the tail, dealing 3d4 damage of the specified type on a hit." + AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d4 for each slot level above 3rd."],
+	dynamicDamageBonus : {
+		multipleDmgTypes : {
+			dmgTypes : ["radiant", "thunder", "force"],
+			
+		}
 	}
-
-SpellsList["aspect of the sweeping beast"] = {
-	name : "Aspect of the Sweeping Beast",
-	nameShort : "Aspect of Sweep. Beast",
-	source : ["HB", 0],
-	classes : ["druid", "ranger"],
-	level : 3,
-	school : "Trans",
-	time : "1 a",
-	range : "120-ft",
-	components : "V,S,M",
-	compMaterial : "A silvery scale, feather, or fang.",
-	duration : "Conc, 1 min",
-	save : "Cha",
-	
-	description : "Touch willing creature; target can use bns a to make melee spell attack, 3d4+1d4/SL thunder dmg in 10-ft radius with caster's modifiers.",
-	descriptionFull : ["You touch one willing creature and impart the essence of a primal, divine, or arcane beast onto it. The creature sprouts a large, sweeping tail for the duration (or its tail is transformed if it already has one). If the caster is a cleric or paladin, the tail appears thin and feathery and its damage type is radiant. If the caster is a druid or ranger, the tail is covered in thick fur and its damage type is thunder. If the caster is a sorcerer, warlock, or other spellcaster, the tail is draconic and its damage type is force." + "Until the spell ends, the target can use a bonus action to make a melee spell attack with the caster's spell attack modifier on all creatures within a 10 foot radius using the tail, dealing 3d4 damage of the specified type on a hit." + AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d4 for each slot level above 3rd."],
-	}
-
-SpellsList["aspect of the sweeping beast"] = {
-	name : "Aspect of the Sweeping Beast",
-	nameShort : "Aspect of Sweep. Beast",
-	source : ["HB", 0],
-	classes : ["sorcerer", "warlock"],
-	level : 3,
-	school : "Trans",
-	time : "1 a",
-	range : "120-ft",
-	components : "V,S,M",
-	compMaterial : "A silvery scale, feather, or fang.",
-	duration : "Conc, 1 min",
-	save : "Cha",
-	
-	description : "Touch willing creature; target can use bns a to make melee spell attack, 3d4+1d4/SL thunder dmg in 10-ft radius with caster's modifiers.",
-	descriptionFull : ["You touch one willing creature and impart the essence of a primal, divine, or arcane beast onto it. The creature sprouts a large, sweeping tail for the duration (or its tail is transformed if it already has one). If the caster is a cleric or paladin, the tail appears thin and feathery and its damage type is radiant. If the caster is a druid or ranger, the tail is covered in thick fur and its damage type is thunder. If the caster is a sorcerer, warlock, or other spellcaster, the tail is draconic and its damage type is force." + "Until the spell ends, the target can use a bonus action to make a melee spell attack with the caster's spell attack modifier on all creatures within a 10 foot radius using the tail, dealing 3d4 damage of the specified type on a hit." + AtHigherLevels + "When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d4 for each slot level above 3rd."],
-	}
+}
 
 SpellsList["bast's tag of vengeance"] = {
 	name : "Bast's Tag of Vengeance",
