@@ -264,7 +264,7 @@ SpellsList["season's guard"] = {
 	name : "Season's Guard",
 	source : ["HB", 0],
 	classes : ["druid", "paladin", "ranger"],
-	level : 2,
+	level : 3,
 	school : "Abjur",
 	time : "1 bns",
 	range : "Touch",
