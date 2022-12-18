@@ -442,6 +442,7 @@ ClassList["gunslinger"] = {
 			minlevel : 13,
 			description : "\n   I gain advantage on all Animal Handling checks",
 			skillstxt : "\n \n" + toUni("Animal Friend") + ": I gain advantage on all Animal Handling Checks.",
+			advantages : [["Animal Handling", true]]
 		},
 
 		"no such thing as luck" : {
