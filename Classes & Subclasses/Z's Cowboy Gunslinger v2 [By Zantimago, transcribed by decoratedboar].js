@@ -193,23 +193,29 @@ ClassList["gunslinger"] = {
 			}]
 		},
 		
-		"fortune favors the bold" : {
-			name : "Fortune Favors the Bold",
+		"fortune favors the bold 1" : {
+			name : "Luck Points",
 			source : ["HB", 0],
 			minlevel : 2,
-			description : "\n   I gain a number of Luck Points equal to my proficiency bonus, and I regain all Luck Points after" + 
-			"\n   a short or long rest. I gain Luck Strikes based on level, which cost Luck Points to use" +
-			"\n   I can spend a single Luck Point after making a firearm attack to convert it to a critical hit, and" + 
-			"\n   whenever I critically hit, I can choose to regain a Luck Point up to my maximum or" + 
-			"\n   immediately apply the effect of a known Luck Strike instead of dealing critical damage" + 
-			"\n   My known Luck Strikes per level are shown on the Gunslinger feature table, and currently" + 
-			"\n   available Luck Strikes can be found in the third page notes",
+			description : "\n   I gain a number of Luck Points which fuel Luck Strikes. I regain all Luck Points after a short rest" + 
+			"\n   After making a firearm attack, I can also spend a single Luck Point to convert it to a critical hit" +
+			"\n   Whenever I normally land a critical hit, I can now choose to regain a Luck Point, or" + 
+			"\n   immediately apply the effect of a Luck Strike, instead of dealing critical damage",
 			
 			limfeaname : "Luck Points",
 			usages : "Proficiency Bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus');",
 			recovery : "short rest",
-	
+			
+		},	
+		
+		"fortune favors the bold 2" : {
+			name : "Luck Strikes",
+			source : ["HB", 0],
+			minlevel : 2,
+			description : "\n   I gain Luck Strikes, which can be used by expending the appropriate amount of Luck Points" +
+			"\n   My Luck Strikes per level, are added to the third page",
+			
 			"ricochet" : {
 				name : "Ricochet",
 				extraname: "Luck Strike",
@@ -368,7 +374,7 @@ ClassList["gunslinger"] = {
 				extrachoice : 'weakening shot',
 				minlevel : 17,	
 			}],
-		},	
+		},
 		
 		"lady luck\'s gift" : {
 			name : "Lady Luck\'s Gift",
