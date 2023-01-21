@@ -62,7 +62,10 @@ ClassList["gunslinger"] = {
 			name : "Trained Skills",
 			source : ["HB", 0],
 			minlevel : 1,
-			description : "\n   Choose two Trained Skills to add to the third page using the \"Choose Feature\" button above." + "\n   " + "You gain advantage in the chosen checks",
+			description : "\n   Use the \"Choose Feature\" button above to add a Trained Skill the to third page." + "\n   " + "You gain advantage in the chosen checks",
+			additional : levels.map(function (n) {
+				return n < 10 ? 2 : 3 + " known";
+			}),
 			extraname : "Trained Skills",
 			extrachoices : ["Survival and Investigation", "Insight", "Deception", "Sleight of Hand", "Intimidation", "Intelligence", "Performance"],
 			extraTimes : levels.map(function (n) {
