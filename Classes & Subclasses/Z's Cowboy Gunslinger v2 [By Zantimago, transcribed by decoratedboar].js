@@ -67,23 +67,25 @@ ClassList["gunslinger"] = {
 				return n < 10 ? 2 : 3 + " known";
 			}),
 			extraname : "Trained Skills",
-			extrachoices : ["Survival and Investigation", "Insight", "Deception", "Sleight of Hand", "Intimidation", "Intelligence", "Performance"],
+			extrachoices : ["Survival, Nature, and Investigation", "Insight", "Deception", "Sleight of Hand", "Intimidation", "Intelligence", "Performance"],
 			extraTimes : levels.map(function (n) {
 				return n < 10 ? 2 : 3;
 			}), 
 			choicesNotInMenu : false,
-			"survival and investigation" : {
-				name : "Survival and Investigation",
+			"survival, nature, and investigation" : {
+				name : "Survival, Nature, and Investigation",
 				description : "\n   I gain advantage on Survival, Nature, and Investigation checks made to track a creature"
 			},
 
 			"insight" : {
 				name : "Insight",
-				description : "\n   I gain advantage on Insight checks made against a humanoid to determine whether they are lying or not about something crime-related",
+				description : "\n   I gain advantage on Insight checks made against a humanoid to determine whether they are"+
+				"\n   lying or not about something crime-related",
 			},
 			"deception" :{
 				name : "Deception",
-				description : "\n   I gain advantage onDeception checks made against a humanoid to lie about something crime-related",
+				description : "\n   I gain advantage on Deception checks made against a humanoid to lie about something"+
+				"\n   crime-related",
 			},
 			"sleight of hand" :{
 				name : "Sleight of Hand",
@@ -91,11 +93,13 @@ ClassList["gunslinger"] = {
 			},
 			"intimidation" :{
 				name : "Intimidation",
-				description : "\n   I gain advantage on Intimidation checks made while pointing a firearm at the target creature(s) if said creature(s) know what a firearm is and that it is dangerous"
+				description : "\n   I gain advantage on Intimidation checks made while pointing a firearm at the target creature(s) if"+
+				"\n   said creature(s) know what a firearm is and that it is dangerous"
 			},
 			"intelligence" :{
 				name : "Intelligence",
-				description : "\n   I gain advantage on any kind of Intelligence check made to both better understand how a weapon or mechanism that uses gunpowder works and modify said kind of technology"
+				description : "\n   I gain advantage on any kind of Intelligence check made to both better understand how a"+
+				"\n   weapon or mechanism that uses gunpowder works and modify said kind of technology"
 			},
 			"performance" :{
 				name : "Performance",
