@@ -82,7 +82,7 @@ RaceList["ground sciurus"] = {
 			action : ["bonus action", "Dig/destroy defensive burrow"], 
 			},
 		
-		"droundhog getaway" : { 
+		"groundhog getaway" : { 
 			name : "Groundhog Getaway",
 			minlevel : 1, 
 			action : ["bonus action", "Disengage (or Hide while within 10ft. of a burrow)"],
