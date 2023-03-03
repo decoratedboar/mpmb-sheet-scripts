@@ -28,7 +28,7 @@ RaceList["weasel"] = {
 	languageProfs : ["Common", "Druidic", 1],
 	vision : [["Darkvision", 60]],
 	skills : ["Stealth"],
-	improvements : "Tree Sciurus: +1 Intelligence, +2 Dexterity;", 
+	improvements : "Weasel: +1 Intelligence, +2 Dexterity;", 
 	scores : [0, 2, 0, 1, 0, 0],
 	trait : "Weasel: (+1 Intelligence, +2 Dexterity) \nWeasel War Dance: As a bonus action, I can make a target I can see, and that can see me make a Wisdom saving throw against a DC equal to 8 + my Dex modifier + my Proficiency bonus. If the target fails, it has disadvantage on its next attack roll or saving throw until the end of my next turn. \nEvasive Scamper: As a reaction to taking damage, I can move up to half my walking speed. Opportunity attacks against me while using this movement are made with disadvantage. \nSlinky: I can fit through spaces as small as 10 inches in diameter. \nNatural Stealth: I gain proficiency in the Stealth skill.", 
 
