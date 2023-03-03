@@ -20,7 +20,7 @@ var iFileName = "Players Guide to Insectopia v1.3 - By Grimley553, transcribed b
 RequiredSheetVersion(12.999);
 
 SourceList["IST"] = {
-	name : "Player's Guide to Insectopia v.13",
+	name : "Player's Guide to Insectopia v1.3",
 	abbreviation : "IST",
 	abbreviationSpellsheet : "IST",
 	group : "Reddit/r/Insectopia",
