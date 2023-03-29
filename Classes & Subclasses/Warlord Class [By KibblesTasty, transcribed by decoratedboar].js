@@ -50,13 +50,12 @@ ClassList["war lord"] = {
 	
 	equipment : "MyClass starting equipment:" +
 	"\n \u2022 A simple melee weapon -or- a martial weapon (if proficient);" +
-	"\n \u2022 A light crossbow and 20 bolts -or- a a shield (if proficient);" +
+	"\n \u2022 A light crossbow and 20 bolts -or- a shield (if proficient);" +
 	"\n \u2022 Leather armour -or- scale mail -or- chain mail (if proficient);" +
 	"\n \u2022 A scholar's pack -or- an explorer's pack." +
 	"\n \nAlternatively, you may start with 5d4 \xD7 10 gp to buy your own equipment.",
 
 	subclasses : ["War Lord Presences", ["commander", "chieftain", "noble", "packleader", "paragon", "tactician" ]], 
-	attacks : levels.map(function(n){return n < 5 ? 1 : 2}),
 	features : {
 		"subclassfeature1" : {
 			name : "War Lord Presence",
