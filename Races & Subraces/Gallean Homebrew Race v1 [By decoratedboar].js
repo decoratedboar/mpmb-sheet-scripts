@@ -37,7 +37,8 @@ RaceList["gallean"] = {
 	weightMetric : " weigh around 80 kg", 
 	improvements : "Gallean: +2 Dexterity, +1 Charisma;",
 	scores : [0, 2, 0, 0, 0, 1],
-	trait : "Gallean (+2 Dexterity, +1 Charisma)\nTalons: My unarmed strikes deal 1d6 + Strength modifier slashing damage."+
+	trait : "Gallean (+2 Dexterity, +1 Charisma)"+
+	"\n \u2022Talons: My unarmed strikes deal 1d6 + Strength modifier slashing damage."+
 	"\n \u2022 Cocksure: I have proficiency in the Performance and Intimidation skills."+
 	"\n \u2022 Flourish: As a bonus action, I can distract a target I can see within 30ft with my plumage, imposing disadvantage on their next attack roll, saving throw, or ability check. Use a number of times equal to prof. bonus per long rest."+
 	"\n \u2022 Falling with style: I have flying speed equal to my walking speed, but when I end a turn in the air or use all of my flying speed in one go, I fall to the ground.",
