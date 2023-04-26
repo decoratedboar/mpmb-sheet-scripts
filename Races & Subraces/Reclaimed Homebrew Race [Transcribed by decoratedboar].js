@@ -27,7 +27,7 @@ RaceList["reclaimed"] = {
 	improvements : "Reclaimed: +1 Strength, +2 Constitution;", 
 	scores : [1, 0, 2, 0, 0, 0],
 	trait : "Reclaimed (+1 Strength, +2 Constitution)"+
-		"\n \u2022 Reclaimed: I count as both undead and living. I also gain advantage on death saving throws."+
+		"\n \u2022 Reclaimed: I count as both undead and plant. I also gain advantage on death saving throws."+
 		"\n \u2022 We Are The Same: I can cast the Speak With Plants spell a number of times equal to my "+
 		"proficiency bonus per long rest."+
 		"\n \u2022 Practical Immortality: I am immortal while I maintain exposure to sunlight. After going without "+
