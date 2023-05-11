@@ -98,10 +98,10 @@ ClassList["war lord"] = {
 				source : ["KT:Wl", 3],
 				minlevel : 2,
 				description : desc ([
-				"As a bonus action, I expend a number of Leadership Dice up to my limit and designate a hostile",
-				"creature within 60 feet. Before the start of my next turn, the next time damage is rolled against",
-				"the designated creature, they add my expended Leadership Dice to their attack roll, and regain",
-				"hit points equal to the total rolled on them.",
+				"As a bonus action, I expend a number of Leadership Dice up to my limit and designate a",
+				"hostile creature within 60 feet. Before the start of my next turn, the next time damage is rolled",
+				"against the designated creature, they add my expended Leadership Dice to their attack roll,",
+				" and regain hit points equal to the total rolled on them.",
 				]),
 				action : ["bonus action", ""]
 			},
@@ -114,8 +114,8 @@ ClassList["war lord"] = {
 				"As a bonus action, I expend a number of Leadership Dice up to my limit and target an allied",
 				"creature within 60 feet that can see or hear me. This creature can immediately move up to its",
 				"movement speed (or 30 feet, whichever is lower) as a reaction without provoking opportunity",
-				"attacks. Roll the expended Leadership Dice; the targeted ally gains temporary hit points equal to",
-				"the roll.",
+				"attacks. Roll the expended Leadership Dice; the targeted ally gains temporary hit points equal",
+				"to the roll.",
 				]),
 				action : ["bonus action", ""]
 			},
@@ -125,9 +125,9 @@ ClassList["war lord"] = {
 				source : ["KT:Wl", 3],
 				minlevel : 2,
 				description : desc ([
-				"As a bonus action, I expend a single Leadership Die to take the Help action. When I use the Help",
-				"action to aid an ally that can see or hear me in making an attack, the target of the attack can be",
-				"within 30 feet of me, rather than 5 feet.",
+				"As a bonus action, I expend a single Leadership Die to take the Help action. When I use the",
+				"Help action to aid an ally that can see or hear me in making an attack, the target of the attack",
+				"can be within 30 feet of me, rather than 5 feet.",
 				]),
 				action : ["bonus action", ""]
 			},
@@ -192,8 +192,8 @@ ClassList["war lord"] = {
 				name : "Helpful Word: Expert Instructions",
 				note : [
 				"When a creature benefits from your Help action, you can use your reaction to expend a",
-				"Leadership Die and add it to their roll. You can use this ability after the original roll, but before",
-				"the outcome is revealed.",
+				"Leadership Die and add it to their roll. You can use this ability after the original roll, but",
+				"before the outcome is revealed.",
 				],
 				page3notes : true,
 			}]
