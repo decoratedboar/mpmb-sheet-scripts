@@ -10,7 +10,7 @@
 	Effect:		This script adds the Occultist class, a homebrew creation by KibblesTasty.
 				Their content can be downloaded at https://www.kthomebrew.com/
 	Code by:	u/decoratedblood (decoratedboar), with contributions from MorePurpleMoreBetter (MPMB)
-	Date:		29-03-2023 (sheet v13)
+	Date:		14-06-2023 (sheet v13)
 */
 
 var iFileName = "Occultist Class [By KibblesTasty, transcribed by decoratedboar].js";
