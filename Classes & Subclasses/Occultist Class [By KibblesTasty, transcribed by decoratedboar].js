@@ -1820,7 +1820,7 @@ ClassList["occultist"] = {
 			//Cantrips (0 level)
 			"acid splash", "burn", "chill touch", "decaying touch", "dancing lights", "druidcraft", "fists of fire", "freeze", "guidance", "ice weapon", "illusionary dart", "impact", "light", "mending", "message", "minor illusion", "poison spray", "produce flame", "resistance", "shocking grasp",
 			//1st level
-			"animal friendship", "awaken rope", "bad blood", "bane", "bramble bindings", "burning hands", "comprehend languages", "cure wounds", "cippling agony", "detect magic", "detect poison and disease", "disguise self", "electrify", "feather fall", "fog cloud", "gale bolt", "grip of the dead", "hex", "hideous laughter", "identify", "illusory script", "illusory pit", "inflict wounds", "induce headache", "karmic reflection", "lightning tendril", "nauseating poison", "speak with animals", "spiritual consultation", "stone fist", "unseen servant", "water blast",
+			"animal friendship", "awaken rope", "bad blood", "bane", "bramble bindings", "burning hands", "comprehend languages", "cure wounds", "crippling agony", "detect magic", "detect poison and disease", "disguise self", "electrify", "feather fall", "fog cloud", "gale bolt", "grip of the dead", "hex", "hideous laughter", "identify", "illusory script", "illusory pit", "inflict wounds", "induce headache", "karmic reflection", "lightning tendril", "nauseating poison", "speak with animals", "spiritual consultation", "stone fist", "unseen servant", "water blast",
 			//2nd level
 			"acid arrow", "alter self", "alacrity", "animal messenger", "animate object", "augury", "barkskin", "become fire", "become stone", "become water", "become wind", "blindness/deafness", "boil blood", "calm emotions", "crackle", "dancing wave", "darkness", "darkvision", "detect thoughts", "disorient", "earth ripple", "enlarge/reduce", "gentle repose", "heat metal", "hold person", "invisibility", "imbue luck", "lesser restoration", "locate object", "mirror image", "misty step", "poison dart", "protection from poison", "scorching ray", "see invisibility", "silence", "spider climb", "spike growth", "suggestion", "summon swarm", "web", "vicious hound", "vicious vapors",
 			//3rd level
@@ -2108,26 +2108,38 @@ AddSubClass("occultist", "tradition of the witch", {
 				source : ["KT:Oc", 5],
 				minlevel : 1,
 				description : desc ([
-				"Use the \"Choose Feature\" button above to select a coven, granting me certain bonus",
-				"spells based on level.",
+				"Use the \"Choose Feature\" button above to select a coven, granting me bonus spells based",
+				"on level, and certain features at higher levels.",
 				]),
 				choices : ["Black Coven", "White Coven", "Green Coven"],
 				
 				"black coven" : {
 					name : "Black Coven", 
 					source : ["KT:Oc", 5],
+					description : desc ([
+					"I learn extra spells at 1st, 3rd, 5th, 7th, and 9th levels, and the Black Coven Familiar",
+					"Bond feature at 3rd level.",
+					]),
 					spellcastingExtra : ["rotting curse", "hideous laughter", "blindness/deafness", "darkness", "bestow curse", "curse of doom", "black tentacles", "devour shadow", "killing curse", "contagion"],
 					dependentChoices : "black coven bond",
 				},
 				"white coven" : {
 					name : "White Coven", 
 					source : ["KT:Oc", 6],
+					description : desc ([
+					"I learn extra spells at 1st, 3rd, 5th, 7th, and 9th levels, and the White Coven Familiar",
+					"Bond feature at 3rd level.",
+					]),
 					spellcastingExtra : ["blinding hex", "healing word", "calm emotions", "hold person", "karmic hex", "mass healing word", "banishment", "resilient sphere", "enfeebling hex", "dispel evil and good"],
 					dependentChoices : "white coven bond",
 				},
 				"green coven" : {
 					name : "Green Coven", 
 					source : ["KT:Oc", 6],
+					description : desc ([
+					"I learn extra spells at 1st, 3rd, 5th, 7th, and 9th levels, and the Green Coven Familiar",
+					"Bond feature at 3rd level.",
+					]),
 					spellcastingExtra : ["befuddling curse", "entangle", "alter self", "enlarge/reduce", "curse of misfortune", "major image", "greater invisibility", "polymorph", "swapping curse", "seeming"],
 					dependentChoices : "green coven bond",
 				},
@@ -2141,11 +2153,11 @@ AddSubClass("occultist", "tradition of the witch", {
 				source : ["KT:Oc", 6],
 				minlevel : 3,
 				description : desc ([
-				"When I cast the Find Familiar spell, my familiar gains Intelligence, Wisdom, and Charisma",
-				"scores of 10, and can speak any languages I can. Whenever it takes damage, I can choose",
-				"to redirect all damage it would take to myself. I can also cast spells with a material",
+				"When I cast the Find Familiar spell, my familiar gains an Intelligence, Wisdom, and",
+				"Charisma of 10, and can speak any languages I can. Whenever it takes damage, I can",
+				"choose to redirect all damage it would take to myself. I can also cast spells with a material",
 				"component if my familiar has access to that material component.",
-				"Additionally, I gain extra effects based on my choice of Coven (see page three notes)",
+				"Additionally, I gain extra effects based on my selected Coven",
 				]),
 				calcChanges : {
 					companionCallback : [function(prefix, oCrea, bAdd, sCompType) {
@@ -2167,8 +2179,14 @@ AddSubClass("occultist", "tradition of the witch", {
 				"black coven bond" : {
 					name : "Familiar Bond - Black Coven", 
 					description : desc ([
-					"When I cast the Find Familiar spell, my familiar gains an Intelligence, Wisdom, and Charisma of 10, and can speak any languages I can. Whenever it takes damage, I can choose to redirect all damage it would take to myself. I can also cast spells with a material component if my familiar has access to that material component.",
-					"Additionally, as a reaction (free action for familiar) to a creature within 30 feet of my familiar making an attack, I can have my familiar subtract 1d4 + half my Occultist level (rounded down) from the attack roll. It can do this a number of times equal to my Wisdom modifier per long rest."
+					"When I cast the Find Familiar spell, my familiar gains an Intelligence, Wisdom, and",
+					"Charisma of 10, and can speak any languages I can. Whenever it takes damage, I can",
+					"choose to redirect all damage it would take to myself. I can also cast spells with a material",
+					"component if my familiar has access to that material component.",
+					"Additionally, as a reaction (free action for familiar) to a creature within 30 feet of my",
+					"familiar making an attack, I can have my familiar subtract 1d4 + half my Occultist level",
+					"(rounded down) from the attack roll. It can do this a number of times equal to my Wisdom",
+					"modifier per long rest."
 					]),
 					
 					limfeaname : "Familiar Bond",
@@ -2182,8 +2200,15 @@ AddSubClass("occultist", "tradition of the witch", {
 				"white coven bond" : {
 					name : "Familiar Bond - White Coven", 
 					description : desc ([
-					"When I cast the Find Familiar spell, my familiar gains an Intelligence, Wisdom, and Charisma of 10, and can speak any languages I can. Whenever it takes damage, I can choose to redirect all damage it would take to myself. I can also cast spells with a material component if my familiar has access to that material component.",
-					"Additionally, when I finish a long rest, my familiar gains temporary hit points equal to my Wisdom modifier + twice my Occultist level. While it has temporary hit points, as an action it can teleport to a creature within 30 feet, granting the creature one or more of those temporary hit points. I can direct it to do this as a reaction (free action for familiar) to a creature within 30 feet of me taking damage."
+					"When I cast the Find Familiar spell, my familiar gains an Intelligence, Wisdom, and",
+					"Charisma of 10, and can speak any languages I can. Whenever it takes damage, I can",
+					"choose to redirect all damage it would take to myself. I can also cast spells with a material",
+					"component if my familiar has access to that material component.",
+					"Additionally, when I finish a long rest, my familiar gains temporary hit points equal to my",
+					"Wisdom modifier + twice my Occultist level. While it has temporary hit points, as an",
+					"action it can teleport to a creature within 30 feet, granting the creature one or more of",
+					"those temporary hit points. I can direct it to do this as a reaction (free action for familiar)",
+					"to a creature within 30 feet of me taking damage."
 					]),
 					limfeaname : "Familiar Bond",
 					action : ["reaction", ""],
@@ -2194,8 +2219,16 @@ AddSubClass("occultist", "tradition of the witch", {
 				"green coven bond" : {
 					name : "Familiar Bond - Green Coven", 
 					description : desc ([
-					"When I cast the Find Familiar spell, my familiar gains an Intelligence, Wisdom, and Charisma of 10, and can speak any languages I can. Whenever it takes damage, I can choose to redirect all damage it would take to myself. I can also cast spells with a material component if my familiar has access to that material component.",
-					"Additionally, when I finish a long rest, my familiar gains a number of illusory duplicates equal to my Wisdom modifier (minimum one), which last until destroyed or until I next complete a long rest. These duplicates can only move and act like my familiar during my turn, stay within 30 of me or it, and are immune to damage while within 5 feet of me. When my familiar ends a turn or takes damage, it can swap places with a duplicate as a free action, destroying it and taking no damage in the latter case.",
+					"When I cast the Find Familiar spell, my familiar gains an Intelligence, Wisdom, and",
+					"Charisma of 10, and can speak any languages I can. Whenever it takes damage, I can",
+					"choose to redirect all damage it would take to myself. I can also cast spells with a material",
+					"component if my familiar has access to that material component.",
+					"Additionally, when I finish a long rest, my familiar gains a number of illusory duplicates",
+					"equal to my Wisdom modifier (minimum one), which last until destroyed or until I next",
+					"complete a long rest. These duplicates can only move and act like my familiar during my",
+					"turn, stay within 30 of me or it, and are immune to damage while within 5 feet of me.",
+					"When my familiar ends a turn or takes damage, it can swap places with a duplicate as a",
+					"free action, destroying it and taking no damage in the latter case.",
 					]),
 				},
 			},
@@ -3320,7 +3353,7 @@ SpellsList["fissure"] = {
 	descriptionFull : "You rend asunder the earth in a 60-foot-long 5-foot-wide line, targeting an area of dirt, sand, or rock at least 10 feet deep. \nCreatures in that line must make a Dexterity saving throw. On a failure, a creature falls into a suddenly opened crevice in the ground, falling into it before it snaps shut, crushing them. Creatures that fail the saving throw take 6d10 bludgeoning damage from the fall and crushing. The creature is buried in 10 feet of rubble, and creatures without a burrowing speed require 25 feet of movement to extract themselves from the loose rubble to return to where they failed the saving throw. If they end their turn while buried, they take an additional 1d10 bludgeoning damage.",
 };
 SpellsList["freeze"] = {
-	name : "freeze",
+	name : "Freeze",
 	classes : ["druid", "occultist", "sorcerer"],
 	source : ["KT:Oc", 28],
 	level : 0,
