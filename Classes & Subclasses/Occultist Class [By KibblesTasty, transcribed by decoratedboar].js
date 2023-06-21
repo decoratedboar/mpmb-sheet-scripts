@@ -23,6 +23,12 @@ SourceList["KT:OC"] = {
 	group : "KibblesTasty",
 	url : "https://www.kthomebrew.com/",
 };
+SourceList["OFCP"] = {
+	name : "Occultist Fan Content Patch",
+	abbreviation : "OFCP",
+	group : "KibblesTasty",
+	url : "https://www.gmbinder.com/share/-NMc60Jc6p0syX8gRGoi",
+};
 
 var OccultRitesAll = { //The list of occult rites available to all subclasses
 	alchemical_rites : {
@@ -1782,6 +1788,32 @@ var ShamanRites = { //The list of all Shaman-specific Rites
 	},
 };
 
+//Lets the sheet know which spells are Occultist spells (also lets new spells be added later simply by the Occultist's inclusion in their "classes" entry.
+[
+	//Cantrips (0 level)
+	"acid splash", "burn", "chill touch", "decaying touch", "dancing lights", "druidcraft", "fists of fire", "freeze", "guidance", "ice weapon", "illusionary dart", "impact", "light", "mending", "message", "minor illusion", "poison spray", "produce flame", "resistance", "shocking grasp",
+	//1st level
+	"animal friendship", "awaken rope", "bad blood", "bane", "bramble bindings", "burning hands", "comprehend languages", "cure wounds", "crippling agony", "detect magic", "detect poison and disease", "disguise self", "electrify", "feather fall", "fog cloud", "gale bolt", "grip of the dead", "hex", "hideous laughter", "identify", "illusory script", "illusory pit", "inflict wounds", "induce headache", "karmic reflection", "lightning tendril", "nauseating poison", "speak with animals", "spiritual consultation", "stone fist", "unseen servant", "water blast",
+	//2nd level
+	"acid arrow", "alter self", "alacrity", "animal messenger", "animate object", "augury", "barkskin", "become fire", "become stone", "become water", "become wind", "blindness/deafness", "boil blood", "calm emotions", "crackle", "dancing wave", "darkness", "darkvision", "detect thoughts", "disorient", "earth ripple", "enlarge/reduce", "gentle repose", "heat metal", "hold person", "invisibility", "imbue luck", "lesser restoration", "locate object", "mirror image", "misty step", "poison dart", "protection from poison", "scorching ray", "see invisibility", "silence", "spider climb", "spike growth", "suggestion", "summon swarm", "web", "vicious hound", "vicious vapors",
+	//3rd level
+	"animate shadow", "bestow curse", "blink", "bramble barrier", "clairvoyance", "counterspell", "cruel puppetry", "dispel magic", "erode", "fear", "fly", "gaseous form", "haste", "hypnotic pattern", "illusionary fireball", "magic circle", "mutate", "nondetection", "plant growth", "quick sand", "rain of spiders", "remove curse", "sending", "sleet storm", "slow", "spider bite", "spirit guardians", "vampiric touch", "vortex blast", "water breathing", "water walk", "wind wall", "wither",
+	//4th level
+	"arcane eye", "banishment", "black tentacles", "blight", "compulsion", "confusion", "conjure minor elementals", "conjure woodland beings", "control water", "divination", "giant insect", "greater invisibility", "hallucinatory terrain", "ice storm", "locate creature", "polymorph", "poison puff", "secret chest", "stinging swarm", "stone coffin", "suffocate", "wall of fire",
+	//5th level
+	"acid rain", "animate objects", "awaken", "cloudkill", "commune with nature", "conjure elemental", "contact other plane", "contagion", "deglove creature", "dominate person", "dream", "field of stars", "geas", "greater restoration", "hold monster", "insect plague", "mass cure wounds", "mislead", "modify memory", "reincarnate", "scrying", "seeming", "sonic shriek", "sudden hazards", "wall of stone",
+	//6th level
+	"baba's walking hut", "conjure fey", "contingency", "eyebite", "find the path", "flesh to stone", "forbiddance", "freezing sphere", "harm", "heal", "magic jar", "mass suggestion", "sunbeam", "true seeing", "wall of ice", "wall of thorns", "wind walk",
+	//7th level
+	"finger of death", "fire storm", "mirage arcane", "plane shift", "prismatic spray", "project image", "regenerate", "resurrection", "sequester", "teleport", "twisting eruption",
+	//8th level
+	"abi-dalzim's horrid wilting", "animal shapes", "antipathy/sympathy", "clone", "control weather", "demiplane", "dominate monster", "earthquake", "feeblemind", "incendiary cloud", "maze", "mind blank", "power word stun", "tsunami",
+	//9th level
+	"astral projection", "foresight", "imprisonment", "manipulate fate", "power word kill", "shapechange", "true polymorph", "true resurrection", "weird",
+].forEach( function (s) {
+	if(SpellsList[s] && SpellsList[s].classes && SpellsList[s].classes.indexOf("occultist") === -1) SpellsList[s].classes.push("occultist");
+});
+
 ClassList["occultist"] = {
 	name : "Occultist",
 	regExpSearch : /^(?=.*occultist).*$/i,
@@ -1815,31 +1847,7 @@ ClassList["occultist"] = {
 		cantrips : [3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5],
 		spells : [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 20, 20],
 	},
-	spellcastingList : {
-		spells : [
-			//Cantrips (0 level)
-			"acid splash", "burn", "chill touch", "decaying touch", "dancing lights", "druidcraft", "fists of fire", "freeze", "guidance", "ice weapon", "illusionary dart", "impact", "light", "mending", "message", "minor illusion", "poison spray", "produce flame", "resistance", "shocking grasp",
-			//1st level
-			"animal friendship", "awaken rope", "bad blood", "bane", "bramble bindings", "burning hands", "comprehend languages", "cure wounds", "crippling agony", "detect magic", "detect poison and disease", "disguise self", "electrify", "feather fall", "fog cloud", "gale bolt", "grip of the dead", "hex", "hideous laughter", "identify", "illusory script", "illusory pit", "inflict wounds", "induce headache", "karmic reflection", "lightning tendril", "nauseating poison", "speak with animals", "spiritual consultation", "stone fist", "unseen servant", "water blast",
-			//2nd level
-			"acid arrow", "alter self", "alacrity", "animal messenger", "animate object", "augury", "barkskin", "become fire", "become stone", "become water", "become wind", "blindness/deafness", "boil blood", "calm emotions", "crackle", "dancing wave", "darkness", "darkvision", "detect thoughts", "disorient", "earth ripple", "enlarge/reduce", "gentle repose", "heat metal", "hold person", "invisibility", "imbue luck", "lesser restoration", "locate object", "mirror image", "misty step", "poison dart", "protection from poison", "scorching ray", "see invisibility", "silence", "spider climb", "spike growth", "suggestion", "summon swarm", "web", "vicious hound", "vicious vapors",
-			//3rd level
-			"animate shadow", "bestow curse", "blink", "bramble barrier", "clairvoyance", "counterspell", "cruel puppetry", "dispel magic", "erode", "fear", "fly", "gaseous form", "haste", "hypnotic pattern", "illusionary fireball", "magic circle", "mutate", "nondetection", "plant growth", "quick sand", "rain of spiders", "remove curse", "sending", "sleet storm", "slow", "spider bite", "spirit guardians", "vampiric touch", "vortex blast", "water breathing", "water walk", "wind wall", "wither",
-			//4th level
-			"arcane eye", "banishment", "black tentacles", "blight", "compulsion", "confusion", "conjure minor elementals", "conjure woodland beings", "control water", "divination", "giant insect", "greater invisibility", "hallucinatory terrain", "ice storm", "locate creature", "polymorph", "poison puff", "secret chest", "stinging swarm", "stone coffin", "suffocate", "wall of fire",
-			//5th level
-			"acid rain", "animate objects", "awaken", "cloudkill", "commune with nature", "conjure elemental", "contact other plane", "contagion", "deglove creature", "dominate person", "dream", "field of stars", "geas", "greater restoration", "hold monster", "insect plague", "mass cure wounds", "mislead", "modify memory", "reincarnate", "scrying", "seeming", "sonic shriek", "sudden hazards", "wall of stone",
-			//6th level
-			"baba's walking hut", "conjure fey", "contingency", "eyebite", "find the path", "flesh to stone", "forbiddance", "freezing sphere", "harm", "heal", "magic jar", "mass suggestion", "sunbeam", "true seeing", "wall of ice", "wall of thorns", "wind walk",
-			//7th level
-			"finger of death", "fire storm", "mirage arcane", "plane shift", "prismatic spray", "project image", "regenerate", "resurrection", "sequester", "teleport", "twisting eruption",
-			//8th level
-			"abi-dalzim's horrid wilting", "animal shapes", "antipathy/sympathy", "clone", "control weather", "demiplane", "dominate monster", "earthquake", "feeblemind", "incendiary cloud", "maze", "mind blank", "power word stun", "tsunami",
-			//9th level
-			"astral projection", "foresight", "imprisonment", "manipulate fate", "power word kill", "shapechange", "true polymorph", "true resurrection", "weird",
-		]
-	},
-	
+		
 	equipment : "MyClass starting equipment:" +
 	"\n \u2022 A quarterstaff -or- a a dagger -or- one simple weapon (if proficient);" +
 	"\n \u2022 A component pouch -or- an occult fetish;" +
@@ -2776,6 +2784,26 @@ AddSubClass("occultist", "tradition of the shaman", {
 		}
 	}
 );
+
+//Adds the Occultist Fan Content Patch spells as an optional feature.
+AddFeatureChoice(ClassList.occultist.features.spellcasting, true, "Access to Occultist Fan Content Patch Spells", {
+	name : "Dunamancy Spells",
+	extraname : "Optional Occultist 1",
+	source : ["OFCP", 0],
+	description : desc([
+		"All spells from the Occultist Fan Content Patch are added to the Occultist spell list."
+	]),
+	calcChanges : {
+		spellList : [
+			function(spList, spName, spType) {
+				// Stop this is not the class' spell list or if this is for a bonus spell entry
+				if (spName !== "occultist" || spType.indexOf("bonus") !== -1) return;
+				spList.extraspells = spList.extraspells.concat(["create bonfire", "frostbite", "gust", "infestation", "lightning lure", "magic stone", "mold earth", "primal savagery", "shape water", "thorn whip", "absorb elements", "beast bond", "cause fear", "ceremony", "dissonant whispers", "hail of thorns", "ice knife", "ray of sickness", "tasha's caustic brew", "healing spirit", "shadow blade", "summon beast", "catnap", "life transference", "summon undead", "wall of water", "charm monster", "elemental bane", "shadow of moil", "summon elemental", "vitriolic sphere", "watery sphere", "danse macabre", "enervation", "negative energy flood", "skill empowerment", "transmute rock", "bones of the earth", "create homunculus", "mental prison", "move earth", "primordial ward", "soul cage", "tasha's otherworldly guise", "power word pain", "whirlwind", "maddening darkness", "invulnerability", "power word heal", "psychic scream"]);
+			},
+			"This optional class feature expands the spell list of the Occultist class with all spells from the Occultist Fan Content Patch (full list available at: https://www.gmbinder.com/share/-NMc60Jc6p0syX8gRGoi)"
+		]
+	}
+}, "Optional 1st-level Occultist features");
 
 //ADDING WITCH CURSES AND HEXES
 SpellsList["befuddling curse"] = {
