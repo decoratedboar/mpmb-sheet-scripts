@@ -1854,7 +1854,7 @@ ClassList["occultist"] = {
 	"\n \u2022 Leather armour -or- scale mail (if proficient);" +
 	"\n \u2022 A herbalism kit.",
 
-	subclasses : ["Occult Traditions", ["witch", "hedge mage", "oracle", "shaman"]], 
+	subclasses : ["Occult Traditions", []], 
 	features : {
 		"subclassfeature1" : {
 			name : "Occult Tradition",
