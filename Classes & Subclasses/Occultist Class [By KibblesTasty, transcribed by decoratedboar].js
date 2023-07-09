@@ -1902,10 +1902,10 @@ ClassList["occultist"] = {
 				var theObj = ClassList["occultist"].features["occult rites"]; //The feature itself, var for shorthand
 				var theSClass = classes.known.occultist.subclass; //The subclass, var for shorthand
 				
-				/*for (x in OccultRitesAll) {
+				for (x in OccultRitesAll) {
 					theObj.extrachoices.push(OccultRitesAll[x].name);
 					theObj[OccultRitesAll[x].name.toLowerCase()] = OccultRitesAll[x];
-				}*/
+				}
 				
 				//I couldn't get switch statements working.
 				//The second condition in these checks whether the character has the Stolen Techniques feature				
