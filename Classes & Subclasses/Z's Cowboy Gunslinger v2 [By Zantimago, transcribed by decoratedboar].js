@@ -193,10 +193,6 @@ ClassList["gunslinger"] = {
 				},
 				
 			},
-			
-			autoSelectExtrachoices : [{
-				extrachoice : 'iron sights',
-			}]
 		},
 		
 		"fortune favors the bold 1" : {
