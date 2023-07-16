@@ -122,9 +122,8 @@ ClassList["gunslinger"] = {
 			minlevel : 1,
 			description : "\n   I can use an action to change my firearm's sight" + "\n   " + "Use the \"Choose Feature\" button above to select your current sight",
 			action : ["action", "Change gun sight"],
-			extraname : "Sights",
-			extrachoices : ["Iron Sights", "No Sight", "Scope"],
-			extraTimes: [1],
+			choices : ["Iron Sights", "No Sight", "Scope"],
+			
 			"iron sights" : {
 				name : "Iron Sights",
 				description : "\n   My gun's default sight. Its properties are not altered"
