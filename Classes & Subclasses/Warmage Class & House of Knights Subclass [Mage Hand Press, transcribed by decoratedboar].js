@@ -855,21 +855,7 @@ ClassList["warmage"] = {
 				return (n < 2 ? 0 : n < 3 ? 2 : n < 5 ? 3 : n < 7 ? 4 : n < 9 ? 5 : n < 11 ? 6 : n < 13 ? 7 : n < 15 ? 8 : n < 17 ? 9 : 10);
 			}),
 			extraname : "Warmage Tricks",
-			extrachoices : [], //So the eval function below has something to push to
-			
-			//When this feature is added, this eval adds all of the Warmage tricks to the feature. Saves coding out entries manually
-			eval : function() {
-				var theObj = ClassList["warmage"].features["warmage tricks"]; //The feature itself, var for shorthand
-				
-				for (x in WarmageTricks) {
-					theObj.extrachoices.push(WarmageTricks[x].name); //Add the name to the extrachoices array
-					theObj[WarmageTricks[x].name.toLowerCase()] = WarmageTricks[x]; //Add the extrachoice feature itself
-				}
-			},
-			//Clears the extrachoices array when this feature is removed, to prevent doubling up of entries on the sheet if levels, subclasses, etc. are changed.
-			removeeval : function () {
-				ClassList["warmage"].features["warmage tricks"].extrachoices = [];
-			}
+			extrachoices : [], //So the RunFunctionAtEnd at the end of the script has something to push to
 		},
 		"subclassfeature3" : {
 			name : "Warmage House",
@@ -1336,3 +1322,13 @@ WeaponsList["magic daggers"] = {
 	description : "+1 atk. rolls at CL5/11/17",
 	abilitytodamage : false
 };
+
+//This code adds the Warmage tricks extrachoices. It's run here, since running it as part of the class feature removes them when the sheet is saved and reopened.
+RunFunctionAtEnd(function () {
+	var theObj = ClassList["warmage"].features["warmage tricks"]; //The feature itself, var for shorthand
+				
+	for (x in WarmageTricks) {
+		theObj.extrachoices.push(WarmageTricks[x].name); //Add the name to the extrachoices array
+		theObj[WarmageTricks[x].name.toLowerCase()] = WarmageTricks[x]; //Add the extrachoice feature itself
+	}
+});
