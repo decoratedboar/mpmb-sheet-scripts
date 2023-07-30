@@ -593,7 +593,7 @@ var WarmageTricks = { //Doing the same thing for the Warmage tricks. Presently t
 		]),
 	},
 	split_fire : {
-		name : "Split Fire (prereq: th level Warmage)",
+		name : "Split Fire (prereq: 5th level Warmage)",
 		description : desc([
 		"When I cast a Warmage cantrip requiring a single spell attack roll, I can target a",
 		"number of creatures up to the number of damage dice dealt by the cantrip, making",
@@ -874,7 +874,10 @@ ClassList["warmage"] = {
 			"damage with a Warmage cantrip on my turn, I can double the amount of damage dice",
 			"the spell deals. I cannot use this feature on a critical hit."
 			]),
-			usagescalc : "(classes.known.warlock.level < 11 ? 1 : 2);",
+			usages : levels.map(function (n) {
+				return (n < 11 ? 1 : 2) + " per";
+			}),
+			usagescalc : "event.value = (classes.known.warmage.level < 11 ? 1 : 2);",
 			recovery : "short rest",
 		},
 		"tactical insight" : {
@@ -926,8 +929,8 @@ AddSubClass("warmage", "house of knights", {
 			"While I'm wearing light or medium armour, or under the effects of the Mage Armor spell, I",
 			"can add my Intelligence modifier to my AC instead of Dexterity.",
 			]),
-			armorProfs : [true, false, false, false],
-			weaponProfs : [false, true],
+			armorProfs : [false, true, false, false],
+			weaponProfs : [true, true],
 			extraAC : [{
 				name : "Force Breastplate (replace Dex)", 
 				mod : "Int", 
@@ -1308,6 +1311,18 @@ WeaponsList["force weapon"] = {
 	damage : [1, 10, "Force"],
 	range : "Melee",
 	description : "Opportunity atk. after cast; +1 atk. at CL5/11/17",
+	abilitytodamage : false
+};
+WeaponsList["force dart"] = {
+	regExpSearch : /^(?=.*force)(?=.*dart).*$/i,
+	name : "Force Dart",
+	source : ["VSoS", 339],
+	list : "Spell",
+	ability : 6,
+	type : "Cantrip",
+	damage : [1, 10, "Force"],
+	range : "120 ft",
+	description : "",
 	abilitytodamage : false
 };
 WeaponsList["magic daggers"] = {
