@@ -452,6 +452,9 @@ var WitchRites = { //The list of all Witch-specific Rites
 			"over the course of 8 hours, causing my previous Broom to lose its magical effect."
 		]),
 		magicitemsAdd : ["Broom of Flying"],
+		prereqeval : function(v) { 
+			return classes.known.occultist.subclass.indexOf("witch") !== -1 ? true : "skip"; 
+		}
 	},
 	animate_hair : {
 		name : "Animate Hair",				
@@ -483,6 +486,9 @@ var WitchRites = { //The list of all Witch-specific Rites
 			description : "Touch spells 10ft. range; Can grapple large or smaller crea. hit (Wis. mod.)", 
 		},
 		weaponsAdd : ["Animated Hair"],
+		prereqeval : function(v) { 
+			return classes.known.occultist.subclass.indexOf("witch") !== -1 ? true : "skip"; 
+		}
 	},
 	companion_coven : {
 		name : "Companion Coven",				
@@ -496,7 +502,10 @@ var WitchRites = { //The list of all Witch-specific Rites
 		]),
 		additional : levels.map(function (n) {
 			return Math.max(Math.floor(n/4), 1) + "lvls. of shared spell slots.";
-		})
+		}),
+		prereqeval : function(v) { 
+			return classes.known.occultist.subclass.indexOf("witch") !== -1 ? true : "skip"; 
+		}
 	},
 	curse_specialist : {
 		name : "Curse Specialist",				
@@ -519,6 +528,9 @@ var WitchRites = { //The list of all Witch-specific Rites
 				},
 				"I gain all Curses and Hexes granted by Witch Covens."
 			],
+		},
+		prereqeval : function(v) { 
+			return classes.known.occultist.subclass.indexOf("witch") !== -1 ? true : "skip"; 
 		}	
 	},
 	divine_presence : {
@@ -529,7 +541,7 @@ var WitchRites = { //The list of all Witch-specific Rites
 			"the effect is lost until the start of its next turn.",
 		]),
 		prereqeval : function(v) {
-			return GetFeatureChoice("classes", "occultist", "subclassfeature1.1").indexOf("white coven") != -1 ? true : false;
+			return classes.known.occultist.subclass.indexOf("witch") === -1 ? "skip" : GetFeatureChoice("classes", "occultist", "subclassfeature1.1").indexOf("white coven") != -1 ? true : false;
 		},
 		//Adds the sanctuary effect to the traits section on the familiar page.
 		calcChanges : {
@@ -540,7 +552,8 @@ var WitchRites = { //The list of all Witch-specific Rites
 					aFnc(prefix + "Comp.Use.Traits", str, true);
 					//This function just adds the var str to the traits section of the companion page
 			}]
-		}
+		},
+		
 	},
 	familiar_swap : {
 		name : "Familiar Swap",				
@@ -553,6 +566,9 @@ var WitchRites = { //The list of all Witch-specific Rites
 		action : ["action", ""],
 		usages : 1,
 		recovery : "short rest",
+		prereqeval : function(v) { 
+			return classes.known.occultist.subclass.indexOf("witch") !== -1 ? true : "skip"; 
+		}
 	},
 	form_of_the_familiar : {
 		name : "Form of the Familiar",				
@@ -571,6 +587,9 @@ var WitchRites = { //The list of all Witch-specific Rites
 			selection : ["form of familiar"],
 			firstCol : "oncesr",
 		},
+		prereqeval : function(v) { 
+			return classes.known.occultist.subclass.indexOf("witch") !== -1 ? true : "skip"; 
+		}
 	},
 	light_of_the_moon : {
 		name : "Light of the Moon",				
@@ -586,6 +605,9 @@ var WitchRites = { //The list of all Witch-specific Rites
 			selection : ["faerie fire", "moonbeam"],
 			times : 2,
 		},
+		prereqeval : function(v) { 
+			return classes.known.occultist.subclass.indexOf("witch") !== -1 ? true : "skip"; 
+		}
 	},
 	riding_familiar : {
 		name : "Riding Familiar",				
@@ -599,6 +621,9 @@ var WitchRites = { //The list of all Witch-specific Rites
 		action : ["action", " (enlarge/revert)"],
 		usages: 1,
 		recovery : "short rest",
+		prereqeval : function(v) { 
+			return classes.known.occultist.subclass.indexOf("witch") !== -1 ? true : "skip"; 
+		}
 	},
 	skulking_familiar : {
 		name : "Skulking Familiar",				
@@ -629,6 +654,9 @@ var WitchRites = { //The list of all Witch-specific Rites
 					//This function just adds the var str to the traits section of the companion page
 			}]
 		},
+		prereqeval : function(v) { 
+			return classes.known.occultist.subclass.indexOf("witch") !== -1 ? true : "skip"; 
+		}
 	},
 	witchs_brew : {
 		name : "Witch's Brew",				
@@ -639,6 +667,9 @@ var WitchRites = { //The list of all Witch-specific Rites
 			"drinks this potion as an action can cast the stored spell, using my spellcasting ability",
 			"modifier. The potion can be used until I regain the spell slot used to create it.",
 		]),
+		prereqeval : function(v) { 
+			return classes.known.occultist.subclass.indexOf("witch") !== -1 ? true : "skip"; 
+		}
 	},
 	witchs_claws : {
 		name : "Witch's Claws",				
@@ -664,6 +695,9 @@ var WitchRites = { //The list of all Witch-specific Rites
 			description : "Can apply Witch's Touch after 6th lvl", 
 		},
 		weaponsAdd : ["Witch's Claws"],
+		prereqeval : function(v) { 
+			return classes.known.occultist.subclass.indexOf("witch") !== -1 ? true : "skip"; 
+		}
 	},
 	witchs_hat : {
 		name : "Witch's Hat",				
@@ -673,6 +707,9 @@ var WitchRites = { //The list of all Witch-specific Rites
 			"causing my previous Hat to lose its magical effect.",
 		]),
 		magicitemsAdd : ["Hat of Disguise"],
+		prereqeval : function(v) { 
+			return classes.known.occultist.subclass.indexOf("witch") !== -1 ? true : "skip"; 
+		}
 	},
 };	
 
@@ -688,6 +725,9 @@ var HedgeRites = { //The list of all Hedge Mage-specific Rites
 			level : [0, 0],
 			times : 1,
 		}],
+		prereqeval : function(v) { 
+			return classes.known.occultist.subclass.indexOf("hedge mage") !== -1 ? true : "skip"; 
+		}
 	},
 	//Functions the same way as Occult Magic
 	hedge_magic2 : {
@@ -702,7 +742,7 @@ var HedgeRites = { //The list of all Hedge Mage-specific Rites
 			level : [0, 0],
 			times : 1,
 		}],
-		prereqeval : function(v) { 
+		prereqeval : function(v) { //Won't appear unless the previous one is selected anyway, so no need to check for subclass again.
 			return GetFeatureChoice('class', 'occultist', 'occult rites', true).indexOf('hedge magic') != -1 ? true : "skip"; 
 		},
 	},
@@ -804,6 +844,9 @@ var HedgeRites = { //The list of all Hedge Mage-specific Rites
 			"I have advantage on saving throws against and spellcasting ability checks to use the",
 			"Counterspell or Dispel Magic spells against spells I know.",
 		]),
+		prereqeval : function(v) { 
+			return classes.known.occultist.subclass.indexOf("hedge mage") !== -1 ? true : "skip"; 
+		}
 	},
 	manipulate_magic : {
 		name : "Manipulate Magic (prereq: 5th level Hedge Mage)",				
@@ -822,8 +865,8 @@ var HedgeRites = { //The list of all Hedge Mage-specific Rites
 			bonus : 1
 		}],
 		prereqeval : function(v) { 
-			return (classes.known.occultist.subclass === "occultist-tradition of the hedge mage" && classes.known.occultist.level >= 5);
-		},
+			return classes.known.occultist.subclass.indexOf("hedge mage") === -1 ? "skip" : classes.known.occultist.level >= 5 ? true : false; 
+		}
 	},
 	mass_cantrip : {
 		name : "Mass Cantrip",				
@@ -836,6 +879,9 @@ var HedgeRites = { //The list of all Hedge Mage-specific Rites
 		]),
 		usages: 1,
 		recovery: "long rest",
+		prereqeval : function(v) { 
+			return classes.known.occultist.subclass.indexOf("hedge mage") !== -1 ? true : "skip"; 
+		}
 	},
 	mastered_basics : {
 		name : "Mastered Basics (prereq: 15th level Hedge Mage)",				
@@ -845,8 +891,8 @@ var HedgeRites = { //The list of all Hedge Mage-specific Rites
 			"2nd level spell slot.",
 		]),
 		prereqeval : function(v) { 
-			return (classes.known.occultist.subclass === "occultist-tradition of the hedge mage" && classes.known.occultist.level >= 15);
-		},
+			return classes.known.occultist.subclass.indexOf("hedge mage") === -1 ? "skip" : classes.known.occultist.level >= 15 ? true : false; 
+		}
 	},
 	practice_makes_perfect : { //Not sure how much more I can do with this.
 		name : "Practice Makes Perfect", 				
@@ -858,6 +904,9 @@ var HedgeRites = { //The list of all Hedge Mage-specific Rites
 		usagescalc : "event.value = Math.ceil(How('Proficiency Bonus')/2)",
 		usages : "1/2 Prof. bonus per",
 		recovery : "long rest",
+		prereqeval : function(v) { 
+			return classes.known.occultist.subclass.indexOf("hedge mage") !== -1 ? true : "skip"; 
+		}
 	},
 	practiced_reach : {
 		name : "Practiced Reach", 				
@@ -866,6 +915,9 @@ var HedgeRites = { //The list of all Hedge Mage-specific Rites
 			"When I use The Way I Learned It to add range to a spell, I can increase the spell's range up",
 			"to a maximum of 30 ft.",
 		]),
+		prereqeval : function(v) { 
+			return classes.known.occultist.subclass.indexOf("hedge mage") !== -1 ? true : "skip"; 
+		}
 	},
 	potent_cantrip : {
 		name : "Potent Cantrip (prereq: 7th level Hedge Mage)", 				
@@ -875,8 +927,8 @@ var HedgeRites = { //The list of all Hedge Mage-specific Rites
 			"the cantrip's damage (if any), but suffer no additional effect from it.",
 		]),
 		prereqeval : function(v) { 
-			return (classes.known.occultist.subclass === "occultist-tradition of the hedge mage" && classes.known.occultist.level >= 7);
-		},
+			return classes.known.occultist.subclass.indexOf("hedge mage") === -1 ? "skip" : classes.known.occultist.level >= 7 ? true : false; 
+		}
 	},
 	savant_focus : {
 		name : "Savant Focus (prereq: 7th level Hedge Mage)", 				
@@ -889,8 +941,8 @@ var HedgeRites = { //The list of all Hedge Mage-specific Rites
 		limfeaname : "Savant Focus",
 		action : ["bonus action", ""],
 		prereqeval : function(v) { 
-			return (classes.known.occultist.subclass === "occultist-tradition of the hedge mage" && classes.known.occultist.level >= 7);
-		},
+			return classes.known.occultist.subclass.indexOf("hedge mage") === -1 ? "skip" : classes.known.occultist.level >= 7 ? true : false; 
+		}
 	},
 
 	//Same as Occult Magic once again.
@@ -924,8 +976,8 @@ var HedgeRites = { //The list of all Hedge Mage-specific Rites
 		},
 		
 		prereqeval : function(v) { 
-			return (classes.known.occultist.subclass === "occultist-tradition of the hedge mage" && classes.known.occultist.level >= 3);
-		},
+			return classes.known.occultist.subclass.indexOf("hedge mage") === -1 ? "skip" : classes.known.occultist.level >= 3 ? true : false; 
+		}
 	},
 	studious_mage2 : { 
 		name : "Studious Mage (2)", 				
@@ -1171,8 +1223,8 @@ var HedgeRites = { //The list of all Hedge Mage-specific Rites
 			return (n < 3 ? (n + 1) : 4) + " 1st lvl., " + (n < 4 ? 2 : 3) + " 5th lvl. slots max.";
 		}),
 		prereqeval : function(v) { 
-			return (classes.known.occultist.subclass === "occultist-tradition of the hedge mage" && classes.known.occultist.level >= 5);
-		},
+			return classes.known.occultist.subclass.indexOf("hedge mage") === -1 ? "skip" : classes.known.occultist.level >= 5 ? true : false; 
+		}
 	},
 	utility_master : {
 		name : "Utility Master (prereq: 5th level Hedge Mage)", 				
@@ -1183,8 +1235,8 @@ var HedgeRites = { //The list of all Hedge Mage-specific Rites
 			"additional effect.",
 		]),
 		prereqeval : function(v) { 
-			return (classes.known.occultist.subclass === "occultist-tradition of the hedge mage" && classes.known.occultist.level >= 5);
-		},
+			return classes.known.occultist.subclass.indexOf("hedge mage") === -1 ? "skip" : classes.known.occultist.level >= 5 ? true : false; 
+		}
 	},
 };
 
@@ -1201,8 +1253,8 @@ var OracleRites = { //The list of all Oracle-specific Rites
 		recovery : "long rest",
 		action : ["reaction", ""],
 		prereqeval : function(v) { 
-			return (classes.known.occultist.level >= 12);
-		},
+			return classes.known.occultist.subclass.indexOf("oracle") === -1 ? "skip" : classes.known.occultist.level >= 12 ? true : false; 
+		}
 	},
 	divine_miracle : {
 		name : "Divine Miracle", 				
@@ -1233,6 +1285,9 @@ var OracleRites = { //The list of all Oracle-specific Rites
 				"I learn a Cleric spell of my choice as a bonus spell. The spell must be of a level I can cast."
 			]
 		},
+		prereqeval : function(v) { 
+			return classes.known.occultist.subclass.indexOf("oracle") !== -1 ? true : "skip"; 
+		}
 	},
 	divine_sight : {
 		name : "Divine Sight (prereq: 15th level Occultist)", 				
@@ -1242,8 +1297,8 @@ var OracleRites = { //The list of all Oracle-specific Rites
 		]),
 		vision : [["Truesight (if Blindsight, equal to its range)", ""]],
 		prereqeval : function(v) { 
-			return (classes.known.occultist.level >= 15);
-		},
+			return classes.known.occultist.subclass.indexOf("oracle") === -1 ? "skip" : classes.known.occultist.level >= 15 ? true : false; 
+		}
 	},
 	oracles_sight : {
 		name : "Oracle's Sight", 				
@@ -1256,6 +1311,9 @@ var OracleRites = { //The list of all Oracle-specific Rites
 		prereqeval : function(v) { 
 			return GetFeatureChoice('class', 'occultist', 'occult rites', true).indexOf("blind") != -1 ? "skip" : true; 
 		},
+		prereqeval : function(v) { 
+			return classes.known.occultist.subclass.indexOf("oracle") !== -1 ? true : "skip"; 
+		}
 	},
 	
 	revelation_darkness : {
@@ -1269,7 +1327,7 @@ var OracleRites = { //The list of all Oracle-specific Rites
 		]),
 
 		prereqeval : function(v) { 
-			return GetFeatureChoice('class', 'occultist', 'subclassfeature1', true).indexOf('mystery of darkness') != -1 ? true : false; 
+			return classes.known.occultist.subclass.indexOf("oracle") === -1 ? "skip" : GetFeatureChoice('class', 'occultist', 'subclassfeature1', true).indexOf('mystery of darkness') != -1 ? true : false; 
 		},
 	},
 	revelation_death : {
@@ -1284,7 +1342,7 @@ var OracleRites = { //The list of all Oracle-specific Rites
 		]),
 
 		prereqeval : function(v) { 
-			return GetFeatureChoice('class', 'occultist', 'subclassfeature1', true).indexOf('mystery of death') != -1 ? true : false; 
+			return classes.known.occultist.subclass.indexOf("oracle") === -1 ? "skip" : GetFeatureChoice('class', 'occultist', 'subclassfeature1', true).indexOf('mystery of death') != -1 ? true : false; 
 		},
 	},
 	revelation_fire : {
@@ -1299,7 +1357,7 @@ var OracleRites = { //The list of all Oracle-specific Rites
 		]),
 
 		prereqeval : function(v) { 
-			return GetFeatureChoice('class', 'occultist', 'subclassfeature1', true).indexOf('mystery of fire') != -1 ? true : false; 
+			return classes.known.occultist.subclass.indexOf("oracle") === -1 ? "skip" : GetFeatureChoice('class', 'occultist', 'subclassfeature1', true).indexOf('mystery of fire') != -1 ? true : false; 
 		},
 	},
 	revelation_life : {
@@ -1314,7 +1372,7 @@ var OracleRites = { //The list of all Oracle-specific Rites
 		]),
 
 		prereqeval : function(v) { 
-			return GetFeatureChoice('class', 'occultist', 'subclassfeature1', true).indexOf('mystery of life') != -1 ? true : false; 
+			return classes.known.occultist.subclass.indexOf("oracle") === -1 ? "skip" : GetFeatureChoice('class', 'occultist', 'subclassfeature1', true).indexOf('mystery of life') != -1 ? true : false; 
 		},
 	},
 	revelation_light : {
@@ -1331,7 +1389,7 @@ var OracleRites = { //The list of all Oracle-specific Rites
 		action : ["bonus action", ""],
 
 		prereqeval : function(v) { 
-			return GetFeatureChoice('class', 'occultist', 'subclassfeature1', true).indexOf('mystery of light') != -1 ? true : false; 
+			return classes.known.occultist.subclass.indexOf("oracle") === -1 ? "skip" : GetFeatureChoice('class', 'occultist', 'subclassfeature1', true).indexOf('mystery of light') != -1 ? true : false; 
 		},
 	},
 	revelation_souls : {
@@ -1346,7 +1404,7 @@ var OracleRites = { //The list of all Oracle-specific Rites
 		]),
 
 		prereqeval : function(v) { 
-			return GetFeatureChoice('class', 'occultist', 'subclassfeature1', true).indexOf('mystery of souls') != -1 ? true : false; 
+			return classes.known.occultist.subclass.indexOf("oracle") === -1 ? "skip" : GetFeatureChoice('class', 'occultist', 'subclassfeature1', true).indexOf('mystery of souls') != -1 ? true : false; 
 		},
 	},
 	revelation_war : {
@@ -1360,7 +1418,7 @@ var OracleRites = { //The list of all Oracle-specific Rites
 		]),
 
 		prereqeval : function(v) { 
-			return GetFeatureChoice('class', 'occultist', 'subclassfeature1', true).indexOf('mystery of war') != -1 ? true : false; 
+			return classes.known.occultist.subclass.indexOf("oracle") === -1 ? "skip" : GetFeatureChoice('class', 'occultist', 'subclassfeature1', true).indexOf('mystery of war') != -1 ? true : false; 
 		},
 	},
 	
@@ -1381,7 +1439,7 @@ var OracleRites = { //The list of all Oracle-specific Rites
 		limfeaname : "Touch of Fire",
 		action : ["bonus action", " (ignite)"],
 		prereqeval : function(v) { 
-			return GetFeatureChoice('class', 'occultist', 'subclassfeature1', true).indexOf('mystery of fire') != -1 ? true : false; 
+			return classes.known.occultist.subclass.indexOf("oracle") === -1 ? "skip" : GetFeatureChoice('class', 'occultist', 'subclassfeature1', true).indexOf('mystery of fire') != -1 ? true : false; 
 		},
 	},
 	truth_darkness : {
@@ -1397,7 +1455,7 @@ var OracleRites = { //The list of all Oracle-specific Rites
 			["Blindsight", "*2"]
 		],
 		prereqeval : function(v) { 
-			return GetFeatureChoice('class', 'occultist', 'subclassfeature1', true).indexOf('mystery of darkness') != -1 ? true : false; 
+			return classes.known.occultist.subclass.indexOf("oracle") === -1 ? "skip" : GetFeatureChoice('class', 'occultist', 'subclassfeature1', true).indexOf('mystery of darkness') != -1 ? true : false; 
 		},
 	},
 	truth_death : {
@@ -1409,7 +1467,7 @@ var OracleRites = { //The list of all Oracle-specific Rites
 			"gain are halved for the duration of it.",
 		]),
 		prereqeval : function(v) { 
-			return GetFeatureChoice('class', 'occultist', 'subclassfeature1', true).indexOf('mystery of death') != -1 ? true : false; 
+			return classes.known.occultist.subclass.indexOf("oracle") === -1 ? "skip" : GetFeatureChoice('class', 'occultist', 'subclassfeature1', true).indexOf('mystery of death') != -1 ? true : false; 
 		},
 	},
 	truth_fire : {
@@ -1421,7 +1479,7 @@ var OracleRites = { //The list of all Oracle-specific Rites
 			"each die I reroll, I take 1 fire damage.",
 		]),
 		prereqeval : function(v) { 
-			return GetFeatureChoice('class', 'occultist', 'subclassfeature1', true).indexOf('mystery of fire') != -1 ? true : false; 
+			return classes.known.occultist.subclass.indexOf("oracle") === -1 ? "skip" : GetFeatureChoice('class', 'occultist', 'subclassfeature1', true).indexOf('mystery of fire') != -1 ? true : false; 
 		},
 	},
 	truth_life : {
@@ -1435,7 +1493,7 @@ var OracleRites = { //The list of all Oracle-specific Rites
 		limfeaname : "Truth of Life",
 		action : ["reaction", ""],
 		prereqeval : function(v) { 
-			return GetFeatureChoice('class', 'occultist', 'subclassfeature1', true).indexOf('mystery of life') != -1 ? true : false; 
+			return classes.known.occultist.subclass.indexOf("oracle") === -1 ? "skip" : GetFeatureChoice('class', 'occultist', 'subclassfeature1', true).indexOf('mystery of life') != -1 ? true : false; 
 		},
 	},
 	truth_light : {
@@ -1450,7 +1508,7 @@ var OracleRites = { //The list of all Oracle-specific Rites
 		limfeaname : "Truth of Light",
 		action : ["bonus action ", " (remove effect)"],
 		prereqeval : function(v) { 
-			return GetFeatureChoice('class', 'occultist', 'subclassfeature1', true).indexOf('mystery of light') != -1 ? true : false; 
+			return classes.known.occultist.subclass.indexOf("oracle") === -1 ? "skip" : GetFeatureChoice('class', 'occultist', 'subclassfeature1', true).indexOf('mystery of light') != -1 ? true : false; 
 		},
 	},
 	truth_souls : {
@@ -1461,7 +1519,7 @@ var OracleRites = { //The list of all Oracle-specific Rites
 			"granted by my Mystery of Souls.",
 		]),
 		prereqeval : function(v) { 
-			return GetFeatureChoice('class', 'occultist', 'subclassfeature1', true).indexOf('mystery of souls') != -1 ? true : false; 
+			return classes.known.occultist.subclass.indexOf("oracle") === -1 ? "skip" : GetFeatureChoice('class', 'occultist', 'subclassfeature1', true).indexOf('mystery of souls') != -1 ? true : false; 
 		},
 	},
 	truth_war : {
@@ -1481,7 +1539,7 @@ var OracleRites = { //The list of all Oracle-specific Rites
 			"    6th+\t Stunned\t Constitution",
 		]),
 		prereqeval : function(v) { 
-			return ((classes.known.occultist.level >= 5) && (GetFeatureChoice('class', 'occultist', 'occult rites', true).indexOf('revelation of war (prereq: mystery of war)') != -1));
+			return classes.known.occultist.subclass.indexOf("oracle") === -1 ? "skip" : ((classes.known.occultist.level >= 5) && (GetFeatureChoice('class', 'occultist', 'occult rites', true).indexOf('revelation of war (prereq: mystery of war)') != -1)) ? true : false;
 		},
 	},
 	
@@ -1493,8 +1551,8 @@ var OracleRites = { //The list of all Oracle-specific Rites
 			"simultaneously instead.",
 		]),
 		prereqeval : function(v) { 
-			return classes.known.occultist.level >= 9; 
-		},
+			return classes.known.occultist.subclass.indexOf("oracle") === -1 ? "skip" : classes.known.occultist.level >= 9 ? true : false; 
+		}
 	},
 	halo_mystery : {
 		name : "Halo of Mystery (prereq: 15th level Occultist)", 				
@@ -1527,8 +1585,8 @@ var OracleRites = { //The list of all Oracle-specific Rites
 		limfeaname : "Halo of Mystery",
 		action : ["bonus action", " (invoke/dismiss)"],
 		prereqeval : function(v) { 
-			return classes.known.occultist.level >= 15; 
-		},
+			return classes.known.occultist.subclass.indexOf("oracle") === -1 ? "skip" : classes.known.occultist.level >= 15 ? true : false; 
+		}
 	},
 };
 
@@ -1548,8 +1606,8 @@ var ShamanRites = { //The list of all Shaman-specific Rites
 			times : 3,
 		},
 		prereqeval : function(v) { 
-			return (classes.known.occultist.subclass === "occultist-tradition of the shaman" && classes.known.occultist.level >= 11);
-		},
+			return classes.known.occultist.subclass.indexOf("shaman") === -1 ? "skip" : classes.known.occultist.level >= 11 ? true : false; 
+		}
 	},
 	dance_spirits : {
 		name : "Dance of the Spirits (prereq: 5th level Occultist)", 				
@@ -1562,8 +1620,8 @@ var ShamanRites = { //The list of all Shaman-specific Rites
 		]),
 		savetxt : { text : ["Adv. on Con. saves for Spirit Guardians, other spirit spells"] },
 		prereqeval : function(v) { 
-			return (classes.known.occultist.level >= 5);
-		},
+			return classes.known.occultist.subclass.indexOf("shaman") === -1 ? "skip" : classes.known.occultist.level >= 5 ? true : false; 
+		}
 	},
 	detonate_spirit : {
 		name : "Detonate Spirit", 				
@@ -1594,7 +1652,7 @@ var ShamanRites = { //The list of all Shaman-specific Rites
 			],
 		},
 		prereqeval : function(v) { 
-			return (isSpellUsed('fists of fire', true) || isSpellUsed('ice weapon', true)); 
+			return classes.known.occultist.subclass.indexOf("shaman") === -1 ? "skip" : (isSpellUsed('fists of fire', true) || isSpellUsed('ice weapon', true)) ? true : false; 
 		},
 	},
 	energized_weapon : {
@@ -1609,8 +1667,8 @@ var ShamanRites = { //The list of all Shaman-specific Rites
 		limfeaname : "Energized Weapon",
 		action : ["bonus action", ""],
 		prereqeval : function(v) { 
-			return (classes.known.occultist.level >= 3);
-		},
+			return classes.known.occultist.subclass.indexOf("shaman") === -1 ? "skip" : classes.known.occultist.level >= 3 ? true : false; 
+		}
 	},
 	guidance_spirits : {
 		name : "Guidance of the Spirits (prereq: 3rd level Occultist)", 				
@@ -1623,8 +1681,8 @@ var ShamanRites = { //The list of all Shaman-specific Rites
 			"expertise in one skill.",
 		]),
 		prereqeval : function(v) { 
-			return (classes.known.occultist.level >= 3);
-		},
+			return classes.known.occultist.subclass.indexOf("shaman") === -1 ? "skip" : classes.known.occultist.level >= 3 ? true : false; 
+		}
 	},
 	mistwalker : {
 		name : "Mistwalker", 				
@@ -1632,6 +1690,9 @@ var ShamanRites = { //The list of all Shaman-specific Rites
 		description : desc([
 			"I can see through fog, mist, and smoke. While shrouded by any of these, I also have half cover.",
 		]),
+		prereqeval : function(v) { 
+			return classes.known.occultist.subclass.indexOf("shaman") !== -1 ? true : "skip"; 
+		}
 	},
 	
 	primal_earth : {
@@ -1641,6 +1702,9 @@ var ShamanRites = { //The list of all Shaman-specific Rites
 			"I learn the Create Pit, Earth Ripple, Seismic Wave, Orbital Stones, and Fissure spells.",
 		]),
 		spellcastingExtra : ["create pit", "earth ripple", "seismic wave", "orbital stones", "fissure"],
+		prereqeval : function(v) { 
+			return classes.known.occultist.subclass.indexOf("shaman") !== -1 ? true : "skip"; 
+		}
 	},
 	primal_fire : {
 		name : "Primal Fire", 				
@@ -1649,6 +1713,9 @@ var ShamanRites = { //The list of all Shaman-specific Rites
 			"I learn the Burning Hands, Scorching Ray, Fireball, Wall of Fire, and Pyroclastic Lance spells.",
 		]),
 		spellcastingExtra : ["burning hands", "scorching ray", "fireball", "wall of fire", "pyroclastic lance"],
+		prereqeval : function(v) { 
+			return classes.known.occultist.subclass.indexOf("shaman") !== -1 ? true : "skip"; 
+		}
 	},
 	primal_ice : {
 		name : "Primal Ice", 				
@@ -1657,6 +1724,9 @@ var ShamanRites = { //The list of all Shaman-specific Rites
 			"I learn the Arctic Breath, Cold Snap, Sleet Storm, Ice Storm, and Cone of Cold spells.",
 		]),
 		spellcastingExtra : ["arctic breath", "cold snap", "sleet storm", "ice storm", "cone of cold"],
+		prereqeval : function(v) { 
+			return classes.known.occultist.subclass.indexOf("shaman") !== -1 ? true : "skip"; 
+		}
 	},
 	primal_storm : {
 		name : "Primal Storm", 				
@@ -1665,6 +1735,9 @@ var ShamanRites = { //The list of all Shaman-specific Rites
 			"I learn the Thunderwave, Gust of Wind, Lightning Bolt, Jumping Jolt, and Sky Burst spells.",
 		]),
 		spellcastingExtra : ["thunderwave", "gust of wind", "lightning bolt", "jumping jolt", "sky burst"],
+		prereqeval : function(v) { 
+			return classes.known.occultist.subclass.indexOf("shaman") !== -1 ? true : "skip"; 
+		}
 	},
 	
 	radiate_power : {
@@ -1678,8 +1751,8 @@ var ShamanRites = { //The list of all Shaman-specific Rites
 		limfeaname : "Radiate Power",
 		action : ["bonus action", ""],
 		prereqeval : function(v) { 
-			return (classes.known.occultist.level >= 15);
-		},
+			return classes.known.occultist.subclass.indexOf("shaman") === -1 ? "skip" : classes.known.occultist.level >= 15 ? true : false; 
+		}
 	},
 	
 	rite_prowess1 : {
@@ -1705,6 +1778,9 @@ var ShamanRites = { //The list of all Shaman-specific Rites
 			ClassFeatureOptions(["occultist", "occult rites", "rite of prowess: great weapon fighting", true, 'remove']);
 			ClassFeatureOptions(["occultist", "occult rites", "rite of prowess: two-weapon fighting", true, 'remove']);
 		},
+		prereqeval : function(v) { 
+			return classes.known.occultist.subclass.indexOf("shaman") !== -1 ? true : "skip"; 
+		}
 	},
 	rite_prowess2 : {
 		name : "Rite of Prowess: Great Weapon Fighting", 				
@@ -1727,6 +1803,9 @@ var ShamanRites = { //The list of all Shaman-specific Rites
 			ClassFeatureOptions(["occultist", "occult rites", "rite of prowess: dueling", true, 'remove']);
 			ClassFeatureOptions(["occultist", "occult rites", "rite of prowess: two-weapon fighting", true, 'remove']);
 		},
+		prereqeval : function(v) { 
+			return classes.known.occultist.subclass.indexOf("shaman") !== -1 ? true : "skip"; 
+		}
 	},
 	rite_prowess3 : {
 		name : "Rite of Prowess: Two-Weapon Fighting", 				
@@ -1747,6 +1826,9 @@ var ShamanRites = { //The list of all Shaman-specific Rites
 			ClassFeatureOptions(["occultist", "occult rites", "rite of prowess: dueling", true, 'remove']);
 			ClassFeatureOptions(["occultist", "occult rites", "rite of prowess: great weapon fighting", true, 'remove']);
 		},
+		prereqeval : function(v) { 
+			return classes.known.occultist.subclass.indexOf("shaman") !== -1 ? true : "skip"; 
+		}
 		
 	},
 
@@ -1759,8 +1841,8 @@ var ShamanRites = { //The list of all Shaman-specific Rites
 		limfeaname : "Shaman's Touch Attack",
 		action : ["bonus action", " (after touch cantrip)"],
 		prereqeval : function(v) { 
-			return (classes.known.occultist.level >= 7);
-		},
+			return classes.known.occultist.subclass.indexOf("shaman") === -1 ? "skip" : classes.known.occultist.level >= 7 ? true : false; 
+		}
 	},
 	strength_spirit : {
 		name : "Strength of Spirit (prereq: 7th level Occultist, more Str. than Wis.)", 				
@@ -1771,8 +1853,8 @@ var ShamanRites = { //The list of all Shaman-specific Rites
 		]),
 		scorestxt : "+2 Wisdom, but no higher than Strength.",
 		prereqeval : function(v) { 
-			return ((classes.known.occultist.level >= 7) && (What('Str') > What('Wis')));
-		},
+			return classes.known.occultist.subclass.indexOf("shaman") === -1 ? "skip" : ((classes.known.occultist.level >= 7) && (What('Str') > What('Wis'))) ? true : false; 
+		}
 	},
 	warding_power : {
 		name : "Warding Power", 				
@@ -1785,6 +1867,9 @@ var ShamanRites = { //The list of all Shaman-specific Rites
 			spells : ["shield"],
 			selection : ["shield"],
 		},
+		prereqeval : function(v) { 
+			return classes.known.occultist.subclass.indexOf("shaman") !== -1 ? true : "skip"; 
+		}
 	},
 };
 
@@ -1895,57 +1980,7 @@ ClassList["occultist"] = {
 				return (n < 2 ? 0 : n < 5 ? 2 : n < 7 ? 3 : n < 9 ? 4 : n < 12 ? 5 : n < 15 ? 6 : n < 18 ? 7 : 8);
 			}),	
 			extraname : "Occult Rites",			
-			extrachoices : [], //So the eval function/s have something to push to.
-			
-			//When this feature is added, this eval adds all the shared Rites extrachoices, then checks for the selected subclass, and adds the appropriate Rites entries to the extrachoices menu.
-			eval : function() {
-				var theObj = ClassList["occultist"].features["occult rites"]; //The feature itself, var for shorthand
-				var theSClass = classes.known.occultist.subclass; //The subclass, var for shorthand
-				
-				for (x in OccultRitesAll) {
-					theObj.extrachoices.push(OccultRitesAll[x].name);
-					theObj[OccultRitesAll[x].name.toLowerCase()] = OccultRitesAll[x];
-				}
-				
-				//I couldn't get switch statements working.
-				//The second condition in these checks whether the character has the Stolen Techniques feature				
-				if (theSClass.indexOf("witch") !== -1) {
-					for (x in WitchRites) {
-						//Push the name of the extrachoice to the extrachoices array.
-						theObj.extrachoices.push(WitchRites[x].name);
-						//Push an entry to the class feature with the name of the extrachoices entry (lowercase) that is the appropriate Rite.
-						theObj[WitchRites[x].name.toLowerCase()] = WitchRites[x];
-					}
-				}
-				if (theSClass.indexOf("hedge mage") !== -1) {
-					for (x in HedgeRites) {
-						//Push the name of the extrachoice to the extrachoices array.
-						theObj.extrachoices.push(HedgeRites[x].name);
-						//Push an entry to the class feature with the name of the extrachoices entry (lowercase) that is the appropriate Rite.
-						theObj[HedgeRites[x].name.toLowerCase()] = HedgeRites[x];
-					}
-				}
-				if (theSClass.indexOf("oracle") !== -1) {
-					for (x in OracleRites) {
-						//Push the name of the extrachoice to the extrachoices array.
-						theObj.extrachoices.push(OracleRites[x].name);
-						//Push an entry to the class feature with the name of the extrachoices entry (lowercase) that is the appropriate Rite.
-						theObj[OracleRites[x].name.toLowerCase()] = OracleRites[x];
-					}
-				}
-				if (theSClass.indexOf("shaman") !== -1) {
-					for (x in ShamanRites) {
-						//Push the name of the extrachoice to the extrachoices array.
-						theObj.extrachoices.push(ShamanRites[x].name);
-						//Push an entry to the class feature with the name of the extrachoices entry (lowercase) that is the appropriate Rite.
-						theObj[ShamanRites[x].name.toLowerCase()] = ShamanRites[x];
-					}
-				}
-			},
-			//Clears the extrachoices array when this feature is removed, prevents options doubling in the event someone changes occultist subclasses on the sheet without using a blank one
-			removeeval : function () {
-				ClassList["occultist"].features["occult rites"].extrachoices = [];
-			}
+			extrachoices : [], //So the RunFunctionAtEnd at the bottom of the script has something to push to.
 		},
 		"traditional expertise" : {
 			name : "Traditional Expertise",
@@ -2410,45 +2445,7 @@ AddSubClass("occultist", "tradition of the hedge mage", {
 					"class" : ["bard", "cleric", "druid", "wizard"],
 				},
 				
-				choices : [], //So the eval functions have something to push to.
-				
-				//When this code is run, it pushes all Occult Rite choices, including from other subclasses to the choices array, excluding those already selected, and those that have a prereq.
-				//Uses similar code to the base feature that adds rites.
-				//Won't exclude choices made after the feature was added. 
-				eval : function(lvl, chc) {
-					var theObj = ClassSubList["occultist-tradition of the hedge mage"].features["subclassfeature6"]; //The feature itself, var for shorthand
-					
-					for (x in OccultRitesAll) {
-						if ((GetFeatureChoice('class', 'occultist', 'occult rites', true).indexOf(OccultRitesAll[x].name.toLowerCase()) == -1) && (OccultRitesAll[x].name.indexOf("prereq") == -1)) {
-							theObj.choices.push(OccultRitesAll[x].name);
-							theObj[OccultRitesAll[x].name.toLowerCase()] = OccultRitesAll[x];
-						}
-					}
-					for (x in WitchRites) {
-						if ((GetFeatureChoice('class', 'occultist', 'occult rites', true).indexOf(WitchRites[x].name.toLowerCase()) == -1) && (WitchRites[x].name.indexOf("prereq") == -1)) {
-							theObj.choices.push(WitchRites[x].name);
-							theObj[WitchRites[x].name.toLowerCase()] = WitchRites[x];
-						}
-					}
-					for (x in HedgeRites) {
-						if ((GetFeatureChoice('class', 'occultist', 'occult rites', true).indexOf(HedgeRites[x].name.toLowerCase()) == -1) && (HedgeRites[x].name.indexOf("prereq") == -1)) {
-							theObj.choices.push(HedgeRites[x].name);
-							theObj[HedgeRites[x].name.toLowerCase()] = HedgeRites[x];
-						}
-					}
-					for (x in OracleRites) {
-						if ((GetFeatureChoice('class', 'occultist', 'occult rites', true).indexOf(OracleRites[x].name.toLowerCase()) == -1) && (OracleRites[x].name.indexOf("prereq") == -1)) {
-							theObj.choices.push(OracleRites[x].name);
-							theObj[OracleRites[x].name.toLowerCase()] = OracleRites[x];
-						}
-					}
-					for (x in ShamanRites) {
-						if ((GetFeatureChoice('class', 'occultist', 'occult rites', true).indexOf(ShamanRites[x].name.toLowerCase()) == -1) && (ShamanRites[x].name.indexOf("prereq") == -1)) {
-							theObj.choices.push(ShamanRites[x].name);
-							theObj[ShamanRites[x].name.toLowerCase()] = ShamanRites[x];
-						}
-					}
-				},
+				choices : [], //So the RunFunctionAtEnd at the bottom of the script has something to push to.
 			},
 			"subclassfeature6.1" : {
 				name : "Empowered Cantrips",
@@ -4156,3 +4153,1410 @@ SpellsList["manipulate fate"] = {
 	"\n10 \t8, 12, or 17\t20 \t2, 8, or 14"+
 	"\n\nWhen you alter a roll, you can choose to cast aside subtlety and yank the thread of fate, and select any value of the d20 as the outcome of the result, but the backlash causes you to take a number d6 equal to the difference in the value selected from the value rolled in necrotic damage. The spell immediately ends after the result is changed in this more drastic way.",
 };
+
+RunFunctionAtEnd(function() {
+	var theObj = ClassList["occultist"].features["occult rites"]; //The feature itself,  for shorthand				
+	for (x in OccultRitesAll) {
+		theObj.extrachoices.push(OccultRitesAll[x].name);
+		theObj[OccultRitesAll[x].name.toLowerCase()] = OccultRitesAll[x];
+	}
+	for (x in WitchRites) {
+		theObj.extrachoices.push(WitchRites[x].name);
+		theObj[WitchRites[x].name.toLowerCase()] = WitchRites[x];
+	}
+	for (x in HedgeRites) {
+		theObj.extrachoices.push(HedgeRites[x].name);
+		theObj[HedgeRites[x].name.toLowerCase()] = HedgeRites[x];
+	}
+	for (x in OracleRites) {
+		theObj.extrachoices.push(OracleRites[x].name);
+		theObj[OracleRites[x].name.toLowerCase()] = OracleRites[x];
+	}
+	for (x in ShamanRites) {
+		theObj.extrachoices.push(ShamanRites[x].name);
+		theObj[ShamanRites[x].name.toLowerCase()] = ShamanRites[x];
+	}
+});
+
+//This is an absolutely shocking way of doing this, but I'm out of ideas and this is giving me a headache. IDK how to check for the subclass selected inside one of these, so there's prereqs that return "skip" on all of the regular rites, while the ones below have no subclass prereqs, and are purely here to be added to the Hedge Mage's Stolen Techniques rite list.
+
+var WitchRitesNP = { //The list of all Witch-specific Rites WITHOUT SUBCLASS PREREQS
+	animate_broom : {
+		name : "Animate Broom",				
+		source : [["KT:Oc", 6]],
+		description : desc([
+			"I turn a broom or broom-shaped object into a Broom of Flying. I can make a new Broom",
+			"over the course of 8 hours, causing my previous Broom to lose its magical effect."
+		]),
+		magicitemsAdd : ["Broom of Flying"],
+	},
+	animate_hair : {
+		name : "Animate Hair",				
+		source : [["KT:Oc", 7]],
+		description : desc([
+			"As an action, I can expend a 1st level spell slot to cause my hair to lengthen, strengthen,", 
+			"and come alive for 1 minute. After using this feature, and as an action afterwards, I can",
+			"make a melee spell attack with a range of 10 ft. dealing 1d8 bludgeoning damage on hit,",
+			"increasing with level.  My reach with touch spells is also increased to 10 ft.",
+			"After hitting a large or smaller creature, I can attempt to grapple it, using my Wisdom",
+			"modifier instead of Strength. A creature can try to escape as normal, or deal 5 slashing,",
+			"fire, or acid damage to my hair to escape. My hair has an AC of 12, and I take no damage",
+			"when it is attacked.",
+		]),
+		additional : levels.map(function (n) {
+			return (n < 5 ? 1 : n < 11 ? 2 : n < 17 ? 3 : 4) + "d8 bludgeoning dmg.";
+		}),
+		action : ["action", " (summon/attack)"],
+		//Animated Hair attack entry
+		weaponOptions : {
+			baseWeapon : "unarmed strike",
+			regExpSearch : /animated hair/i,
+			name : "Animated Hair",
+			source : ["KT:Oc", 7],
+			ability : 5,
+			range : "10 ft",
+			damage : ["C", 8, "bludgeoning"],
+			abilitytodamage : false,
+			description : "Touch spells 10ft. range; Can grapple large or smaller crea. hit (Wis. mod.)", 
+		},
+		weaponsAdd : ["Animated Hair"],
+	},
+	companion_coven : {
+		name : "Companion Coven",				
+		source : [["KT:Oc", 7]],
+		description : desc([
+			"I can perform an hour-long ritual to bond with a willing creature. While both of us are",
+			"conscious and within 120 ft. of each other, I know their location at all times, and I am",
+			"able to share a number of spell slots with them.",
+			"I can cast spells using my bonded creature's spell slots as normal, and if they're able, they",
+			"can cast spells using my shared spell slots.",
+		]),
+		additional : levels.map(function (n) {
+			return Math.max(Math.floor(n/4), 1) + "lvls. of shared spell slots.";
+		})
+	},
+	curse_specialist : {
+		name : "Curse Specialist",				
+		source : [["KT:Oc", 7]],
+		description : desc([
+			"All Curses and Hexes granted by Witch Covens are added to my spell list, and I learn a",
+			"single bonus Curse or Hex",
+		]),
+		spellcastingBonus : {
+			name : "Curse Specialist",
+			spells : ["befuddling curse", "binding hex", "curse of misfortune", "curse of doom", "enfeebling hex", "karmic hex", "killing curse", "rotting curse", "swapping curse"],
+			times : 1,
+		},
+		
+		calcChanges : {
+			spellList : [
+				function(spList, spName, spType) {
+					//Add the extra spells.
+					spList.extraspells = spList.extraspells.concat(["befuddling curse", "binding hex", "curse of misfortune", "curse of doom", "enfeebling hex", "karmic hex", "killing curse", "rotting curse", "swapping curse"]);
+				},
+				"I gain all Curses and Hexes granted by Witch Covens."
+			],
+		}	
+	},
+	divine_presence : {
+		name : "Divine Presence (prereq: White Coven)",				
+		source : [["KT:Oc", 7]],
+		description : desc([
+			"My familiar is permanently under the effect of the Sanctuary spell. After dealing damage,",
+			"the effect is lost until the start of its next turn.",
+		]),
+		prereqeval : function(v) {
+			return GetFeatureChoice("classes", "occultist", "subclassfeature1.1").indexOf("white coven") != -1 ? true : false;
+		},
+		//Adds the sanctuary effect to the traits section on the familiar page.
+		calcChanges : {
+			companionCallback : [function(prefix, oCrea, bAdd, sCompType) {
+				if (sCompType !== "familiar") return;
+					var str = "\u25C6 Divine Presence: This familiar is permanently under the effect of the Sanctuary spell. After dealing damage, the effect is lost until the start of its next turn.";
+					var aFnc = bAdd ? AddString : RemoveString;
+					aFnc(prefix + "Comp.Use.Traits", str, true);
+					//This function just adds the var str to the traits section of the companion page
+			}]
+		}
+	},
+	familiar_swap : {
+		name : "Familiar Swap",				
+		source : [["KT:Oc", 7]],
+		description : desc([
+			"While my familiar is within 60 ft. of me, I can swap places with it as an action once per",
+			"short or long rest. If I cannot fit into the space my familiar occupies, this ability fails, and",
+			"I take 1d6 force damage.",
+		]),
+		action : ["action", ""],
+		usages : 1,
+		recovery : "short rest",
+	},
+	form_of_the_familiar : {
+		name : "Form of the Familiar",				
+		source : [["KT:Oc", 7]],
+		description : desc([
+			"I learn the Form of Familiar spell, and can cast it as an action once per short or long rest",
+			"without expending a spell slot.",
+		]),
+		action : ["action", ""],
+		limfeaname : "Form of Familiar",
+		usages : 1,
+		recovery : "short rest",
+		spellcastingBonus : {
+			name : "Form of Familiar",
+			spells : ["form of familiar"],
+			selection : ["form of familiar"],
+			firstCol : "oncesr",
+		},
+	},
+	light_of_the_moon : {
+		name : "Light of the Moon",				
+		source : [["KT:Oc", 7]],
+		description : desc([
+			"I learn the Faerie Fire and Moonbeam spells. When I cast them, allied creatures of my choice",
+			"within the area of effect are unaffected, and gain temporary hit points equal to my Wisdom",
+			"modifier.",
+		]),
+		spellcastingBonus : {
+			name : "Light of the Moon",
+			spells : ["faerie fire", "moonbeam"],
+			selection : ["faerie fire", "moonbeam"],
+			times : 2,
+		},
+	},
+	riding_familiar : {
+		name : "Riding Familiar",				
+		source : [["KT:Oc", 7]],
+		description : desc([
+			"If my familiar has no flying speed, once per short or long rest as an action, I can make",
+			"them one size larger than myself (up to Large), and giving them 10 Strength (if it was not",
+			"already higher than that) for 8 hours. I can revert them to normal as an action. At 12th",
+			"level, I am able to use this ability on familiars with flying speed.",
+		]),
+		action : ["action", " (enlarge/revert)"],
+		usages: 1,
+		recovery : "short rest",
+	},
+	skulking_familiar : {
+		name : "Skulking Familiar",				
+		source : [["KT:Oc", 7]],
+		description : desc([
+			"Familiars I summon gain proficiency in Dexterity (Stealth), and don't provoke opportunity",
+			"attacks when moving.",
+		]),
+		calcChanges : {
+			//companionCallback runs when a special type of familiar is added (e.g. from the find familiar spell.)
+			companionCallback : [function(prefix, oCrea, bAdd, sCompType) {
+				if (sCompType !== "familiar") return; //Check whether the companion is a familiar
+					if(!typePF) { //Check whether the sheet is the printer-friendly or not, since the sheet entries are differently named.
+						var skillFld = prefix + "Text.Comp.Use.Skills.Ste.Prof";
+					} else {
+						var skillFld = prefix + "Comp.Use.Skills.Ste.Prof";
+					}
+					
+					if(!typePF) {
+						Value(skillFld, "proficient");
+					} else {
+						Checkbox(skillFld, "proficient");
+					}
+
+					var str = "\u25C6 Skulking Familiar: This familiar gains proficiency in Dexterity (Stealth), and doesn't provoke opportunity attacks when moving.";
+					var aFnc = bAdd ? AddString : RemoveString;
+					aFnc(prefix + "Comp.Use.Traits", str, true);
+					//This function just adds the var str to the traits section of the companion page
+			}]
+		},
+	},
+	witchs_brew : {
+		name : "Witch's Brew",				
+		source : [["KT:Oc", 7]],
+		description : desc([
+			"During a short or long rest, I can infuse a spell with a casting time of one action/bonus",
+			"action into a potion, expending the appropriate spell slot in the process. Anyone who",
+			"drinks this potion as an action can cast the stored spell, using my spellcasting ability",
+			"modifier. The potion can be used until I regain the spell slot used to create it.",
+		]),
+	},
+	witchs_claws : {
+		name : "Witch's Claws",				
+		source : [["KT:Oc", 7]],
+		description : desc([
+			"As an action, I can make a melee spell attack against a creature, dealing 1d10 + my Wisdom",
+			"modifier slashing damage, increasing with level. At 6th level, I can apply my Witch's Touch",
+			"feature with this attack.",
+		]),
+		additional : levels.map(function (n) {
+			return (n < 5 ? 1 : n < 11 ? 2 : n < 17 ? 3 : 4) + "d10 slashing dmg.";
+		}),
+		//Witch's Claws attack entry
+		weaponOptions : {
+			baseWeapon : "unarmed strike",
+			regExpSearch : /witch\'s claws/i,
+			name : "Witch's Claws",
+			source : ["KT:Oc", 7],
+			ability : 5,
+			range : "10 ft",
+			damage : ["C", 10, "slashing"],
+			abilitytodamage : true,
+			description : "Can apply Witch's Touch after 6th lvl", 
+		},
+		weaponsAdd : ["Witch's Claws"],
+	},
+	witchs_hat : {
+		name : "Witch's Hat",				
+		source : [["KT:Oc", 7]],
+		description : desc([
+			"I turn a hat into a Hat of Disguise. I can make a new Hat over the course of 2 hours,",
+			"causing my previous Hat to lose its magical effect.",
+		]),
+		magicitemsAdd : ["Hat of Disguise"],
+	},
+};	
+
+var HedgeRitesNP = { //The list of all Hedge Mage-specific Rites WITHOUT SUBCLASS PREREQS
+	hedge_magic : {
+		name : "Hedge Magic",				
+		source : [["KT:Oc", 11]],
+		description : desc([
+			"I learn an additional cantrip from the lists available to me. I can select this rite multiple times.",
+		]),
+		spellcastingBonus : [{	
+			name : "Hedge Magic",
+			level : [0, 0],
+			times : 1,
+		}],
+	},
+	//Functions the same way as Occult Magic
+	hedge_magic2 : {
+		name : "Hedge Magic (2)",				
+		source : [["KT:Oc", 11]],
+		description : desc([
+			"I learn an additional cantrip from the lists available to me. I can select this rite multiple times.",
+		]),
+		spellcastingBonus : [{	
+			name : "Hedge Magic (2)",
+			"class" : ["occultist"],
+			level : [0, 0],
+			times : 1,
+		}],
+		prereqeval : function(v) { 
+			return GetFeatureChoice('class', 'occultist', 'occult rites', true).indexOf('hedge magic') != -1 ? true : "skip"; 
+		},
+	},
+	hedge_magic3 : {
+		name : "Hedge Magic (3)",				
+		source : [["KT:Oc", 11]],
+		description : desc([
+			"I learn an additional cantrip from the lists available to me. I can select this rite multiple times.",
+		]),
+		spellcastingBonus : [{	
+			name : "Hedge Magic (3)",
+			level : [0, 0],
+			times : 1,
+		}],
+		prereqeval : function(v) { 
+			return GetFeatureChoice('class', 'occultist', 'occult rites', true).indexOf('hedge magic (2)') != -1 ? true : "skip"; 
+		},
+	},
+	hedge_magic4 : {
+		name : "Hedge Magic (4)",				
+		source : [["KT:Oc", 11]],
+		description : desc([
+			"I learn an additional cantrip from the lists available to me. I can select this rite multiple times.",
+		]),
+		spellcastingBonus : [{	
+			name : "Hedge Magic (4)",
+			level : [0, 0],
+			times : 1,
+		}],
+		prereqeval : function(v) { 
+			return GetFeatureChoice('class', 'occultist', 'occult rites', true).indexOf('hedge magic (3)') != -1 ? true : "skip"; 
+		},
+	},
+	hedge_magic5 : {
+		name : "Hedge Magic (5)",				
+		source : [["KT:Oc", 11]],
+		description : desc([
+			"I learn an additional cantrip from the lists available to me. I can select this rite multiple times.",
+		]),
+		spellcastingBonus : [{	
+			name : "Hedge Magic (5)",
+			level : [0, 0],
+			times : 1,
+		}],
+		prereqeval : function(v) { 
+			return GetFeatureChoice('class', 'occultist', 'occult rites', true).indexOf('hedge magic (4)') != -1 ? true : "skip"; 
+		},
+	},
+	hedge_magic6 : {
+		name : "Hedge Magic (6)",				
+		source : [["KT:Oc", 11]],
+		description : desc([
+			"I learn an additional cantrip from the lists available to me. I can select this rite multiple times.",
+		]),
+		spellcastingBonus : [{	
+			name : "Hedge Magic (6)",
+			level : [0, 0],
+			times : 1,
+		}],
+		prereqeval : function(v) { 
+			return GetFeatureChoice('class', 'occultist', 'occult rites', true).indexOf('hedge magic (5)') != -1 ? true : "skip"; 
+		},
+	},
+	hedge_magic7 : {
+		name : "Hedge Magic (7)",				
+		source : [["KT:Oc", 11]],
+		description : desc([
+			"I learn an additional cantrip from the lists available to me. I can select this rite multiple times.",
+		]),
+		spellcastingBonus : [{	
+			name : "Hedge Magic (7)",
+			level : [0, 0],
+			times : 1,
+		}],
+		prereqeval : function(v) { 
+			return GetFeatureChoice('class', 'occultist', 'occult rites', true).indexOf('hedge magic (6)') != -1 ? true : "skip"; 
+		},
+	},
+	hedge_magic8 : {
+		name : "Hedge Magic (8)",				
+		source : [["KT:Oc", 11]],
+		description : desc([
+			"I learn an additional cantrip from the lists available to me. I can select this rite multiple times.",
+		]),
+		spellcastingBonus : [{	
+			name : "Hedge Magic (8)",
+			level : [0, 0],
+			times : 1,
+		}],
+		prereqeval : function(v) { 
+			return GetFeatureChoice('class', 'occultist', 'occult rites', true).indexOf('hedge magic (7)') != -1 ? true : "skip"; 
+		},
+	},
+	
+	i_know_that_one : {
+		name : "I Know That One!",				
+		source : [["KT:Oc", 11]],
+		description : desc([
+			"I have advantage on saving throws against and spellcasting ability checks to use the",
+			"Counterspell or Dispel Magic spells against spells I know.",
+		]),
+	},
+	manipulate_magic : {
+		name : "Manipulate Magic (prereq: 5th level Hedge Mage)",				
+		source : [["KT:Oc", 11]],
+		description : desc([
+			"I learn one Metamagic option of my choice from the Sorcerer class. Once per long rest,",
+			"I can use this option with up to three Sorcery Points for free. I can also expend a spell slot",
+			"with a level equal to the points I would spend on the option to use it.",
+		]),
+		limfeaname : "Manipulate Magic",
+		usages: 1,
+		recovery: "long rest",
+		bonusClassExtrachoices : [{
+			"class" : "sorcerer",
+			feature : "metamagic",
+			bonus : 1
+		}],
+		prereqeval : function(v) { 
+			return (classes.known.occultist.subclass === "occultist-tradition of the hedge mage" && classes.known.occultist.level >= 5);
+		},
+	},
+	mass_cantrip : {
+		name : "Mass Cantrip",				
+		source : [["KT:Oc", 11]],
+		description : desc([
+			"When I cast an Occultist cantrip that targets one or more creatures, I can make it target",
+			"additional creatures within range equal to my Proficiency Bonus. I can use this ability",
+			"once per long rest, or by expending a spell slot to target a number of creatures equal to",
+			"the spent slot's level.",
+		]),
+		usages: 1,
+		recovery: "long rest",
+	},
+	mastered_basics : {
+		name : "Mastered Basics (prereq: 15th level Hedge Mage)",				
+		source : [["KT:Oc", 11]],
+		description : desc([
+			"When I cast an Occultist spell I know using a 1st level spell slot, it is cast as if I had used a",
+			"2nd level spell slot.",
+		]),
+		prereqeval : function(v) { 
+			return (classes.known.occultist.subclass === "occultist-tradition of the hedge mage" && classes.known.occultist.level >= 15);
+		},
+	},
+	practice_makes_perfect : { //Not sure how much more I can do with this.
+		name : "Practice Makes Perfect", 				
+		source : [["KT:Oc", 11]],
+		description : desc([
+			"I choose a 1st level Occultist spell I know. I can now cast this spell without expending a",
+			"spell slot a number of times equal to half my Proficiency Bonus (rounded up) per long rest.",
+		]),
+		usagescalc : "event.value = Math.ceil(How('Proficiency Bonus')/2)",
+		usages : "1/2 Prof. bonus per",
+		recovery : "long rest",
+	},
+	practiced_reach : {
+		name : "Practiced Reach", 				
+		source : [["KT:Oc", 11]],
+		description : desc([
+			"When I use The Way I Learned It to add range to a spell, I can increase the spell's range up",
+			"to a maximum of 30 ft.",
+		]),
+	},
+	potent_cantrip : {
+		name : "Potent Cantrip (prereq: 7th level Hedge Mage)", 				
+		source : [["KT:Oc", 11]],
+		description : desc([
+			"When a creature succeeds on a saving throw against one of my cantrips, they take half of",
+			"the cantrip's damage (if any), but suffer no additional effect from it.",
+		]),
+		prereqeval : function(v) { 
+			return (classes.known.occultist.subclass === "occultist-tradition of the hedge mage" && classes.known.occultist.level >= 7);
+		},
+	},
+	savant_focus : {
+		name : "Savant Focus (prereq: 7th level Hedge Mage)", 				
+		source : [["KT:Oc", 11]],
+		description : desc([
+			"As a bonus action, I enter a state of focus, using my spell concentration to maintain it.",
+			"During this state, I have advantage on all cantrip attack rolls for 1 minute, or until I lose",
+			"my concentration.",
+		]),
+		limfeaname : "Savant Focus",
+		action : ["bonus action", ""],
+		prereqeval : function(v) { 
+			return (classes.known.occultist.subclass === "occultist-tradition of the hedge mage" && classes.known.occultist.level >= 7);
+		},
+	},
+
+	//Same as Occult Magic once again.
+	studious_mage : {
+		name : "Studious Mage (prereq: 3rd level Hedge Mage)", 				
+		source : [["KT:Oc", 11]],
+		description : desc([
+			"I learn a Wizard or Druid spell of a level lower than the highest spell level I can cast.",
+			"I can select this rite multiple times.",
+		]),
+		spellcastingBonus : {
+			name : "Studious Mage",
+			"class" : ["wizard", "druid"],
+			level : [1,9],
+		},
+		calcChanges : {
+			spellList : [
+				function(spList, spName, spType) {
+					
+					//Set the spellcastingBonus level as such.
+					if (spList.name === "Studious Mage") {
+						//Get the Occultist level, calculate what one less than the highest level castable spell is.
+						var aLvl = classes.known.occultist.level;
+						var lvl = aLvl < 5 ? 1 : aLvl < 7 ? 2 : aLvl < 9 ? 3 : aLvl < 11 ? 4 : aLvl < 13 ? 5 : aLvl < 15 ? 6 : aLvl < 17 ? 7 : 8;
+						
+						spList.level = [lvl,lvl];
+					}
+				},
+				"I learn a Wizard or Druid spell of a level lower than the highest spell level I can cast."
+			]
+		},
+		
+		prereqeval : function(v) { 
+			return (classes.known.occultist.subclass === "occultist-tradition of the hedge mage" && classes.known.occultist.level >= 3);
+		},
+	},
+	studious_mage2 : { 
+		name : "Studious Mage (2)", 				
+		source : [["KT:Oc", 11]],
+		description : desc([
+			"I learn a Wizard or Druid spell of a level lower than the highest spell level I can cast.",
+			"I can select this rite multiple times.",
+		]),
+		spellcastingBonus : {
+			name : "Studious Mage (2)",
+			"class" : ["wizard", "druid"],
+			level : [1,9],
+		},
+		calcChanges : {
+			spellList : [
+				function(spList, spName, spType) {
+					
+					//Set the spellcastingBonus level as such.
+					if (spList.name === "Studious Mage (2)") {
+						//Get the Occultist level, calculate what one less than the highest level castable spell is.
+						var aLvl = classes.known.occultist.level;
+						var lvl = aLvl < 5 ? 1 : aLvl < 7 ? 2 : aLvl < 9 ? 3 : aLvl < 11 ? 4 : aLvl < 13 ? 5 : aLvl < 15 ? 6 : aLvl < 17 ? 7 : 8;
+						
+						spList.level = [lvl,lvl];
+					}
+				},
+				"I learn a Wizard or Druid spell of a level lower than the highest spell level I can cast."
+			]
+		},
+		
+		prereqeval : function(v) { 
+			return GetFeatureChoice('class', 'occultist', 'occult rites', true).indexOf('studious mage (prereq: 3rd level hedge mage)') != -1 ? true : "skip"; 
+		},
+	},
+	studious_mage3 : { 
+		name : "Studious Mage (3)", 				
+		source : [["KT:Oc", 11]],
+		description : desc([
+			"I learn a Wizard or Druid spell of a level lower than the highest spell level I can cast.",
+			"I can select this rite multiple times.",
+		]),
+		spellcastingBonus : {
+			name : "Studious Mage (3)",
+			"class" : ["wizard", "druid"],
+			level : [1,9],
+		},
+		calcChanges : {
+			spellList : [
+				function(spList, spName, spType) {
+					
+					//Set the spellcastingBonus level as such.
+					if (spList.name === "Studious Mage (3)") {
+						//Get the Occultist level, calculate what one less than the highest level castable spell is.
+						var aLvl = classes.known.occultist.level;
+						var lvl = aLvl < 5 ? 1 : aLvl < 7 ? 2 : aLvl < 9 ? 3 : aLvl < 11 ? 4 : aLvl < 13 ? 5 : aLvl < 15 ? 6 : aLvl < 17 ? 7 : 8;
+						
+						spList.level = [lvl,lvl];
+					}
+				},
+				"I learn a Wizard or Druid spell of a level lower than the highest spell level I can cast."
+			]
+		},
+		
+		prereqeval : function(v) { 
+			return GetFeatureChoice('class', 'occultist', 'occult rites', true).indexOf('studious mage (2)') != -1 ? true : "skip"; 
+		},
+	},
+	studious_mage4 : { 
+		name : "Studious Mage (4)", 				
+		source : [["KT:Oc", 11]],
+		description : desc([
+			"I learn a Wizard or Druid spell of a level lower than the highest spell level I can cast.",
+			"I can select this rite multiple times.",
+		]),
+		spellcastingBonus : {
+			name : "Studious Mage (4)",
+			"class" : ["wizard", "druid"],
+			level : [1,9],
+		},
+		calcChanges : {
+			spellList : [
+				function(spList, spName, spType) {
+					
+					//Set the spellcastingBonus level as such.
+					if (spList.name === "Studious Mage (4)") {
+						//Get the Occultist level, calculate what one less than the highest level castable spell is.
+						var aLvl = classes.known.occultist.level;
+						var lvl = aLvl < 5 ? 1 : aLvl < 7 ? 2 : aLvl < 9 ? 3 : aLvl < 11 ? 4 : aLvl < 13 ? 5 : aLvl < 15 ? 6 : aLvl < 17 ? 7 : 8;
+						
+						spList.level = [lvl,lvl];
+					}
+				},
+				"I learn a Wizard or Druid spell of a level lower than the highest spell level I can cast."
+			]
+		},
+		
+		prereqeval : function(v) { 
+			return GetFeatureChoice('class', 'occultist', 'occult rites', true).indexOf('studious mage (3)') != -1 ? true : "skip"; 
+		},
+	},
+	studious_mage5 : { 
+		name : "Studious Mage (5)", 				
+		source : [["KT:Oc", 11]],
+		description : desc([
+			"I learn a Wizard or Druid spell of a level lower than the highest spell level I can cast.",
+			"I can select this rite multiple times.",
+		]),
+		spellcastingBonus : {
+			name : "Studious Mage (5)",
+			"class" : ["wizard", "druid"],
+			level : [1,9],
+		},
+		calcChanges : {
+			spellList : [
+				function(spList, spName, spType) {
+					
+					//Set the spellcastingBonus level as such.
+					if (spList.name === "Studious Mage (5)") {
+						//Get the Occultist level, calculate what one less than the highest level castable spell is.
+						var aLvl = classes.known.occultist.level;
+						var lvl = aLvl < 5 ? 1 : aLvl < 7 ? 2 : aLvl < 9 ? 3 : aLvl < 11 ? 4 : aLvl < 13 ? 5 : aLvl < 15 ? 6 : aLvl < 17 ? 7 : 8;
+						
+						spList.level = [lvl,lvl];
+					}
+				},
+				"I learn a Wizard or Druid spell of a level lower than the highest spell level I can cast."
+			]
+		},
+		
+		prereqeval : function(v) { 
+			return GetFeatureChoice('class', 'occultist', 'occult rites', true).indexOf('studious mage (4)') != -1 ? true : "skip"; 
+		},
+	},
+	studious_mage6 : {
+		name : "Studious Mage (6)", 				
+		source : [["KT:Oc", 11]],
+		description : desc([
+			"I learn a Wizard or Druid spell of a level lower than the highest spell level I can cast.",
+			"I can select this rite multiple times.",
+		]),
+		spellcastingBonus : {
+			name : "Studious Mage (6)",
+			"class" : ["wizard", "druid"],
+			level : [1,9],
+		},
+		calcChanges : {
+			spellList : [
+				function(spList, spName, spType) {
+					
+					//Set the spellcastingBonus level as such.
+					if (spList.name === "Studious Mage (6)") {
+						//Get the Occultist level, calculate what one less than the highest level castable spell is.
+						var aLvl = classes.known.occultist.level;
+						var lvl = aLvl < 5 ? 1 : aLvl < 7 ? 2 : aLvl < 9 ? 3 : aLvl < 11 ? 4 : aLvl < 13 ? 5 : aLvl < 15 ? 6 : aLvl < 17 ? 7 : 8;
+						
+						spList.level = [lvl,lvl];
+					}
+				},
+				"I learn a Wizard or Druid spell of a level lower than the highest spell level I can cast."
+			]
+		},
+		
+		prereqeval : function(v) { 
+			return GetFeatureChoice('class', 'occultist', 'occult rites', true).indexOf('studious mage (5)') != -1 ? true : "skip"; 
+		},
+	},
+	studious_mage7 : { 
+		name : "Studious Mage (7)", 				
+		source : [["KT:Oc", 11]],
+		description : desc([
+			"I learn a Wizard or Druid spell of a level lower than the highest spell level I can cast.",
+			"I can select this rite multiple times.",
+		]),
+		spellcastingBonus : {
+			name : "Studious Mage (7)",
+			"class" : ["wizard", "druid"],
+			level : [1,9],
+		},
+		calcChanges : {
+			spellList : [
+				function(spList, spName, spType) {
+					
+					//Set the spellcastingBonus level as such.
+					if (spList.name === "Studious Mage (7)") {
+						//Get the Occultist level, calculate what one less than the highest level castable spell is.
+						var aLvl = classes.known.occultist.level;
+						var lvl = aLvl < 5 ? 1 : aLvl < 7 ? 2 : aLvl < 9 ? 3 : aLvl < 11 ? 4 : aLvl < 13 ? 5 : aLvl < 15 ? 6 : aLvl < 17 ? 7 : 8;
+						
+						spList.level = [lvl,lvl];
+					}
+				},
+				"I learn a Wizard or Druid spell of a level lower than the highest spell level I can cast."
+			]
+		},
+		
+		prereqeval : function(v) { 
+			return GetFeatureChoice('class', 'occultist', 'occult rites', true).indexOf('studious mage (6)') != -1 ? true : "skip"; 
+		},
+	},
+	studious_mage8 : { 
+		name : "Studious Mage (8)", 				
+		source : [["KT:Oc", 11]],
+		description : desc([
+			"I learn a Wizard or Druid spell of a level lower than the highest spell level I can cast.",
+			"I can select this rite multiple times.",
+		]),
+		spellcastingBonus : {
+			name : "Studious Mage (8)",
+			"class" : ["wizard", "druid"],
+			level : [1,9],
+		},
+		calcChanges : {
+			spellList : [
+				function(spList, spName, spType) {
+					
+					//Set the spellcastingBonus level as such.
+					if (spList.name === "Studious Mage (8)") {
+						//Get the Occultist level, calculate what one less than the highest level castable spell is.
+						var aLvl = classes.known.occultist.level;
+						var lvl = aLvl < 5 ? 1 : aLvl < 7 ? 2 : aLvl < 9 ? 3 : aLvl < 11 ? 4 : aLvl < 13 ? 5 : aLvl < 15 ? 6 : aLvl < 17 ? 7 : 8;
+						
+						spList.level = [lvl,lvl];
+					}
+				},
+				"I learn a Wizard or Druid spell of a level lower than the highest spell level I can cast."
+			]
+		},
+		
+		prereqeval : function(v) { 
+			return GetFeatureChoice('class', 'occultist', 'occult rites', true).indexOf('studious mage (7)') != -1 ? true : "skip"; 
+		},
+	},
+	
+	simple_magic : {
+		name : "Simple Magic (prereq: 5th level Hedge Mage)", 				
+		source : [["KT:Oc", 11]],
+		description : desc([
+			"I can sacrifice a spell slot of 3rd level or higher to gain two 1st level spell slots, or two",
+			"2nd level spell slots if I sacrifice a 5th level spell slot. I can store up to double my usual",
+			"maximum spell slots this way.",
+		]),
+		additional : levels.map(function (n) {
+			return (n < 3 ? (n + 1) : 4) + " 1st lvl., " + (n < 4 ? 2 : 3) + " 5th lvl. slots max.";
+		}),
+		prereqeval : function(v) { 
+			return (classes.known.occultist.subclass === "occultist-tradition of the hedge mage" && classes.known.occultist.level >= 5);
+		},
+	},
+	utility_master : {
+		name : "Utility Master (prereq: 5th level Hedge Mage)", 				
+		source : [["KT:Oc", 11]],
+		description : desc([
+			"My cantrips that lift weight, affect external elements, target a ground area, or cause",
+			"minor instantaneous effects can lift twice as much, target twice the area, or maintain an",
+			"additional effect.",
+		]),
+		prereqeval : function(v) { 
+			return (classes.known.occultist.subclass === "occultist-tradition of the hedge mage" && classes.known.occultist.level >= 5);
+		},
+	},
+};
+
+var OracleRitesNP = { //The list of all Oracle-specific Rites WITHOUT SUBCLASS PREREQS
+	death_watcher : {
+		name : "Death Watcher (prereq: 12th level Occultist)", 				
+		source : [["KT:Oc", 14]],
+		description : desc([
+			"Once per long rest, when an ally that can see or hear me would drop to 0 hit points as",
+			"a result of taking damage, I can cause them to drop to 1 hit point instead as a reaction.",
+		]),
+		limfeaname: "Death Watcher",
+		usages : 1,
+		recovery : "long rest",
+		action : ["reaction", ""],
+		prereqeval : function(v) { 
+			return (classes.known.occultist.level >= 12);
+		},
+	},
+	divine_miracle : {
+		name : "Divine Miracle", 				
+		source : [["KT:Oc", 14]],
+		description : desc([
+			"I learn a Cleric spell of my choice as a bonus spell. The spell must be of a level I can cast.",
+			"It counts as an Occultist spell for me.",
+		]),
+		spellcastingBonus : { //just adds a bonus cleric spell, logically a player would pick a spell of a level they can cast, so I've excluded this from the description even though it's in the write up.
+			name : "Divine Miracle",
+			"class" : ["cleric"],
+			level : [1, 9],
+		},
+		calcChanges : {
+			spellList : [
+				function(spList, spName, spType) {
+					
+					//Set the spellcastingBonus level as such.
+					if (spList.name === "Divine Miracle") {
+						//Get the Occultist level, calculate what the highest level castable spell is.
+						var aLvl = classes.known.occultist.level;
+						var lvl = aLvl < 3 ? 1 : aLvl < 5 ? 3 : aLvl < 7 ? 4 : aLvl < 9 ? 5 : aLvl < 11 ? 5 : aLvl < 13 ? 6 : aLvl < 15 ? 7 : aLvl < 17 ? 8 : 9;
+						
+						//The spells shown by the bonus spell drop down range in level from 1 to the max castable 
+						spList.level = [1,lvl];
+					}
+				},
+				"I learn a Cleric spell of my choice as a bonus spell. The spell must be of a level I can cast."
+			]
+		},
+	},
+	divine_sight : {
+		name : "Divine Sight (prereq: 15th level Occultist)", 				
+		source : [["KT:Oc", 14]],
+		description : desc([
+			"If I have Blindsight, I gain Truesight with an equal range.",
+		]),
+		vision : [["Truesight (if Blindsight, equal to its range)", ""]],
+		prereqeval : function(v) { 
+			return (classes.known.occultist.level >= 15);
+		},
+	},
+	oracles_sight : {
+		name : "Oracle's Sight", 				
+		source : [["KT:Oc", 14]],
+		description : desc([
+			"I gain 15ft of Blindsight. If under the Blinded condition for more than a minute, the range",
+			"of my Blindsight is doubled while still under the condition.",
+		]),
+		vision : [["Blindsight", 15]],
+		prereqeval : function(v) { 
+			return GetFeatureChoice('class', 'occultist', 'occult rites', true).indexOf("blind") != -1 ? "skip" : true; 
+		},
+	},
+	
+	revelation_darkness : {
+		name : "Revelation of Darkness (prereq: Mystery of Darkness)", 				
+		source : [["KT:Oc", 14]],
+		description : desc([
+			"When a spell of 1st level or higher I cast creates dim light or darkness, or if it obscures me",
+			"from the vision of one or more creatures, I can teleport to another space within 30 ft. that is",
+			"in dim light or darkness.",
+			"If multiple Revelations apply to a spell, I can only choose one to activate.",
+		]),
+
+		prereqeval : function(v) { 
+			return GetFeatureChoice('class', 'occultist', 'subclassfeature1', true).indexOf('mystery of darkness') != -1 ? true : false; 
+		},
+	},
+	revelation_death : {
+		name : "Revelation of Death (prereq: Mystery of Death)", 				
+		source : [["KT:Oc", 14]],
+		description : desc([
+			"When a spell of 1st level or higher I cast deals cold or necrotic damage, I can add my",
+			"Wisdom modifier to one damage roll of that spell. This reduces my movement by 5 ft. until",
+			"the end of my next turn. If my movement is already reduced, my movement is reduced by a",
+			"further 5 ft. and the duration is extended.",
+			"If multiple Revelations apply to a spell, I can only choose one to activate.",
+		]),
+
+		prereqeval : function(v) { 
+			return GetFeatureChoice('class', 'occultist', 'subclassfeature1', true).indexOf('mystery of death') != -1 ? true : false; 
+		},
+	},
+	revelation_fire : {
+		name : "Revelation of Fire (prereq: Mystery of Fire)", 				
+		source : [["KT:Oc", 14]],
+		description : desc([
+			"When a spell of 1st level or higher I cast deals fire damage, I can shroud myself in fire until",
+			"the end of my next turn, gaining half cover, and dealing 1d6 fire damage to creatures that",
+			"hit me with melee attacks of end their turns within 5 ft. of me. At the start of my next turn,",
+			"I take 1 fire damage.",
+			"If multiple Revelations apply to a spell, I can only choose one to activate.",
+		]),
+
+		prereqeval : function(v) { 
+			return GetFeatureChoice('class', 'occultist', 'subclassfeature1', true).indexOf('mystery of fire') != -1 ? true : false; 
+		},
+	},
+	revelation_life : {
+		name : "Revelation of Life (prereq: Mystery of Life)", 				
+		source : [["KT:Oc", 14]],
+		description : desc([
+			"When a spell of 1st level or higher I cast restores hit points, or grants temporary hit points,",
+			"I can heal a creature within 30 ft. other than myself for a number of hit points equal to my",
+			"Occultist level, reducing my own current hit points by half that amount. I cannot heal",
+			"undead, constructs, or creatures at 0 hit points with this ability.",
+			"If multiple Revelations apply to a spell, I can only choose one to activate.",
+		]),
+
+		prereqeval : function(v) { 
+			return GetFeatureChoice('class', 'occultist', 'subclassfeature1', true).indexOf('mystery of life') != -1 ? true : false; 
+		},
+	},
+	revelation_light : {
+		name : "Revelation of Light (prereq: Mystery of Light)", 				
+		source : [["KT:Oc", 14]],
+		description : desc([
+			"When I cast the Prismatic Flash spell, or a spell of 1st level or higher that sheds 5 or more",
+			"ft. of bright light, as a bonus action I can force a creature within 30 ft. of the light to",
+			"succeed on a Dexterity saving throw, or become blinded until the start of my next turn.",
+			"Creatures that don't rely on sight, or that can perceive illusions as false are unaffected.",
+			"If multiple Revelations apply to a spell, I can only choose one to activate.",
+		]),
+		limfeaname : "Revelation of Light",
+		action : ["bonus action", ""],
+
+		prereqeval : function(v) { 
+			return GetFeatureChoice('class', 'occultist', 'subclassfeature1', true).indexOf('mystery of light') != -1 ? true : false; 
+		},
+	},
+	revelation_souls : {
+		name : "Revelation of Souls (prereq: Mystery of Souls)", 				
+		source : [["KT:Oc", 14]],
+		description : desc([
+			"When I cast a spell of 1st level or higher, I can summon a medium sized Benevolent or",
+			"Tormented Spirit to an empty space within 30 ft. If the Spirit is Benevolent, the first creature",
+			"to enter its space gains 1d4 + the triggering spell's level in hit points. If it is Tormented, they",
+			"take the same amount in necrotic damage instead.",
+			"If multiple Revelations apply to a spell, I can only choose one to activate.",
+		]),
+
+		prereqeval : function(v) { 
+			return GetFeatureChoice('class', 'occultist', 'subclassfeature1', true).indexOf('mystery of souls') != -1 ? true : false; 
+		},
+	},
+	revelation_war : {
+		name : "Revelation of War (prereq: Mystery of War)", 				
+		source : [["KT:Oc", 15]],
+		description : desc([
+			"When I cast a spell of 1st level or higher, I can make a single melee weapon attack as a",
+			"bonus action. After reaching 6th level, I can trigger this Revelation after casting an Occultist",
+			"cantrip.",
+			"If multiple Revelations apply to a spell, I can only choose one to activate.",
+		]),
+
+		prereqeval : function(v) { 
+			return GetFeatureChoice('class', 'occultist', 'subclassfeature1', true).indexOf('mystery of war') != -1 ? true : false; 
+		},
+	},
+	
+	touch_fire : {
+		name : "Touch of Fire (prereq: Mystery of Fire)", 				
+		source : [["KT:Oc", 15]],
+		description : desc([
+			"I learn the Burn cantrip. Additionally, as a bonus action, I can take 1 fire damage to cause",
+			"a weapon I'm carrying to burst into flames for 1 minute, or until I let go of it. While",
+			"burning, it sheds 10 ft. of bright light, and another 10 ft. of dim light, and deals an extra",
+			"1d6 fire damage on hit.",
+		]),
+		spellcastingBonus : {
+			name : "Touch of Fire",
+			spells : ["burn"],
+			selection : ["burn"],
+		},
+		limfeaname : "Touch of Fire",
+		action : ["bonus action", " (ignite)"],
+		prereqeval : function(v) { 
+			return GetFeatureChoice('class', 'occultist', 'subclassfeature1', true).indexOf('mystery of fire') != -1 ? true : false; 
+		},
+	},
+	truth_darkness : {
+		name : "Truth of Darkness (prereq: Mystery of Darkness)", 				
+		source : [["KT:Oc", 15]],
+		description : desc([
+			"The range of any Darkvision or Blindsight I have is doubled. If I have neither, I gain",
+			"Darkvision to 60 ft.",
+		]),
+		vision : [
+			["Darkvision", 30], //Doubled by the next entry
+			["Darkvision", "*2"], 
+			["Blindsight", "*2"]
+		],
+		prereqeval : function(v) { 
+			return GetFeatureChoice('class', 'occultist', 'subclassfeature1', true).indexOf('mystery of darkness') != -1 ? true : false; 
+		},
+	},
+	truth_death : {
+		name : "Truth of Death (prereq: Mystery of Death)", 				
+		source : [["KT:Oc", 15]],
+		description : desc([
+			"Necrotic damage I deal ignores resistance, and treats immunity as resistance. Dealing",
+			"necrotic damage also inflicts my Touch of Death on the target, and any hit points they",
+			"gain are halved for the duration of it.",
+		]),
+		prereqeval : function(v) { 
+			return GetFeatureChoice('class', 'occultist', 'subclassfeature1', true).indexOf('mystery of death') != -1 ? true : false; 
+		},
+	},
+	truth_fire : {
+		name : "Truth of Fire (prereq: Mystery of Fire)", 				
+		source : [["KT:Oc", 15]],
+		description : desc([
+			"When I roll fire damage, I can reroll any number of the damage dice, and I must use the",
+			"new rolls. If I reroll all the damage roll's dice, the damage bypasses any resistance. For",
+			"each die I reroll, I take 1 fire damage.",
+		]),
+		prereqeval : function(v) { 
+			return GetFeatureChoice('class', 'occultist', 'subclassfeature1', true).indexOf('mystery of fire') != -1 ? true : false; 
+		},
+	},
+	truth_life : {
+		name : "Truth of Life (prereq: Mystery of Life)", 				
+		source : [["KT:Oc", 15]],
+		description : desc([
+			"When a creature dies within 60 ft. of me, I can use my reaction to give it hit points equal",
+			"to my Wisdom modifier, or the maximum hit points of another target creature within 60 ft.,",
+			"whichever is lowest.",
+		]),
+		limfeaname : "Truth of Life",
+		action : ["reaction", ""],
+		prereqeval : function(v) { 
+			return GetFeatureChoice('class', 'occultist', 'subclassfeature1', true).indexOf('mystery of life') != -1 ? true : false; 
+		},
+	},
+	truth_light : {
+		name : "Truth of Light (prereq: Mystery of Light)", 				
+		source : [["KT:Oc", 15]],
+		description : desc([
+			"Magical bright light I create reveals invisible creatures, and imposes disadvantage on their",
+			"rolls to hide within it. It also grants advantage on saving throws and ability checks against",
+			"illusions. As a bonus action, I can remove these effects from a source of bright light for the",
+			"duration it is active.",
+		]),
+		limfeaname : "Truth of Light",
+		action : ["bonus action ", " (remove effect)"],
+		prereqeval : function(v) { 
+			return GetFeatureChoice('class', 'occultist', 'subclassfeature1', true).indexOf('mystery of light') != -1 ? true : false; 
+		},
+	},
+	truth_souls : {
+		name : "Truth of Souls (prereq: Mystery of Souls)", 				
+		source : [["KT:Oc", 15]],
+		description : desc([
+			"I have advantage on Constitution saving throws to maintain concentration on spells",
+			"granted by my Mystery of Souls.",
+		]),
+		prereqeval : function(v) { 
+			return GetFeatureChoice('class', 'occultist', 'subclassfeature1', true).indexOf('mystery of souls') != -1 ? true : false; 
+		},
+	},
+	truth_war : {
+		name : "Truth of War (prereq: Revelation of War, 5th level Occultist)", 				
+		source : [["KT:Oc", 15]],
+		description : desc([
+			"When I cast a spell of 1st level or higher, on the next melee weapon attack I hit before my",
+			"turn ends, I can force the target of that attack to make a saving throw against my Spell",
+			"Save DC, suffering from a condition based on the level of the spell cast (I can choose a",
+			"lower level's condition):",
+			"   Spell Level\t Condition\t Save\t",
+			"    1st\t Prone\t Strength",
+			"    2nd\t Poisoned\t Constitution",
+			"    3rd\t Frightened\t Wisdom",
+			"    4th\t Blinded\t Constitution",
+			"    5th\t Restrained\t Strength",
+			"    6th+\t Stunned\t Constitution",
+		]),
+		prereqeval : function(v) { 
+			return ((classes.known.occultist.level >= 5) && (GetFeatureChoice('class', 'occultist', 'occult rites', true).indexOf('revelation of war (prereq: mystery of war)') != -1));
+		},
+	},
+	
+	twin_revelation : {
+		name : "Twin Revelation (prereq: 9th level Occultist)", 				
+		source : [["KT:Oc", 15]],
+		description : desc([
+			"When casting a spell that would invoke a Revelation, I can invoke two Revelations",
+			"simultaneously instead.",
+		]),
+		prereqeval : function(v) { 
+			return classes.known.occultist.level >= 9; 
+		},
+	},
+	halo_mystery : {
+		name : "Halo of Mystery (prereq: 15th level Occultist)", 				
+		source : [["KT:Oc", 15]],
+		description : desc([
+			"Whenever I roll initiative, or as a bonus action at any time, I invoke one of my known",
+			"Mysteries to give myself a Halo, which grants me a specific effect until another Mystery is",
+			"invoked, or until it is dismissed as a bonus action:",
+			"\u2022 Darkness: You have half cover against attacks, and are always considered to be in dim",
+			"light regardless of your surroundings.",
+			
+			"\u2022 Death: I gain resistance to necrotic damage, and if I am reduced to 0 hit points, I can",
+			"make a Wisdom saving throw (DC 10 + the damage taken) to be reduced to 1 hit point.",
+			
+			"\u2022 Fire: I shed bright light for 5 ft., and dim light for another 5 ft. I gain resistance to fire",
+			"damage, and immunity to fire damage from my own spells.",
+			
+			"\u2022 Life: When I restore a creatures hit points, they gain temporary hit points equal to half",
+			"the amount I restored.",
+			
+			"\u2022 Light: I shed bright light for 20 ft., and dim light for another 20 ft., interacting with Truth",
+			"of Light. I gain resistance to radiant damage.",
+			
+			"\u2022 Souls: I gain a flying speed of 20 ft. and can pass through creatures, and objects less than",
+			"a foot thick. I ignore all difficult terrain.",
+			
+			"\u2022 War: When I take damage, I can subtract my Wisdom modifier from the amount I take, to",
+			"a minimum of 1.",
+		]),
+		limfeaname : "Halo of Mystery",
+		action : ["bonus action", " (invoke/dismiss)"],
+		prereqeval : function(v) { 
+			return classes.known.occultist.level >= 15; 
+		},
+	},
+};
+
+var ShamanRitesNP = { //The list of all Shaman-specific Rites WITHOUT SUBCLASS PREREQS
+	avatar_elements : {
+		name : "Avatar of the Elements (prereq: 11th level Shaman)", 				
+		source : [["KT:Oc", 16]],
+		description : desc([
+			"I learn the Form of Fire, Form of Ice, and Form of Stone spells. When casting these spells,",
+			"I can choose to shorten the duration of them to 1 minute. Doing so removes the",
+			"concentration requirement.",
+		]),
+		spellcastingBonus : {
+			name : "Avatar of the Elements",
+			spells : ["form of fire", "form of ice", "form of stone"],
+			selection : ["form of fire", "form of ice", "form of stone"],
+			times : 3,
+		},
+		prereqeval : function(v) { 
+			return (classes.known.occultist.subclass === "occultist-tradition of the shaman" && classes.known.occultist.level >= 11);
+		},
+	},
+	dance_spirits : {
+		name : "Dance of the Spirits (prereq: 5th level Occultist)", 				
+		source : [["KT:Oc", 17]],
+		description : desc([
+			"When I cast the Spirit Guardians spell, I can choose the spell's damage type from cold,",
+			"fire, lightning, necrotic, and radiant regardless of alignment. Additionally, I have advantage",
+			"on Constitution saving throws maintain concentration on Spirit Guardian and other",
+			"spirit-summoning spells.",
+		]),
+		savetxt : { text : ["Adv. on Con. saves for Spirit Guardians, other spirit spells"] },
+		prereqeval : function(v) { 
+			return (classes.known.occultist.level >= 5);
+		},
+	},
+	detonate_spirit : {
+		name : "Detonate Spirit", 				
+		source : [["KT:Oc", 17]],
+		description : desc([
+			"I can detonate a spirit manifested by my Call Spirit feature as an action. When I do so,",
+			"all creatures within 10 ft. of it must make a Dexterity saving throw, taking twice the spirit's",
+			"manifested damage on a failed save, or half that on a success if was manifested with a",
+			"spell slot. The spirit disappears after using this ability.",
+		]),
+		action : ["action", ""],
+	},
+	elemental_weapons : {
+		name : "Elemental Weapons (prereq: Fists of Fire or Ice Weapon cantrip)", 				
+		source : [["KT:Oc", 17]],
+		description : desc([
+			"When I use the Fists of Fire or Ice Weapon cantrips, the damage die of the created weapon",
+			"is raised to the next die up.",
+		]),
+		calcChanges : {
+			atkAdd : [
+				function (fields, v) {
+					if ((/ice/i).test(v.WeaponTextName) || (/fists of fire/i).test(v.WeaponTextName)) {
+						fields.Description += (fields.Description ? '; ' : '') + 'Use next damage die up';
+					};
+				},
+				"The damage die of my Fists of Fire and Ice Weapons are increased to the next die up."
+			],
+		},
+		prereqeval : function(v) { 
+			return (isSpellUsed('fists of fire', true) || isSpellUsed('ice weapon', true)); 
+		},
+	},
+	energized_weapon : {
+		name : "Energized Weapon (prereq: 3rd level Occultist)", 				
+		source : [["KT:Oc", 17]],
+		description : desc([
+			"While I am bonded with an empowered spirit from my Call Spirit and Empowered Spirits",
+			"features, as a bonus action I can cause my next weapon attack to deal twice the additional",
+			"damage. If manifested, the spirit is recalled when I do this, and after attacking, the spirit",
+			"is released entirely.",
+		]),
+		limfeaname : "Energized Weapon",
+		action : ["bonus action", ""],
+		prereqeval : function(v) { 
+			return (classes.known.occultist.level >= 3);
+		},
+	},
+	guidance_spirits : {
+		name : "Guidance of the Spirits (prereq: 3rd level Occultist)", 				
+		source : [["KT:Oc", 17]],
+		description : desc([
+			"When I expend a spell slot as part of my Empowered Spirits feature, I can give the spirit",
+			"proficiency in a number of skills equal to the level of the spell slot used to empower it.",
+			"While the spirit isn't manifested, I gain proficiency with these skills.",
+			"If I expend a 5th level or higher spell slot, I can exchange three skill proficiencies to gain",
+			"expertise in one skill.",
+		]),
+		prereqeval : function(v) { 
+			return (classes.known.occultist.level >= 3);
+		},
+	},
+	mistwalker : {
+		name : "Mistwalker", 				
+		source : [["KT:Oc", 17]],
+		description : desc([
+			"I can see through fog, mist, and smoke. While shrouded by any of these, I also have half cover.",
+		]),
+	},
+	
+	primal_earth : {
+		name : "Primal Earth", 				
+		source : [["KT:Oc", 17]],
+		description : desc([
+			"I learn the Create Pit, Earth Ripple, Seismic Wave, Orbital Stones, and Fissure spells.",
+		]),
+		spellcastingExtra : ["create pit", "earth ripple", "seismic wave", "orbital stones", "fissure"],
+	},
+	primal_fire : {
+		name : "Primal Fire", 				
+		source : [["KT:Oc", 17]],
+		description : desc([
+			"I learn the Burning Hands, Scorching Ray, Fireball, Wall of Fire, and Pyroclastic Lance spells.",
+		]),
+		spellcastingExtra : ["burning hands", "scorching ray", "fireball", "wall of fire", "pyroclastic lance"],
+	},
+	primal_ice : {
+		name : "Primal Ice", 				
+		source : [["KT:Oc", 17]],
+		description : desc([
+			"I learn the Arctic Breath, Cold Snap, Sleet Storm, Ice Storm, and Cone of Cold spells.",
+		]),
+		spellcastingExtra : ["arctic breath", "cold snap", "sleet storm", "ice storm", "cone of cold"],
+	},
+	primal_storm : {
+		name : "Primal Storm", 				
+		source : [["KT:Oc", 17]],
+		description : desc([
+			"I learn the Thunderwave, Gust of Wind, Lightning Bolt, Jumping Jolt, and Sky Burst spells.",
+		]),
+		spellcastingExtra : ["thunderwave", "gust of wind", "lightning bolt", "jumping jolt", "sky burst"],
+	},
+	
+	radiate_power : {
+		name : "Radiate Power (prereq: 15th level Occultist)", 				
+		source : [["KT:Oc", 18]],
+		description : desc([
+			"While I'm bonded to a spirit, as a bonus action I can force all creatures within 5 ft. of me",
+			"(or the spirit, if it's manifested) to make a Dexterity saving throw against my spell save",
+			"DC, taking the spirit's manifested damage on a fail, or half that amount on a success.",
+		]),
+		limfeaname : "Radiate Power",
+		action : ["bonus action", ""],
+		prereqeval : function(v) { 
+			return (classes.known.occultist.level >= 15);
+		},
+	},
+	
+	rite_prowess1 : {
+		name : "Rite of Prowess: Dueling", 				
+		source : [["KT:Oc", 18]],
+		description : desc([
+			"I gain the Dueling Fighting Style. +2 to damage rolls when wielding a melee weapon in",
+			"one hand and no other weapons.",
+		]),
+		calcChanges : {
+			atkCalc : [
+				function (fields, v, output) {
+					for (var i = 1; i <= FieldNumbers.actions; i++) {
+						if ((/off.hand.attack/i).test(What('Bonus Action ' + i))) return;
+					};
+					if (v.isMeleeWeapon && !v.isNaturalWeapon && !(/((^|[^+-]\b)2|\btwo).?hand(ed)?s?\b/i).test(fields.Description)) output.extraDmg += 2;
+				},
+				"When I'm wielding a melee weapon in one hand and no weapon in my other hand, I do +2 damage with that melee weapon. This condition will always be false if the bonus action 'Off-hand Attack' exists."
+			]
+		},
+		//Deselects other Rite of Prowess objects when selected.
+		eval : function() {
+			ClassFeatureOptions(["occultist", "occult rites", "rite of prowess: great weapon fighting", true, 'remove']);
+			ClassFeatureOptions(["occultist", "occult rites", "rite of prowess: two-weapon fighting", true, 'remove']);
+		},
+	},
+	rite_prowess2 : {
+		name : "Rite of Prowess: Great Weapon Fighting", 				
+		source : [["KT:Oc", 18]],
+		description : desc([
+			"I gain the Great Weapon Fighting Style. Reroll 1 or 2 on damage if wielding",
+			"two-handed/versatile melee weapon in both hands.",
+		]),
+		calcChanges : {
+			atkAdd : [
+				function (fields, v) {
+					if (v.isMeleeWeapon && (/(\bversatile|((^|[^+-]\b)2|\btwo).?hand(ed)?s?)\b/i).test(fields.Description)) {
+						fields.Description += (fields.Description ? '; ' : '') + 'Re-roll 1 or 2 on damage die' + ((/versatile/i).test(fields.Description) ? ' when two-handed' : '');
+					}
+				},
+				"While wielding a two-handed or versatile melee weapon in two hands, I can re-roll a 1 or 2 on any damage die once."
+			]
+		},
+		eval : function() {
+			ClassFeatureOptions(["occultist", "occult rites", "rite of prowess: dueling", true, 'remove']);
+			ClassFeatureOptions(["occultist", "occult rites", "rite of prowess: two-weapon fighting", true, 'remove']);
+		},
+	},
+	rite_prowess3 : {
+		name : "Rite of Prowess: Two-Weapon Fighting", 				
+		source : [["KT:Oc", 18]],
+		description : desc([
+			"I gain the Two-Weapon Fighting Style. I can add my ability modifier to the damage of my",
+			"off-hand attacks",
+		]),
+		calcChanges : {
+			atkCalc : [
+				function (fields, v, output) {
+					if (v.isOffHand) output.modToDmg = true;
+				},
+				"When engaging in two-weapon fighting, I can add my ability modifier to the damage of my off-hand attacks. If a melee weapon includes 'off-hand' or 'secondary' in its name or description, it is considered an off-hand attack."
+			]
+		},
+		eval : function() {
+			ClassFeatureOptions(["occultist", "occult rites", "rite of prowess: dueling", true, 'remove']);
+			ClassFeatureOptions(["occultist", "occult rites", "rite of prowess: great weapon fighting", true, 'remove']);
+		},
+		
+	},
+
+	shamans_touch : {
+		name : "Shaman's Touch (prereq: 7th level Occultist)", 				
+		source : [["KT:Oc", 18]],
+		description : desc([
+			"When I cast a cantrip with a range of touch, I can make one weapon attack as a bonus action.",
+		]),
+		limfeaname : "Shaman's Touch Attack",
+		action : ["bonus action", " (after touch cantrip)"],
+		prereqeval : function(v) { 
+			return (classes.known.occultist.level >= 7);
+		},
+	},
+	strength_spirit : {
+		name : "Strength of Spirit (prereq: 7th level Occultist, more Str. than Wis.)", 				
+		source : [["KT:Oc", 18]],
+		description : desc([
+			"I increase my Wisdom ability score by 2, up to a maximum of 20. This cannot make my",
+			"Wisdom score higher than my Strength score.",
+		]),
+		scorestxt : "+2 Wisdom, but no higher than Strength.",
+		prereqeval : function(v) { 
+			return ((classes.known.occultist.level >= 7) && (What('Str') > What('Wis')));
+		},
+	},
+	warding_power : {
+		name : "Warding Power", 				
+		source : [["KT:Oc", 18]],
+		description : desc([
+			"I learn the Shield spell.",
+		]),
+		spellcastingBonus : {
+			name : "Warding Power",
+			spells : ["shield"],
+			selection : ["shield"],
+		},
+	},
+};
+
+
+RunFunctionAtEnd(function() {
+	var theObj = ClassSubList["occultist-tradition of the hedge mage"].features["subclassfeature6"]; //The feature itself, var for shorthand
+					
+	for (x in OccultRitesAll) {
+		if ((GetFeatureChoice('class', 'occultist', 'occult rites', true).indexOf(OccultRitesAll[x].name.toLowerCase()) === -1) && (OccultRitesAll[x].name.indexOf("prereq") == -1)) {
+			theObj.choices.push(OccultRitesAll[x].name);			
+			theObj[OccultRitesAll[x].name.toLowerCase()] = OccultRitesAll[x];
+		}
+	}
+	for (x in WitchRitesNP) {
+		if ((GetFeatureChoice('class', 'occultist', 'occult rites', true).indexOf(WitchRitesNP[x].name.toLowerCase()) === -1) && (WitchRitesNP[x].name.indexOf("prereq") == -1)) {
+			theObj.choices.push(WitchRitesNP[x].name);
+			theObj[WitchRitesNP[x].name.toLowerCase()] = WitchRitesNP[x];
+		}
+	}
+	for (x in HedgeRitesNP) {
+		if ((GetFeatureChoice('class', 'occultist', 'occult rites', true).indexOf(HedgeRitesNP[x].name.toLowerCase()) === -1) && (HedgeRitesNP[x].name.indexOf("prereq") == -1)) {
+			theObj.choices.push(HedgeRitesNP[x].name);
+			theObj[HedgeRitesNP[x].name.toLowerCase()] = HedgeRitesNP[x];
+		}
+	}
+	for (x in OracleRitesNP) {
+		if ((GetFeatureChoice('class', 'occultist', 'occult rites', true).indexOf(OracleRitesNP[x].name.toLowerCase()) === -1) && (OracleRitesNP[x].name.indexOf("prereq") == -1)) {
+			theObj.choices.push(OracleRitesNP[x].name);
+			theObj[OracleRitesNP[x].name.toLowerCase()] = OracleRitesNP[x];
+		}
+	}
+	for (x in ShamanRitesNP) {
+		if ((GetFeatureChoice('class', 'occultist', 'occult rites', true).indexOf(ShamanRitesNP[x].name.toLowerCase()) === -1) && (ShamanRitesNP[x].name.indexOf("prereq") == -1)) {
+			theObj.choices.push(ShamanRitesNP[x].name);
+			theObj[ShamanRitesNP[x].name.toLowerCase()] = ShamanRitesNP[x];
+		}
+	} 
+});
