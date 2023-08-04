@@ -45,7 +45,7 @@ AddRacialVariant("antaeud", "cloud bloodline", {
 		trait : "Clood Bloodline Antaeud (+2 Strength, +1 Intelligence)"+
 		"\n \u2022Giant Power: I gain proficiency in Strength (Athletics)."+
 		"\n \u2022Cloudwalking: Once per long rest as a bonus action, I gain 30 feet of flying speed for a minute, but cannot fly higher than 5 feet.",
-		height : " are usually more than 10 feet tall"
+		height : " are usually more than 10 feet tall",
 		weight : " usually weigh around 400 lbs",
 		heightMetric : " are usually more than 3 meters tall",
 		weightMetric : " usually weigh around 180 kg", 
@@ -69,10 +69,10 @@ AddRacialVariant("antaeud", "ice bloodline", {
 		trait : "Ice Bloodline Antaeud (+2 Strength, +1 Wisdom)"+
 		"\n \u2022Giant Power: I gain proficiency in Strength (Athletics)."+
 		"\n \u2022Coldblood: I have resistance to cold damage.",
-		height : " average around 10 feet tall"
+		height : " average around 10 feet tall",
 		weight : " usually weigh around 450 lbs",
 		heightMetric : " average around 3 meters tall",
-		weightMetric : " weigh around 200 kg"
+		weightMetric : " weigh around 200 kg",
 });
 AddRacialVariant("antaeud", "stone bloodline", {
 		regExpSearch : /^(?=.*stone)(?=.*bloodline)(?=.*antaeud).*$/i, 
@@ -84,10 +84,10 @@ AddRacialVariant("antaeud", "stone bloodline", {
 		trait : "Stone Bloodline Antaeud (+2 Strength, +1 Constitution)"+
 		"\n \u2022Giant Power: I gain proficiency in Strength (Athletics)."+
 		"\n \u2022Stoneheart: I have advantage on saving throws against being charmed or frightened.",
-		height : " average around 9 feet tall"
+		height : " average around 9 feet tall",
 		weight : " usually weigh around 500 lbs",
 		heightMetric : " average around 2.7 meters tall",
-		weightMetric : " weigh around 230 kg"
+		weightMetric : " weigh around 230 kg",
 		savetxt :{ adv_vs : ["charmed", "frightened"]},
 });
 AddRacialVariant("antaeud", "storm bloodline", {
@@ -100,9 +100,9 @@ AddRacialVariant("antaeud", "storm bloodline", {
 		trait : "Storm Bloodline Antaeud (+2 Strength, +1 Charisma)"+
 		"\n \u2022Giant Power: I gain proficiency in Strength (Athletics)."+
 		"\n \u2022Child of the Tempest: I have resistance to either lightning or thunder damage, choosing one.",
-		height : " average around 11 feet tall"
+		height : " average around 11 feet tall",
 		weight : " usually weigh around 450 lbs",
 		heightMetric : " average around 3.3 meters tall",
-		weightMetric : " weigh around 200 kg"
+		weightMetric : " weigh around 200 kg",
 		dmgres : ["Lightning/Thunder"],
 });
