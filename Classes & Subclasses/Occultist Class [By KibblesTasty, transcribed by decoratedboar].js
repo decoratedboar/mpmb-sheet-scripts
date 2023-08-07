@@ -2163,7 +2163,13 @@ AddSubClass("occultist", "tradition of the witch", {
 					"I learn extra spells at 1st, 3rd, 5th, 7th, and 9th levels, and the Black Coven Familiar",
 					"Bond feature at 3rd level.",
 					]),
-					spellcastingExtra : ["rotting curse", "hideous laughter", "blindness/deafness", "darkness", "bestow curse", "curse of doom", "black tentacles", "devour shadow", "killing curse", "contagion"],
+					spellcastingBonus : {
+						name : "Black Coven",
+						spells : ["rotting curse", "hideous laughter", "blindness/deafness", "darkness", "bestow curse", "curse of doom", "black tentacles", "devour shadow", "killing curse", "contagion"],
+						selection : ["rotting curse", "hideous laughter", "blindness/deafness", "darkness", "bestow curse", "curse of doom", "black tentacles", "devour shadow", "killing curse", "contagion"],
+						times : [2, 2, 4, 4, 6, 6, 8, 8, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+					},
+					//spellcastingExtra : ["rotting curse", "hideous laughter", "blindness/deafness", "darkness", "bestow curse", "curse of doom", "black tentacles", "devour shadow", "killing curse", "contagion"],
 					dependentChoices : "black coven bond",
 				},
 				"white coven" : {
@@ -2173,7 +2179,13 @@ AddSubClass("occultist", "tradition of the witch", {
 					"I learn extra spells at 1st, 3rd, 5th, 7th, and 9th levels, and the White Coven Familiar",
 					"Bond feature at 3rd level.",
 					]),
-					spellcastingExtra : ["blinding hex", "healing word", "calm emotions", "hold person", "karmic hex", "mass healing word", "banishment", "resilient sphere", "enfeebling hex", "dispel evil and good"],
+					spellcastingBonus : {
+						name : "White Coven",
+						spells : ["blinding hex", "healing word", "calm emotions", "hold person", "karmic hex", "mass healing word", "banishment", "resilient sphere", "enfeebling hex", "dispel evil and good"],
+						selection : ["blinding hex", "healing word", "calm emotions", "hold person", "karmic hex", "mass healing word", "banishment", "resilient sphere", "enfeebling hex", "dispel evil and good"],
+						times : [2, 2, 4, 4, 6, 6, 8, 8, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+					},
+					//spellcastingExtra : ["blinding hex", "healing word", "calm emotions", "hold person", "karmic hex", "mass healing word", "banishment", "resilient sphere", "enfeebling hex", "dispel evil and good"],
 					dependentChoices : "white coven bond",
 				},
 				"green coven" : {
@@ -2183,7 +2195,13 @@ AddSubClass("occultist", "tradition of the witch", {
 					"I learn extra spells at 1st, 3rd, 5th, 7th, and 9th levels, and the Green Coven Familiar",
 					"Bond feature at 3rd level.",
 					]),
-					spellcastingExtra : ["befuddling curse", "entangle", "alter self", "enlarge/reduce", "curse of misfortune", "major image", "greater invisibility", "polymorph", "swapping curse", "seeming"],
+					spellcastingBonus : {
+						name : "White Coven",
+						spells : ["befuddling curse", "entangle", "alter self", "enlarge/reduce", "curse of misfortune", "major image", "greater invisibility", "polymorph", "swapping curse", "seeming"],
+						selection : ["befuddling curse", "entangle", "alter self", "enlarge/reduce", "curse of misfortune", "major image", "greater invisibility", "polymorph", "swapping curse", "seeming"],
+						times : [2, 2, 4, 4, 6, 6, 8, 8, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+					},
+					//spellcastingExtra : ["befuddling curse", "entangle", "alter self", "enlarge/reduce", "curse of misfortune", "major image", "greater invisibility", "polymorph", "swapping curse", "seeming"],
 					dependentChoices : "green coven bond",
 				},
 				choiceDependencies : [{
