@@ -195,13 +195,21 @@ var WarmageTricks = { //Doing the same thing for the Warmage tricks. Presently t
 		},
 		calcChanges : {
 			companionCallback : [function(prefix, oCrea, bAdd, sCompType) {
-				var compHP = prefix + 'Comp.Use.HP.Max';
-				
-				if (sCompType !== "mount") return;
-					Value(compHP, CurrentCompRace[prefix].hp + classes.known.warmage.level);
-				//in essence, check if the companion sheet has a Find Steed companion added, then set its max HP to be it's default max HP + the player's warmage level. Re-add the companion to get HP changes after the player's level changes.
-			}, "My Steed's hit point maximum is increased by my Warmage level."], //not sure if there's a better way of doing this, but it works so eh
-		},	
+				if (sCompType !== "mount") return; // only apply to Find Steed
+				// create a calcChanges.hp function
+				var hpCalcObject = {
+					hp : function (totalHD, HDobj, prefix) {
+						if (classes.known.warmage) {
+							return [classes.known.warmage.level, "Commander's Steed (Warmage)"];
+						}
+					}
+				}
+				// apply to (or remove from, if bAdd == false) the companion on this companion page
+				addCompEvals(hpCalcObject, prefix, "Commander's Steed", bAdd);
+				// now set the HP field to automatically assume the average value (= default HP of monsters), so that this addition is automatically applied
+				if (bAdd) MakeHPMenu_HPOptions(["hp", "auto", "", "average", ""], prefix);
+			}, "My Find Steed's hit point maximum is increased by my Warmage level."]
+		}	
 		prereqeval : function(v) { 
 			return (/kings/).test(classes.known.warmage.subclass);
 		},
