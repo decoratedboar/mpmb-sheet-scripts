@@ -209,7 +209,7 @@ var WarmageTricks = { //Doing the same thing for the Warmage tricks. Presently t
 				// now set the HP field to automatically assume the average value (= default HP of monsters), so that this addition is automatically applied
 				if (bAdd) MakeHPMenu_HPOptions(["hp", "auto", "", "average", ""], prefix);
 			}, "My Find Steed's hit point maximum is increased by my Warmage level."]
-		}	
+		},	
 		prereqeval : function(v) { 
 			return (/kings/).test(classes.known.warmage.subclass);
 		},
