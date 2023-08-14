@@ -1062,6 +1062,7 @@ SpellsList["card trick"] = { //Has attack entry
 	components : "V,S,M",
 	compMaterial : "A deck of playing cards",
 	duration : "Instantaneous",
+	save : "Dex",
 	description : "Ranged spell attack or target Dex. save, 1d6+1d6/CL force dmg on hit/fail",
 	descriptionFull : "With a flash of your hands, you fling a playing or tarot card charged with energy at your opponents. Choose whether you make a ranged spell attack roll or for the target to make a Dexterity saving throw. On a hit or a failed saving throw, the target takes 1d6 force damage." + AtHigherLevels + "This spell’s damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
 };
@@ -1187,6 +1188,7 @@ SpellsList["lightning surge"] = {
 	components : "V,S,M",
 	compMaterial : "Two bits of copper wire",
 	duration : "Instantaneous",
+	save : "Dex",
 	description : "All creatures within 5 ft. Dex save or take 1d6+1d6/CL lightn. dmg.",
 	descriptionFull : "You emit a dazzling array of short lightning bolts in all directions. All other creatures within 5 feet of you must succeed on a Dexterity saving throw or take 1d6 lightning damage." + AtHigherLevels + "This spell’s damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level(4d6)."
 };
@@ -1227,6 +1229,7 @@ SpellsList["phantom grapnel"] = {
 	range : "30 ft",
 	components : "V,S",
 	duration : "Instantaneous",
+	save : "Str",
 	description : "Huge or larger target, pull yourself to it; large or smaller, pulled 10 ft. to you, Str. save to resist",
 	descriptionFull : "You conjure a chain and hook made of magical force, which you propel at a creature or unoccupied space you can see within range. When you target a space or a creature of Huge size or larger, your grapnel pulls you to that target in a straight line. You provoke opportunity attacks for this movement as normal. When you target a creature of Large size or smaller, you pull the target up to 10 feet toward you. A creature can make a Strength saving throw to resist this movement."
 };
@@ -1253,6 +1256,7 @@ SpellsList["sonic pulse"] = {
 	range : "60 ft",
 	components : "V,S",
 	duration : "Instantaneous",
+	save : "Con",
 	description : "Target Con. save or take 1d8+1d+/CL thunder dmg. and deafened until start of my next turn",
 	descriptionFull : "You compress a thunderous boom into an invisible ball and project it at a creature you can see within range. The target must succeed on a Constitution saving throw, or it takes 1d8 thunder damage and is deafened until the start of your next turn. If the spell’s target is within 10 feet of you, this spell’s damage becomes d10s, instead of d8s." + AtHigherLevels + "This spell’s damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8)."
 };
@@ -1279,6 +1283,7 @@ SpellsList["thunderous distortion"] = {
 	range : "Self (10 ft. cone)",
 	components : "V,S",
 	duration : "Instantaneous",
+	save : "Con",
 	description : "Creatures in area Con. save or 1d6+1d6/CL (1d8+1d8/CL on 2nd cast before next turn end) thunder dmg.",
 	descriptionFull : "You produce a distorted wave of noise in a 10-foot cone, which can be heard up to 100 feet away. Each creature in that area must succeed a Constitution saving throw, or take 1d6 thunder damage."+
 	"An echo of this noise persists until the end of your next turn. If you cast this spell again before the end of your next turn, its damage becomes d8s, instead of d6s." + AtHigherLevels + "This spell’s damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
@@ -1294,8 +1299,9 @@ SpellsList["force blast"] = {
 	components : "V,S,M\u0192",
 	compMaterial : "A specially prepared gauntlet worth at least 5 gp.",
 	duration : "Instantaneous",
-	description : "Creatures in area Con. save or 1d6+1d6/CL (1d8+1d8/CL on 2nd cast before next turn end) thunder dmg.",
-	descriptionFull : "You send a ball of condensed magical force at a single point within range. Everything within a 10 foot radius of that point my make a Dexterity saving throw against your spell save DC, taking 1d10 force damage on a failure, or half as much on a success." + AtHigherLevels + "This spell’s damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10)."
+	save : "Dex",
+	description : "Creas. in 10 ft. cone Dex. save or 1d10+1d10/CL Force dmg., half dmg. on success",
+	descriptionFull : "You send a ball of condensed magical force at a single point within range. Everything within a 10 foot radius of that point must make a Dexterity saving throw against your spell save DC, taking 1d10 force damage on a failure, or half as much on a success." + AtHigherLevels + "This spell’s damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10)."
 };
 
 //Spell attack entries
