@@ -1283,6 +1283,20 @@ SpellsList["thunderous distortion"] = {
 	descriptionFull : "You produce a distorted wave of noise in a 10-foot cone, which can be heard up to 100 feet away. Each creature in that area must succeed a Constitution saving throw, or take 1d6 thunder damage."+
 	"An echo of this noise persists until the end of your next turn. If you cast this spell again before the end of your next turn, its damage becomes d8s, instead of d6s." + AtHigherLevels + "This spell’s damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
 };
+SpellsList["force blast"] = {
+	name : "Force Blast",
+	classes : ["warmage"],
+	source : ["HB", 0],
+	level : 0,
+	school : "Evoc",
+	time : "1 a",
+	range : "60 ft (10 ft. cone)",
+	components : "V,S,M\u0192",
+	compMaterial : "A specially prepared gauntlet worth at least 5 gp.",
+	duration : "Instantaneous",
+	description : "Creatures in area Con. save or 1d6+1d6/CL (1d8+1d8/CL on 2nd cast before next turn end) thunder dmg.",
+	descriptionFull : "You send a ball of condensed magical force at a single point within range. Everything within a 10 foot radius of that point my make a Dexterity saving throw against your spell save DC, taking 1d10 force damage on a failure, or half as much on a success." + AtHigherLevels + "This spell’s damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10)."
+};
 
 //Spell attack entries
 WeaponsList["card trick"] = {
@@ -1328,7 +1342,7 @@ WeaponsList["force dart"] = {
 	list : "Spell",
 	ability : 6,
 	type : "Cantrip",
-	damage : [1, 10, "Force"],
+	damage : ["C", 10, "Force"],
 	range : "120 ft",
 	description : "",
 	abilitytodamage : false
