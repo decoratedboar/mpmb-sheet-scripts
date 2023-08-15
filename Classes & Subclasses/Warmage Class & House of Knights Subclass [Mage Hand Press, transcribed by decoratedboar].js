@@ -1295,13 +1295,13 @@ SpellsList["force blast"] = {
 	level : 0,
 	school : "Evoc",
 	time : "1 a",
-	range : "60 ft (10 ft. cone)",
+	range : "60 ft (10 ft. sphere)",
 	components : "V,S,M\u0192",
 	compMaterial : "A specially prepared gauntlet worth at least 5 gp.",
 	duration : "Instantaneous",
 	save : "Dex",
-	description : "Creas. in 10 ft. cone Dex. save or 1d10+1d10/CL Force dmg., half dmg. on success",
-	descriptionFull : "You send a ball of condensed magical force at a single point within range. Everything within a 10 foot radius of that point must make a Dexterity saving throw against your spell save DC, taking 1d10 force damage on a failure, or half as much on a success." + AtHigherLevels + "This spell’s damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10)."
+	description : "Creas. in 10 ft. sphere Dex. save or 1d10+1d10/CL Force dmg., half on success",
+	descriptionFull : "You send a ball of condensed magical force at a single point within range. Everything within a 10 foot radius sphere of that point must make a Dexterity saving throw higher than or equal to your spell save DC, on a failed save they take 1d10 force damage, on a successful save they take half as much." + AtHigherLevels + "This spell’s damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10)."
 };
 
 //Spell attack entries
