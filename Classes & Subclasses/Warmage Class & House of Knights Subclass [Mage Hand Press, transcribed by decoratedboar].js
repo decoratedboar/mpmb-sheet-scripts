@@ -982,7 +982,8 @@ AddSubClass("warmage", "house of knights", {
 			source : ["VSoS", 169],
 			minlevel : 7,
 			description : desc([
-				"Whenever I cast a cantrip that allows me to make multiple spell attacks, I can use a bonus action to make one additional attack with that cantrip.",
+				"Whenever I cast a cantrip that allows me to make multiple spell attacks, I can use a",
+				"bonus action to make one additional attack with that cantrip.",
 			]),
 			action : [["bonus action", " (with multi-attack cantrip"]],
 		},
