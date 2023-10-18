@@ -661,7 +661,7 @@ AddSubClass("death knight", "dark riders", { //"Cavaliers", instead of Riders in
 				"As a bonus action, I can summon an undead steed within 5 feet.",
 				"Select \"Necrosteed\" on the companion page for its stats and rules.",
 				"While mounted, the steed shares the benefits of my profanities. If it dies, I must",
-				"complete a long rest or expend a spell slot of 2nd level or higher to summon it again.",
+				"complete a short rest or expend a spell slot of 2nd level or higher to summon it again.",
 				]),
 				action : ["bonus action", " (summon)"],
 				creaturesAdd : [["Necrosteed", true]],
@@ -692,7 +692,7 @@ AddSubClass("death knight", "dark riders", { //"Cavaliers", instead of Riders in
 					}],
 					features : [{
 						name : "Warden",
-						description : "The Necrosteed is undead, rather than a beast, and has either its regular hit point maximum, or one equal to four times the Death Knight's level, whichever is greater. It takes its turn immediately after that of the Death Knight, on the same initiative. It can move and take reactions on its own, but only takes the Dodge action on its turn unless the Death Knight takes a bonus action to command it to take another action. When commanded to attack, the Necrosteed can use the Death Knight's proficiency bonus instead of its own. \nWhile mounted, the steed shares initiative with the Death Knight, and can only take the Dash, Disengage, or Dodge actions when commanded."
+						description : "The Necrosteed is undead, rather than a beast, and has either its regular hit point maximum, or one equal to four times the Death Knight's level + their proficiency bonus, whichever is greater. It takes its turn immediately after that of the Death Knight, on the same initiative. It can move and take reactions on its own, but only takes the Dodge action on its turn unless the Death Knight takes a bonus action to command it to take another action. When commanded to attack, the Necrosteed can use the Death Knight's proficiency bonus instead of its own. \nWhile mounted, the steed shares initiative with the Death Knight, and can only take the Dash, Disengage, or Dodge actions when commanded."
 					}],
 					traits : [{
 						name : "Trampling Charge",
