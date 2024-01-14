@@ -13,7 +13,7 @@
 	Date:		14-06-2023 (sheet v13)
 */
 
-var iFileName = "Occultist Class [By KibblesTasty, transcribed by decoratedboar].js";
+var iFileName = "Occultist Class v1.3.2 [By KibblesTasty, transcribed by decoratedboar].js";
 
 RequiredSheetVersion("13.0.0");
 
