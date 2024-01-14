@@ -13,7 +13,7 @@
 	Date:		09-03-2023 (sheet v13)
 */
 
-var iFileName = "War Lord Class [By KibblesTasty, transcribed by decoratedboar].js";
+var iFileName = "War Lord Class v1.4.1 [By KibblesTasty, transcribed by decoratedboar].js";
 
 RequiredSheetVersion("13.0.0");
 
@@ -940,4 +940,3 @@ AddSubClass("war lord", "tactician's presence", {
 		}
 	}
 );
-
