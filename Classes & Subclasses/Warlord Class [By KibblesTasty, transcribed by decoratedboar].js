@@ -176,15 +176,17 @@ ClassList["war lord"] = {
 			toNotesPage : [{
 				name : "Rallying Mark: Boost Morale",
 				note : [
-				"When a creature gains hit points from Rallying Mark, you can expend one Leadership die to",
-				"cause another creature within 30 feet to regain the same number of hit points.",
+				"When a creature gains hit points from Rallying Mark, you can expend one Leadership die",
+				"as a reaction to cause another creature within 60 feet of them to regain the same number",
+				"of hit points.",
 				],
+				action: ["reaction", ""],
 				page3notes : true,
 			}, {
 				name : "Urgent Orders: Coordinated Movements",
 				note : [
-				"When you use Urgent Orders, you can target a number of creatures equal to the number of",
-				"Leadership Dice spent, spending dice on each target individually.",
+				"When you use Urgent Orders, you can expend additional leadership dice to target",
+				"additional creatures, at one die per creature.",
 				],
 				page3notes : true,
 
@@ -195,6 +197,7 @@ ClassList["war lord"] = {
 				"Leadership Die and add it to their roll. You can use this ability after the original roll, but",
 				"before the outcome is revealed.",
 				],
+				action: ["reaction", ""],
 				page3notes : true,
 			}]
 		},
@@ -344,10 +347,9 @@ AddSubClass("war lord", "chieftain's presence", {
 				source : ["KT:WL", 5],
 				minlevel : 1,
 				description : desc ([
-				"On my first turn in combat, if I move I can pull a number of willing creatures equal to my",
-				"Charisma modifier within 20 feet of me along with me. Affected creatures move the same",
-				"distance and direction as me, but cannot exceed their own movement speed. They can stop",
-				"the movement at any point.",
+				"The first time an allied creature moves, it can bring with it a number of willing creatures",
+				"within 20 feet of me equal to my Charisma modifier. This creature can't move more than",
+				"half its regular speed, and can't move further than 20 feet from me.",
 				]),
 			},	
 			"subclassfeature3" : {
@@ -355,10 +357,12 @@ AddSubClass("war lord", "chieftain's presence", {
 				source : ["KT:WL", 5],
 				minlevel : 3,
 				description : desc ([
-				"As an action, or in the place of an attack as part of the Attack action, I can expend a number",
-				"of Leadership Dice up to my per turn limit, granting myself and a number of friendly creatures",
-				"up to 1 + my Charisma modifier within 20 feet temporary hit points equal to the Dice roll +",
-				"my Charisma modifier.",
+				"As an action, or in the place of an attack action, I can expend a number of Leadership",
+				"Dice, granting myself and a number of friendly creatures equal to my Charisma modifier",
+				"within 20 feet of me temporary hit points. The temporary hit points are equal to the",
+				"dice roll + my Charisma modifier.",
+				"As a bonus action, I can make a single weapon attack, with disadvantage unless the",
+				"weapon has the Light property.",
 				]),
 				action : ["action", " [Or in place of an attack]"],
 			},
@@ -451,8 +455,8 @@ AddSubClass("war lord", "noble's presence", {
 				source : ["KT:WL", 6],
 				minlevel : 1,
 				description : desc ([
-				"When I roll initiative, I grant friendly creatures within 60 feet a bonus to their first attack roll,",
-				"equal to my Charisma modifier, before the end of their turn.",
+				"When I roll initiative, I grant a number of friendly creatures within 60 feet of me equal",
+				"to my Charisma modifier advantage on their first attack rolls.",
 				]),
 			},
 			"subclassfeature1.2" : {
@@ -940,3 +944,26 @@ AddSubClass("war lord", "tactician's presence", {
 		}
 	}
 );
+
+FeatsList["tactical combatant"] = {
+	name : "Tactical Combatant",
+	source : ["KT:WL", 13],
+	prerequisite : "4th level",
+	prereqeval : function(v) {
+		return v.characterLevel >= 4;
+	},
+	descriptionFull : "You excel at creating opportunities for other. You gain the following benefits: \n \u2022 Increase one ability score by 1. \n \u2022 Once per turn when you take the Attack action, you can replace one attack with the Help action. \n \u2022 When you take the Help action to aid a friendly creature in attacking a target, the range becomes 10 feet and you can Help an additional creature as part of the same action.",
+	description : "I can replace one attack of the Attack action with the Help action. Helping an ally attack increases their attack range to 10 feet, and let sme Help an additional creature with the same action. [+1 to any]",
+	scorestxt : "+1 to an ability of my choice"	
+};
+FeatsList["synchronized combatant"] = {
+	name : "Synchronized Combatant",
+	source : ["KT:WL", 13],
+	prerequisite : "4th level",
+	prereqeval : function(v) {
+		return v.characterLevel >= 4;
+	},
+	descriptionFull : "You have an intuitive understanding of your allies movement, allowing to coordinate perfectly with their actions. You gain the following benefits: \n \u2022 Increase your Dexterity, Wisdom, or Charisma by 1. \n \u2022 Your space is not difficult terrain for your allies, and allies can move into your space to make an attack, but still cannot end their turn your space (and cannot move into your space if they don't have the movement to move out of it).",
+	description : "My space is not difficult terrain for my allies, and they can move into my space to attack. They cannot end their turn in my space, however. [+1 to Dex, Wis, or Cha]",
+	scorestxt : "+1 to Dexterity, Wisdom, Or Charisma"	
+};
