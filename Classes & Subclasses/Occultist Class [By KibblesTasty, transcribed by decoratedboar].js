@@ -2751,9 +2751,14 @@ AddSubClass("occultist", "tradition of the oracle", {
 				"added to that roll when it occurs. If I specify a specific action and person to do it, this",
 				"dice is a d6. These dice can only be used for a single roll, at my discretion.",
 				]),
+				spellcastingBonus : {
+					name : "Master of Prophecy",
+					spells : ["augury"],
+					selection : ["augury"],
+				},
+				limfeaname : "Augury (no random answers)",
+				usagescalc : "event.value = What('Wis Mod');",
 			},
-			limfeaname : "Augury (no random answers)",
-			usagescalc : "event.value = What('Wis Mod');",
 		}
 });
 AddSubClass("occultist", "tradition of the shaman", {
