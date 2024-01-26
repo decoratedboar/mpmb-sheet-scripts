@@ -13,7 +13,7 @@
 	Date:		09-03-2023 (sheet v13)
 */
 
-var iFileName = "War Lord Class v1.4.1 [By KibblesTasty, transcribed by decoratedboar].js";
+var iFileName = "War Lord Class v1.5 [By KibblesTasty, transcribed by decoratedboar].js";
 
 RequiredSheetVersion("13.0.0");
 
@@ -55,7 +55,7 @@ ClassList["war lord"] = {
 	"\n \u2022 A scholar's pack -or- an explorer's pack." +
 	"\n \nAlternatively, you may start with 5d4 \xD7 10 gp to buy your own equipment.",
 
-	subclasses : ["War Lord Presences", ["commander", "chieftain", "noble", "packleader", "paragon", "tactician" ]], 
+	subclasses : ["War Lord Presences", []], 
 	features : {
 		"subclassfeature1" : {
 			name : "War Lord Presence",
@@ -947,6 +947,7 @@ AddSubClass("war lord", "tactician's presence", {
 
 FeatsList["tactical combatant"] = {
 	name : "Tactical Combatant",
+	defaultExcluded : true,
 	source : ["KT:WL", 13],
 	prerequisite : "4th level",
 	prereqeval : function(v) {
@@ -958,6 +959,7 @@ FeatsList["tactical combatant"] = {
 };
 FeatsList["synchronized combatant"] = {
 	name : "Synchronized Combatant",
+	defaultExcluded : true,
 	source : ["KT:WL", 13],
 	prerequisite : "4th level",
 	prereqeval : function(v) {
