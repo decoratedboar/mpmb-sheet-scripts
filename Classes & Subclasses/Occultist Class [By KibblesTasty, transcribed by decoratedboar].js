@@ -1905,7 +1905,7 @@ var ShamanRites = { //The list of all Shaman-specific Rites
 	
 	//1st level
 	//SRD
-	"animal friendship", "bane", "burning hands", "comprehend languages", "cure wounds", "detect magic", "detect poison and disease", "disguise self", "feather fall", "fog cloud", "hex", "hideous laughter", "identify", "illusory script", "inflict wounds", "speak with animals", "unseen servant",
+	"animal friendship", "bane", "burning hands", "comprehend languages", "cure wounds", "detect magic", "detect poison and disease", "disguise self", "feather fall", "fog cloud", "hex", "tasha's hideous laughter", "identify", "illusory script", "inflict wounds", "speak with animals", "unseen servant",
 	//KT:CC
 	"acid bubble", "awaken rope", "bad blood", "blade mirage", "bramble binding", "crippling agony", "electrify", "eyes of immolation", "gale bolt", "grip of the dead", "karmic reflection", "lightning tendril", "induce headache", "nauseating poison", "prismatic flash", "spiritual consultation", "stone fist", "tranquil moment", "water blast",
 	
@@ -2020,7 +2020,7 @@ ClassList["occultist"] = {
 				"I can cast Occultist spells I know as rituals if they have the ritual tag."
 			]),
 			additional : levels.map(function (n, idx) {
-				var cantr = [3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5][idx];
+				var cantr = [3, 3, 3, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5][idx];
 				var splls = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 20, 20][idx];
 				return cantr + " cantrips \u0026 " + splls + " spells known";
 			})
@@ -2224,13 +2224,7 @@ AddSubClass("occultist", "tradition of the witch", {
 					"I learn extra spells at 1st, 3rd, 5th, 7th, and 9th levels, and the Black Coven Familiar",
 					"Bond feature at 3rd level.",
 					]),
-					spellcastingBonus : {
-						name : "Black Coven",
-						spells : ["rotting curse", "hideous laughter", "blindness/deafness", "darkness", "bestow curse", "curse of doom", "black tentacles", "devour shadow", "killing curse", "contagion"],
-						selection : ["rotting curse", "hideous laughter", "blindness/deafness", "darkness", "bestow curse", "curse of doom", "black tentacles", "devour shadow", "killing curse", "contagion"],
-						times : [2, 2, 4, 4, 6, 6, 8, 8, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
-					},
-					//spellcastingExtra : ["rotting curse", "hideous laughter", "blindness/deafness", "darkness", "bestow curse", "curse of doom", "black tentacles", "devour shadow", "killing curse", "contagion"],
+					spellcastingExtra : ["rotting curse", "tasha's hideous laughter", "blindness/deafness", "darkness", "bestow curse", "curse of doom", "black tentacles", "devour shadow", "killing curse", "contagion"],
 					dependentChoices : "black coven bond",
 				},
 				"white coven" : {
@@ -2240,13 +2234,7 @@ AddSubClass("occultist", "tradition of the witch", {
 					"I learn extra spells at 1st, 3rd, 5th, 7th, and 9th levels, and the White Coven Familiar",
 					"Bond feature at 3rd level.",
 					]),
-					spellcastingBonus : {
-						name : "White Coven",
-						spells : ["blinding hex", "healing word", "calm emotions", "hold person", "karmic curse", "mass healing word", "banishment", "resilient sphere", "enfeebling curse", "dispel evil and good"],
-						selection : ["blinding hex", "healing word", "calm emotions", "hold person", "karmic curse", "mass healing word", "banishment", "resilient sphere", "enfeebling curse", "dispel evil and good"],
-						times : [2, 2, 4, 4, 6, 6, 8, 8, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
-					},
-					//spellcastingExtra : ["blinding hex", "healing word", "calm emotions", "hold person", "karmic curse", "mass healing word", "banishment", "resilient sphere", "enfeebling curse", "dispel evil and good"],
+					spellcastingExtra : ["blinding hex", "healing word", "calm emotions", "hold person", "karmic curse", "mass healing word", "banishment", "resilient sphere", "enfeebling curse", "dispel evil and good"],
 					dependentChoices : "white coven bond",
 				},
 				"green coven" : {
@@ -2256,13 +2244,7 @@ AddSubClass("occultist", "tradition of the witch", {
 					"I learn extra spells at 1st, 3rd, 5th, 7th, and 9th levels, and the Green Coven Familiar",
 					"Bond feature at 3rd level.",
 					]),
-					spellcastingBonus : {
-						name : "White Coven",
-						spells : ["befuddling curse", "entangle", "alter self", "enlarge/reduce", "curse of misfortune", "major image", "greater invisibility", "polymorph", "swapping curse", "seeming"],
-						selection : ["befuddling curse", "entangle", "alter self", "enlarge/reduce", "curse of misfortune", "major image", "greater invisibility", "polymorph", "swapping curse", "seeming"],
-						times : [2, 2, 4, 4, 6, 6, 8, 8, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
-					},
-					//spellcastingExtra : ["befuddling curse", "entangle", "alter self", "enlarge/reduce", "curse of misfortune", "major image", "greater invisibility", "polymorph", "swapping curse", "seeming"],
+					spellcastingExtra : ["befuddling curse", "entangle", "alter self", "enlarge/reduce", "curse of misfortune", "major image", "greater invisibility", "polymorph", "swapping curse", "seeming"],
 					dependentChoices : "green coven bond",
 				},
 				choiceDependencies : [{
