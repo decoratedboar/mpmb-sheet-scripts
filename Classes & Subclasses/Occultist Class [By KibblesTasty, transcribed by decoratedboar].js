@@ -561,6 +561,21 @@ var WitchRites = { //The list of all Witch-specific Rites
 		},
 		
 	},
+	evil_eye : {
+		name : "Evil Eye",				
+		source : [["KT:Oc", 7]],
+		description : desc([
+			"As a reaction to a creature within 15 ft. attacking me, I force it to make a Wisdom",
+			"saving throw against my spell save DC, becoming frightened of me on a failure.",
+			"They then become immune to this feature for 24 hours.",
+			"I also gain proficiency in the Intimidation skill."
+		]),
+		skills : ["Intimidation"],
+		action : ["reaction", ""],
+		prereqeval : function(v) { 
+			return classes.known.occultist.subclass.indexOf("witch") !== -1 ? true : "skip"; 
+		}
+	},
 	familiar_swap : {
 		name : "Familiar Swap",				
 		source : [["KT:Oc", 7]],
