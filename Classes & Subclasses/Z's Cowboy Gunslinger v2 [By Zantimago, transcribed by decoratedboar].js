@@ -154,8 +154,8 @@ ClassList["gunslinger"] = {
 			"no sight" : {
 				name : "No Sight",
 				description: desc([
-					"My gun’s normal and long ranges are reduced to 1/4, but I gain a +2 bonus to hit with any",
-					"attack rolls I make with it",
+					"My gun’s normal and long ranges are reduced to 1/4, but I gain a +2 bonus to",
+					"hit with any attack rolls I make with it",
 				]),
 				calcChanges : {
 					atkAdd : [
@@ -189,8 +189,8 @@ ClassList["gunslinger"] = {
 			"scope" : {
 				name : "Scope",
 				description: desc([
-					"Both my gun’s normal and long ranges are doubled, and I ignore both 1/2 and 3/4 cover, but" +
-					"any ranged attack roll I make with it suffers a -2 penalty",
+					"Both my gun’s normal and long ranges are doubled, and I ignore both 1/2 and",
+					"3/4 cover, but any ranged attack roll I make with it suffers a -2 penalty",
 				]),
 				calcChanges : {
 					atkAdd : [
@@ -224,8 +224,8 @@ ClassList["gunslinger"] = {
 			description : desc([			
 				"I gain a number of Luck Points. They fuel my Luck Strikes, and can be spent to",
 				"increase a firearm attack's damage as if I'd critically hit.",
-				"I regain all my Luck Points on a short rest, and when I critically hit with a firearm,",
-				"I can choose to regain a Luck Point.",
+				"I regain all my Luck Points on a short rest, and when I critically hit with a firearm",
+				"against a creature with at least 10 hit points, I can choose to regain a Luck Point.",
 			]),
 			limfeaname : "Luck Points",
 			usages : "Proficiency Bonus per ",
@@ -296,7 +296,6 @@ ClassList["gunslinger"] = {
 					],
 					amendTo : "Luck Strikes",
 				}],
-				action : ["reaction", " [1 LP]"]
 			},
 			"dizzying shot" : {
 				name : "Dizzying Shot",
@@ -527,9 +526,8 @@ ClassList["gunslinger"] = {
 			minlevel : 5,
 			description : desc([
 				"I can expend two attacks to make a single one, adding my Charisma modifier to",
-				"the attack roll, and guaranteeing critical damage if it hits.",
-				"I only gain a Luck Point from this if the target has more than 10 HP, and I can apply",
-				"a Luck Strike for free if I critically hit normally."
+				"the attack roll, and guaranteeing critical damage if it hits. I can apply a Luck Strike",
+				"for free if I critically hit normally."
 			]),
 			action : ["action", " (uses two attacks)"],
 		},
