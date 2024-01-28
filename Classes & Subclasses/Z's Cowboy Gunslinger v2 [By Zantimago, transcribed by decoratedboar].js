@@ -8,19 +8,19 @@
 /*	-INFORMATION-
 	Subject:	Classes
 	Effect:		
-				This script adds a Class, the Cowboy Gunslinger, as well as the four new feats (one of which is excluded by default) and four new weapons (all excluded by default) that are included with it.
+				This script adds a Class, the Cowboy Gunslinger, as well as the four feats (one of which is excluded by default) and four weapons (all excluded by default) that are included with it.
 				This class is a homebrew creation by Zantimago
 				You can find it here: https://www.gmbinder.com/share/-N2uFyAkcoGsaoBr-hug
 	Code by:	u/decoratedblood (decoratedboar)
-	Date:		04-11-2022 (sheet v13.0.6")
+	Date:		28-01-2024 (sheet v13.1.5")
 */
-var iFileName = "Z's Cowboy Gunslinger [By Zantimago, transcribed by decoratedboar].js";
+var iFileName = "Z's Cowboy Gunslinger v2 [By Zantimago, transcribed by decoratedboar].js";
 
-RequiredSheetVersion("13.0.6");
+RequiredSheetVersion("13.1.5");
 
 ClassList["gunslinger"] = {
 	name : "Gunslinger",
-	regExpSearch : /^(?=.*gun)(?=.*slinger).*$/i,
+	regExpSearch : /^(?=.*gunslinger).*$/i,
 	source : ["HB", 0],
 	defaultExcluded : false,
 	primaryAbility : "Dexterity or Charisma",
@@ -62,7 +62,10 @@ ClassList["gunslinger"] = {
 			name : "Trained Skills",
 			source : ["HB", 0],
 			minlevel : 1,
-			description : "\n   Use the \"Choose Feature\" button above to add a Trained Skill the to third page." + "\n   " + "You gain advantage in the chosen checks",
+			description : desc([ 
+				"Use the \"Choose Feature\" button above to add a Trained Skill the to third page.",
+				"You gain advantage in the chosen checks.",
+			]),
 			additional : levels.map(function (n) {
 				return n < 10 ? 2 : 3 + " known";
 			}),
@@ -74,67 +77,86 @@ ClassList["gunslinger"] = {
 			choicesNotInMenu : false,
 			"survival, nature, and investigation" : {
 				name : "Survival, Nature, and Investigation",
-				description : "\n   I gain advantage on Survival, Nature, and Investigation checks made to track a creature"
+				description : desc([
+					"I gain advantage on Survival, Nature, and Investigation checks made to track a creature."
+				]),
 			},
-
 			"insight" : {
 				name : "Insight",
-				description : "\n   I gain advantage on Insight checks made against a humanoid to determine whether they are"+
-				"\n   lying or not about something crime-related",
+				description : desc([
+					"I gain advantage on Insight checks made against a humanoid to determine",
+					"whether they are lying or not about something crime-related.",
+				]),
 			},
 			"deception" :{
 				name : "Deception",
-				description : "\n   I gain advantage on Deception checks made against a humanoid to lie about something"+
-				"\n   crime-related",
+				description : desc ([
+					"I gain advantage on Deception checks made against a humanoid to lie about",
+					"something crime-related.",
+				]),
 			},
 			"sleight of hand" :{
 				name : "Sleight of Hand",
-				description : "\n   I gain advantage on any Sleight of Hand check made to draw a revolver and aim"
+				description : desc([
+					"I gain advantage on any Sleight of Hand check made to draw a revolver and aim."
+				]),
 			},
 			"intimidation" :{
 				name : "Intimidation",
-				description : "\n   I gain advantage on Intimidation checks made while pointing a firearm at the target creature(s) if"+
-				"\n   said creature(s) know what a firearm is and that it is dangerous"
+				description : desc([
+					"I gain advantage on Intimidation checks made while pointing a firearm at the",
+					"target creature(s) if said creature(s) know what a firearm is and that it is dangerous"
+				]),
 			},
 			"intelligence" :{
 				name : "Intelligence",
-				description : "\n   I gain advantage on any kind of Intelligence check made to both better understand how a"+
-				"\n   weapon or mechanism that uses gunpowder works and modify said kind of technology"
+				description : desc([
+					"I gain advantage on any kind of Intelligence check made to both better understand how a",
+					"weapon or mechanism that uses gunpowder works and modify said kind of technology."
+				]),
 			},
 			"performance" :{
 				name : "Performance",
-				description : "\n   I gain advantage on Performance and Sleight of Hand checks made to do tricks with guns"
+				description : desc([
+				"I gain advantage on Performance and Sleight of Hand checks made to do tricks with guns."
+				]),
 			},
 		},		
-		
 		"run red run" : {
 			name : "Run Red Run",
 			source : ["HB", 0],
 			minlevel : 1,
-			description : "\n   I gain a bonus to my initiative equal to my Charisma modifier, and I can take the Dash action" + "\n   " + "once during my first turn of combat (no action required)",
+			description : desc([
+				"I gain an initiative bonus equal to my Charisma modifier, and I can take the Dash",
+				"action once during my first turn of combat (no action required)",
+			]),
 			action : ["action", "Dash (as part of first turn in combat)"],
 			addMod : {type : "skill", field : "Init", mod : "Cha", text : "I add my Charisma modifier to my initiative rolls."},
 		},
-		
 		"sights" : {
 			name : "Sights",
 			source : ["HB", 0],
 			minlevel : 1,
-			description : "\n   I can use an action to change my firearm's sight" + "\n   " + "Use the \"Choose Feature\" button above to select your current sight",
+			description : desc([
+				"I can use an action to change my firearm's sight" + "Use the \"Choose Feature\" button",
+				"above to select your current sight",
+			]),
 			action : ["action", "Change gun sight"],
 			choices : ["Iron Sights", "No Sight", "Scope"],
 			
 			"iron sights" : {
 				name : "Iron Sights",
-				description : "\n   My gun's default sight. Its properties are not altered"
-				
+				description : desc ([
+					"My gun's default sight. Its properties are not altered."
+				]),
 			},
 			
 			"no sight" : {
 				name : "No Sight",
-				description: "\n   My gun’s normal and long ranges are reduced to 1/4, but I gain a +2 bonus to hit with any" +
-				"\n   attack rolls I make with it",
-				
+				description: desc([
+					"My gun’s normal and long ranges are reduced to 1/4, but I gain a +2 bonus to hit with any",
+					"attack rolls I make with it",
+				]),
 				calcChanges : {
 					atkAdd : [
 						function (fields, v) {
@@ -166,9 +188,10 @@ ClassList["gunslinger"] = {
 			
 			"scope" : {
 				name : "Scope",
-				description: "\n   Both my gun’s normal and long ranges are doubled, and I ignore both 1/2 and 3/4 cover, but" +
-				"\n   any ranged attack roll I make with it suffers a -2 penalty",
-				
+				description: desc([
+					"Both my gun’s normal and long ranges are doubled, and I ignore both 1/2 and 3/4 cover, but" +
+					"any ranged attack roll I make with it suffers a -2 penalty",
+				]),
 				calcChanges : {
 					atkAdd : [
 						function (fields, v) {
@@ -194,146 +217,235 @@ ClassList["gunslinger"] = {
 				
 			},
 		},
-		
 		"fortune favors the bold 1" : {
 			name : "Luck Points",
 			source : ["HB", 0],
 			minlevel : 2,
-			description : "\n   I gain a number of Luck Points which fuel Luck Strikes. I regain all Luck Points after a short rest" + 
-			"\n   After making a firearm attack, I can also spend a single Luck Point to convert it to a critical hit" +
-			"\n   Whenever I normally land a critical hit, I can now choose to regain a Luck Point, or" + 
-			"\n   immediately apply the effect of a Luck Strike, instead of dealing critical damage",
-			
+			description : desc([			
+				"I gain a number of Luck Points. They fuel my Luck Strikes, and can be spent to",
+				"increase a firearm attack's damage as if I'd critically hit.",
+				"I regain all my Luck Points on a short rest, and when I critically hit with a firearm,",
+				"I can choose to regain a Luck Point.",
+			]),
 			limfeaname : "Luck Points",
 			usages : "Proficiency Bonus per ",
 			usagescalc : "event.value = How('Proficiency Bonus');",
 			recovery : "short rest",
 			
 		},	
-		
 		"fortune favors the bold 2" : {
 			name : "Luck Strikes",
 			source : ["HB", 0],
 			minlevel : 2,
-			description : "\n   I gain Luck Strikes, which can be used by expending the appropriate amount of Luck Points" +
-			"\n   My Luck Strikes per level, are added to the third page",
-			
+			description : desc([
+				"I gain Luck Strikes, which can be used by expending the appropriate amount of",
+				"Luck Points. When I critically strike with a firearm, I can choose to apply a Luck",
+				"Strike for free, instead of regaining a Luck Point.",
+				"See the notes page for available Luck Strikes."
+			]),
+			toNotesPage : [{
+				name : "Luck Strikes",
+				note : [
+					"I gain Luck Strikes based on my level."
+				]
+			}],
 			"ricochet" : {
 				name : "Ricochet",
 				extraname: "Luck Strike",
 				source : ["HB", 0],
 				minlevel : 2,
-				description : " [1 Luck Point]" + desc("After missing a firearm attack, roll again to hit either the same target or a different one within" + 
-				"\n   normal range. You must use this new roll. This attack ignores cover"),
+				toNotesPage : [{
+					name : "Ricochet [1 Luck Point]",
+					note : [
+						"After missing an attack, you make the bullet ricochet off of nearby surfaces, items",
+						"or even creatures. You choose either the same target or another that you can see",
+						"and is within your normal range, and then reroll the attack roll, ignoring cover."
+					],
+					amendTo : "Luck Strikes",
+				}],
 			},
 			"mightier than the sword" : {
 				name : "Mightier than the Sword",
 				extraname: "Luck Strike",
 				source : ["HB", 0],
 				minlevel : 2,
-				description : " [1 Luck Point]" + desc("As a reaction when a Large or smaller enemy makes a non-firearm attack against myself or a" + 
-				"\n   creature I can see within normal range, force them to reroll, taking the lower roll. Ranged" + 
-				"\n   weapon attacks fail automatically"),
-				action : ["reaction", ""],
+				toNotesPage : [{
+					name : "Mightier Than the Sword [1 Luck Point]",
+					note : [
+						"Whenever an enemy you can makes a weapon attack, you can use your reaction",
+						"and 1 LP to force that enemy to reroll the attack, taking the lower of the two results.",
+						"If the attack is a ranged weapon attack you only need to see the target within your",
+						"normal range, and the attack fails automatically. The enemy is unharmed.",
+						"Huge and bigger creatures are immune to Luck Strike."
+					],
+					amendTo : "Luck Strikes",
+				}],
+				action : ["reaction", " [1 LP]"],
 			},
 			"leg shot" : {
 				name : "Leg Shot",
 				extraname: "Luck Strike",
 				source : ["HB", 0],
 				minlevel : 2,
-				description : " [1 or more Luck Points]" + desc("Reduce the target\'s speed by 20ft for every Luck Point spent until the end of its next turn. If the" + 
-				"\n   target has no movement speed left, it is knocked prone. Huge and larger creatures are immune" + 
-				"\n   to this Luck Strike" + 
-				"\n   This Luck Strike can be used as a reaction whenever an enemy moves within my normal range, in" + 
-				"\n   which case a normal attack is made, and all Luck Points are wasted if I miss"),
-				action : ["reaction", ""]
+				toNotesPage : [{
+					name : "Leg Shot [1 Luck Point]",
+					note : [
+						"The target's walking speed is reduced by 20 ft until the end of its next turn. If the",
+						"target has no movement speed left, it is knocked prone. If the target is Large, it's speed",
+						"is reduced only 10ft, and Huge and larger creatures are immune to this Luck Strike."
+					],
+					amendTo : "Luck Strikes",
+				}],
+				action : ["reaction", " [1 LP]"]
 			},
 			"dizzying shot" : {
 				name : "Dizzying Shot",
 				extraname: "Luck Strike",
 				source : ["HB", 0],
 				minlevel : 3,
-				description : " [1 Luck Point]" + desc("Target is unable to take reactions until the end of its next turn"),
+				toNotesPage : [{
+					name : "Dizzying Shot [1 Luck Point]",
+					note : [
+						"The target is briefly distracted by the pain inflicted, unable to take reactions until the",
+						"end of its next turn."
+					],
+					amendTo : "Luck Strikes",
+				}],
 			},
 			"pushing shot" : {
 				name : "Pushing Shot",
 				extraname: "Luck Strike",
 				source : ["HB", 0],
 				minlevel : 3,
-				description : " [1 Luck Point]" + desc("The target of the firearm attack is pushed 10 ft away from me. Large creatures are moved only" + 
-				"\n   5 ft, and Huge and larger creatures are immune to this Luck Strike"),
+				toNotesPage : [{
+					name : "Pushing Shot [1 Luck Point]",
+					note : [
+						"You push the target of the ranged firearm attack 10 ft away from you. If the target",
+						"is Large, it is moved just 5 ft. Huge and Gargantuan creatures are immune to the",
+						"effects of this Luck Strike."
+					],
+					amendTo : "Luck Strikes",
+				}],
 			},
 			"piercing shot" : {
 				name : "Piercing Shot",
 				extraname: "Luck Strike",
 				source : ["HB", 0],
 				minlevel : 6,
-				description : " [1 Luck Point]" + desc("The attack now targets a number of enemies in a straight line behind the target equal to my" + 
-				"\n   Charisma modifier. I use the same attack roll for each target, but make seperate damage rolls" + 
-				"\n   I can grant an attack this benefit even if it misses the original target, and the bullet loses all force" + 
-				"\n   after exiting my normal range"),
+				toNotesPage : [{
+					name : "Piercing Shot [1 Luck Point]",
+					note : [
+						"The bullet keeps enough force after impact to still be deadly. The attack now targets",
+						"a number of creatures that are in straight line behind the initial target of up to your",
+						"charisma modifier. Use the same attack roll, but roll damage for each hit. The bullet",
+						"loses all force after exiting your normal range."
+					],
+					amendTo : "Luck Strikes",
+				}],
 			},
-			"counterbullet" : {
+			"counter-bullet" : {
 				name : "Counter-Bullet",
 				extraname: "Luck Strike",
 				source : ["HB", 0],
 				minlevel : 7,
-				description : " [2 Luck Points]" + desc("As a reaction to seeing an enemy cast a spell within my normal range, I can make an attack roll" + 
-				"\n   to interrupt them. The target AC equals 10 + the spell's level" + 
-				"\n   On a hit, the spell fails and has no effect, still consuming any resources required for it, and" + 
-				"\n   leaving the enemy unharmed"),
-				action : ["reaction", ""],
+				toNotesPage : [{
+					name : "Counter-Bullet [2 Luck Points]",
+					note : [
+						"As a reaction when you see an enemy cast a spell, you can spend 2 LPs to shoot said",
+						"enemy with the intent of interrupting the casting. Make an attack roll, the target AC of",
+						"which equals 10 + the spell’s level. On a hit, the creature’s spell fails and has no effect.",
+						"The spell still consumes the required resources, such as spell slots. The enemy is unharmed."
+					],
+					amendTo : "Luck Strikes",
+				}],
+				action : ["reaction", " [2 LPs]"],
 			},
 			"exposing shot" : {
 				name : "Exposing Shot",
 				extraname: "Luck Strike",
 				source : ["HB", 0],
 				minlevel : 7,
-				description : " [2 or more Luck Points]" + desc("Until the start of my next turn, the target creature\'s AC is reduced by 2 points + 1 point per" + 
-				"\n   additional Luck Point spent"),
+				toNotesPage : [{
+					name : "Exposing Shot [1 Luck Point]",
+					note : [
+						"The target's Armor Class is reduced by 2 points until the start of your next turn."
+					],
+					amendTo : "Luck Strikes",
+				}],
 			},
 			"compelling shot" : {
 				name : "Compelling Shot",
 				extraname: "Luck Strike",
 				source : ["HB", 0],
-				minlevel : 7,
-				description : " [1 Luck Point]" + desc("The target creature has disadvantage on attack rolls and can't make opportunity attacks against" + 
-				"\n   targets other than me" + 
-				"\n   This effect lasts until the target creature is attacked or affected by a spell from someone other" + 
-				"\n   than myself, or until I end my turn more than 60 ft away from it"),
+				minlevel : 9,
+				toNotesPage : [{
+					name : "Compelling Shot [1 Luck Point]",
+					note : [
+						"You demand the target's attention, forcing them to keep an eye on you. The target has",
+						"disadvantage on attack rolls against and can't make opportunity attacks targeting",
+						"creatures other than you. This effect lasts until one of your allies attacks the target or",
+						"affects it with a spell, or until you end your turn more than 60ft away from the target."
+					],
+					amendTo : "Luck Strikes",
+				}],
 			},
-			"anti aerial shot" : {
+			"anti-aerial shot" : {
 				name : "Anti-Aerial Shot",
 				extraname: "Luck Strike",
 				source : ["HB", 0],
 				minlevel : 10,
-				description : " [1 or more Luck Points]" + desc("If the airbone target creature gains flying speed via physical means, reduce their flying speed by" + 
-				"\n   40 ft per Luck Point spent"),
+				toNotesPage : [{
+					name : "Anti-Aerial Shot [1 Luck Point]",
+					note : [
+						"If the target is an airborne creature whose flying speed comes from physical means, you can target them to hinder it's flight. The creature's flying speed is reduced by 40ft."
+					],
+					amendTo : "Luck Strikes",
+				}],
 			},
 			"disarming shot" : {
 				name : "Disarming Shot",
 				extraname: "Luck Strike",
 				source : ["HB", 0],
 				minlevel : 11,
-				description : " [1 or more Luck Points]" + desc("Force the target to drop whatever item it is holding in one hand" + 
-				"\n   Spend 1 Luck Point per extra hand to target with this Luck Strike" + 
-				"\n   Huge and larger creatures are immune to this Luck Strike"),
+				toNotesPage : [{
+					name : "Disarming Shot [1 Luck Point]",
+					note : [
+						"You hit a hand or similar appendix of the target, forcing it to drop whatever item it is",
+						"holding with that hand, if any. If the target is holding an item with two or more hands",
+						"it is unaffected. The object lands at its feet. Huge and larger creatures are immune to",
+						"this Luck Strike."
+					],
+					amendTo : "Luck Strikes",
+				}],
 			},
 			"shield breaker" : {
 				name : "Shield Breaker",
 				extraname: "Luck Strike",
 				source : ["HB", 0],
 				minlevel : 14,
-				description : " [1 Luck Point]" + desc("If the target is under the effect of the Shield spell (including one cast as a reaction to this attack)," + 
-				"\n   ignore the AC bonus from the spell and immediately end it"),
+				toNotesPage : [{
+					name : "Shield Breaker [1 Luck Point]",
+					note : [
+						"If the target is under the effect of the Shield spell, including if it was cast as a reaction",
+						"to this attack, the bullet shatters the magical shield, ignoring the AC bonus the spell",
+						"would provide and ending it."
+					],
+					amendTo : "Luck Strikes",
+				}],
 			},
-			
 			"weakening shot" : {
 				name : "Weakening Shot",
 				extraname: "Luck Strike",
 				source : ["HB", 0],
 				minlevel : 17,
-				description : " [1 Luck Point]" + desc("The target has disadvantage on the next saving throw it makes before the start of my next turn"),
+				toNotesPage : [{
+					name : "Weakening Shot [1 Luck Point]",
+					note : [
+						"The target has disadvantage on the next saving throw it makes before the start of",
+						"your next turn."
+					],
+					amendTo : "Luck Strikes",
+				}],
 			},
 			
 			autoSelectExtrachoices : [{
@@ -355,7 +467,7 @@ ClassList["gunslinger"] = {
 				extrachoice : 'piercing shot',
 				minlevel : 6,
 			}, {
-				extrachoice : 'counterbullet',
+				extrachoice : 'counter-bullet',
 				minlevel : 7,
 			}, {
 				extrachoice : 'exposing shot',
@@ -364,7 +476,7 @@ ClassList["gunslinger"] = {
 				extrachoice : 'compelling shot',
 				minlevel : 9,
 			}, {
-				extrachoice : 'anti aerial shot',
+				extrachoice : 'anti-aerial shot',
 				minlevel : 10,
 			}, {
 				extrachoice : 'disarming shot',
@@ -377,51 +489,57 @@ ClassList["gunslinger"] = {
 				minlevel : 17,	
 			}],
 		},
-		
 		"lady luck\'s gift" : {
 			name : "Lady Luck\'s Gift",
 			source : ["HB", 0],
 			minlevel : 2,
-			description : "\n   As a bonus action, I can restore all of my missing Luck Points once per long rest",
+			description : desc([
+				"Once per long rest as a bonus action, I restore all expended Luck Point.",
+			]),
 			usages : 1,
 			recovery : "long rest",
-			action : ["bonus action", "Lady Luck\'s Gift"]
+			action : ["bonus action", " [Restore LP]"]
 		},
-		
 		"luck boon" : {
 			name : "Luck Boon",
 			source : ["HB", 0],
 			minlevel : 3,
-			description : "\n   As a reaction to a creature I can see within 60 ft making a saving throw or ability check, I can" + 
-			"\n   spend 1 Luck Point to add my Charisma modifier to the total. I can do this after the roll has" + 
-			"\n   been made, but before knowing if it was successful",
-			action : ["reaction", "Luck Boon"],
+			description : desc([
+				"When a creature I can see within 60 ft. makes a saving throw or ability, I can",
+				"spend 1 Luck Point and add my Charisma modifier to the total as a reaction.",
+				"I can do this after the roll is made, but before knowing the outcome."
+			]),
+			action : ["reaction", " [1 LP]"],
 		},
 		
 		"subclassfeature3" : {
 			name : "Gunslinger Path",
 			source : ["HB", 0],
 			minlevel : 3,
-			description : "\n   Choose the Gunslinger Path you have decided to walk to put in the \"Class\" field",
+			description : desc([
+				"Choose a Gunslinger Path to put in the \"Class\" field.",
+			]),
 		},
 		
 		"deadeye" : {
 			name : "Deadeye",
 			source : ["HB", 0],
 			minlevel : 5,
-			description : "\n   I can expend two of my available Attacks to make a single one, adding my Charisma modifier" + 
-			"\n   to the attack roll, and guaranteeing a critical hit if it lands on the target creature" + 
-			"\n   I can only gain a Luck Point from this crit if the target has at least 10 hit points. If the attack" + 
-			"\n   roll would normally be a critical strike, I can apply the effect of a Luck Strike for free",
-			action : ["action", "Deadeye (uses two attacks)"],
+			description : desc([
+				"I can expend two attacks to make a single one, adding my Charisma modifier to",
+				"the attack roll, and guaranteeing critical damage if it hits.",
+				"I only gain a Luck Point from this if the target has more than 10 HP, and I can apply",
+				"a Luck Strike for free if I critically hit normally."
+			]),
+			action : ["action", " (uses two attacks)"],
 		},
-		
 		"silver bullets" : {
 			name : "Silver Bullets",
 			source : ["HB", 0],
 			minlevel : 6,
-			description : "\n   My firearm attacks count as magical",
-			
+			description : desc([
+				"My firearm attacks count as magical.",
+			]),
 			calcChanges : {
 				atkAdd : [
 					function (fields, v) {
@@ -433,44 +551,50 @@ ClassList["gunslinger"] = {
 			},
 			
 		},
-		
 		"superior luck boon" : {
 			name : "Superior Luck Boon",
 			source : ["HB", 0],
 			minlevel : 7,
-			description : "\n   Whenever I use the Luck Boon feature, myself and the affected ally gain double my proficiency" + 
-			"\n   bonus in temporary hit points, increasing to three times at 13th level" + 
-			"\n   I can also spend 1 Luck Point to grant the temporary hit points as a bonus action)",
-			action : ["bonus action", "Superior Luck Boon (temp HP)"],
+			description : desc([
+				"When I use the Luck Boon feature, myself and the affected ally gain double my",
+				"proficiency, bonus in temporary hit points, increasing to three times at 13th level,",
+				"I can also spend 1 Luck Point to grant the temporary hit points as a bonus action).",
+			]),
+			action : ["bonus action", " (temp HP) [1 LP]"],
 		},
-		
 		"animal friend" : {
 			name : "Animal Friend",
 			source : ["HB", 0],
 			minlevel : 13,
-			description : "\n   I gain advantage on all Animal Handling checks",
-			skillstxt : "\n \n" + toUni("Animal Friend") + ": I gain advantage on all Animal Handling Checks.",
+			description : desc([
+				"I gain advantage on all Animal Handling checks.",
+			]),
+			skillstxt : "I gain advantage on all Animal Handling Checks.",
 			advantages : [["Animal Handling", true]]
 		},
-
 		"no such thing as luck" : {
 			name : "No Such Thing As Luck",
 			source : ["HB", 0],
 			minlevel : 14,
-			description : "\n   I no longer suffer disadvantage on attacks against invisible or obscured targets",
+			description : desc([
+				"My attack rolls no longer have disadvantage against invisible or obscured targets",
+			]),
 		},		
-		
 		"guardian angel" : {
 			name : "Guardian Angel",
 			source : ["HB", 0],
 			minlevel : 18,
-			description : "\n   Whenever I roll a 1 on the d20, I treat it as a 20",
+			description : desc([
+				"Whenever I roll a 1 on the d20, I treat it as a 20.",
+			]),
 		},
 		"master gunslinger" : {
 			name : "Master Gunslinger",
 			source : ["HB", 0],
 			minlevel : 20,
-			description : "\n   Whenever I make or land an attack, I can apply the effect of a Luck Strike for free",
+			description : desc([
+				"Whenever I make or land an attack, I can apply a Luck Strike for free.",
+			]),
 		},
 	},
 };	
@@ -486,9 +610,10 @@ AddSubClass("gunslinger", "the desperado", {
 				name : "Dancing With Danger",
 				source : ["HB", 0],
 				minlevel : 3,
-				description : "\n   My firearm attacks critically strike on an attack roll of 19 or higher" + 
-				"\n   Additionally, my firearm attacks no longer gain disadvantage against targets within 5 ft",
-				
+				description : desc([
+					"My firearm attacks critically strike on an attack roll of 19 or higher, and I no longer",
+					"roll them with disadvantage within 5 ft. of my target."
+				]),
 				calcChanges : {
 					atkAdd : [
 						function (fields, v) {
@@ -503,48 +628,56 @@ AddSubClass("gunslinger", "the desperado", {
 				name : "Body Reader",
 				source : ["HB", 0],
 				minlevel : 3,
-				description : "\n   As a bonus action, I can make a Charisma check to discern a target creature\'s alignment. The" + 
-				"\n   DC is equal to 8 + the creature\'s deception modifier" + 
-				"\n   On a success, I know the creature\'s alignment. On a failure, I know only whether it is Lawful," + 
-				"\n   Neutral, or Chaotic",
-				action : ["bonus action", "Body Reader"],
+				description : desc([
+					"As a bonus action, I can make a Charisma check against DC 8 + the creature\'s",
+					"deception modifier. On a success, I know their alignment; on a failure I only know",
+					"whether they're Lawful, Neutral, or Chaotic.",
+					"I can use this feature on the same target once every 24 hours."
+				]),
+				action : ["bonus action", ""],
 			},			
 			"subclassfeature6" : {
 				name : "Don\'t Fence Me In",
 				source : ["HB", 0],
 				minlevel : 6,
-				description : "\n   I add my Charisma modifier to any Dexterity check or saving throw I make to prevent my" + 
-				"\n   movement being impaired or taken from my control",
+				description : desc([
+					"I add my Charisma modifier to Dexterity checks and saving throws I make to prevent",
+					"my movement being reduced or impaired.",
+				]),
 				savetxt : { 
-					text : ["Add Cha mod to Dex checks or saves vs. having my movement impaired"]
+					text : ["Add Cha. mod. to Dex. checks or saves vs. impaired movement"]
 				}
 			},
 			"subclassfeature6.1" : {
 				name : "Make it Count",
 				source : ["HB", 0],
 				minlevel : 6,
-				description : "\n   Whenever I am dropped to 0 hit points, I can instantly make an attack roll as a reaction" + 
-				"\n   I can use this feature once per short rest",
+				description : desc([
+					"Once per short rest, when I drop to 0 hit points, I can make an attack roll as a reaction.",
+				]),
 				usages: 1,
 				recovery : "short rest",
+				action: ["reaction", " (attack)"],
 			},
 			"subclassfeature11" : {
 				name : "Swift Shooter",
 				source : ["HB", 0],
 				minlevel : 11,
-				description : "\n   I gain one additional attack whenever I take the Attack action" + 
-				"\n   Additionally, I no longer spend my reaction when using Luck Strikes that would otherwise" + 
-				"\n   require it",
+				description : desc([
+					"I gain one additional attack whenever I take the Attack action. Additionally, I no",
+					"longer spend my reaction when using Luck Strikes that require it.",
+				]),
 				attacks : levels.map(function(n){return n < 5 ? 1 : n < 11 ? 2 : 3}),
 			},
 			"subclassfeature15" : {
 				name : "High Noon",
 				source : ["HB", 0],
 				minlevel : 15,
-				description : "\n   I always act first in the first round of combat, and I can spend 2 Luck Points to take an" + 
-				"\n   additional action in this first round"  + 
-				"\n   If one or more other creatures have a similar feature, they all make a Sleight of Hand check," + 
-				"\n   acting in ascending order of the results",
+				description : desc([
+					"In the first round of combat, I always act first, and I can spend 2 Luck Points to take",
+					"an additional action. Creatures with similar features to this make Sleight of Hand",
+					"checks, acting in ascending order of the results.",
+				]),
 			},
 		}
 	}
@@ -561,52 +694,63 @@ AddSubClass("gunslinger", "the marksman", {
 				name : "Sniper",
 				source : ["HB", 0],
 				minlevel : 3,
-				description : "\n   Bring prone no longer imposes disadvantage on firearm attacks, and I ignore the Gunslinger" +
-				"\n   scope\'s penalty to attack rolls if I am prone or have 3/4 cover from my target",
+				description : desc([
+					"I no longer have disadvantage on firearm attacks when prone, and I ignore the",
+					"Gunslinger scope\'s attack roll penalty when I\'m prone or in 1/2 or 3/4 cover.",
+				]),
 			},
 			"subclassfeature3.1" : {
 				name : "Quick Reload",
 				source : ["HB", 0],
 				minlevel : 3,
-				description : "\n   I can reload my weapon as a bonus action so long as I haven't moved during that turn" + 
-				"\n   I can also reload as part of the Dash action",
+				description : desc([
+					"When I haven't moved on a turn, I can reload my weapon as a bonus action, and",
+					"am unable to move after doing so. I can also reload while Dashing.",
+				]),
 			},
 			"subclassfeature6" : {
 				name : "Cover Master",
 				source : ["HB", 0],
 				minlevel : 6,
-				description : "\n   I gain an extra +1 to my AC and Dexterity saving throws from 1/2 and 3/4 cover",
+				description : desc([
+					"I gain an additional +1 to AC and Dexterity saving throws while in 1/2 and 3/4 cover.",
+				]),
 			},
 			"subclassfeature6.1" : {
 				name : "Quiet",
 				source : ["HB", 0],
 				minlevel : 6,
-				description : "\n   As a bonus action, I can reduce the noise from my next firearm attack. The shot will be heard" +
-				"\n   from 15 ft away for rifles/shotguns, and 10 ft away for revolvers/pistols",
+				description : desc([
+					"As a bonus action, I reduce the noise from my next firearm attack. Rifles/shotguns",
+					"can only be heard 15 ft. away, and revolvers/pistols 10 ft.",
+				]),
 				action : ["bonus action", "Quiet"],
 			},
 			"subclassfeature11" : {
 				name : "Hollow-Point Bullets",
 				source : ["HB", 0],
 				minlevel : 11,
-				description : "\n   Whenever I deal extra damage from a critical hit, I roll my damage dice three times instead of" + 
-				"\n   twice",
+				description : desc([
+					"I roll critical damage dice three times, instead of twice.",
+				]),
 			},
 			"subclassfeature11.1" : {
 				name : "Elite Sniper",
 				source : ["HB", 0],
 				minlevel : 11,
-				description : "\n   I add my Charisma modifier to the damage of firearm attacks that are made while my Sniper" + 
-				"\n   feature is active",
+				description : desc([
+					"While my Sniper feature is active, I add my Charisma modifier to firearm damage rolls.",
+				])
 			},
 			"subclassfeature15" : {
 				name : "Yuyan of the West",
 				source : ["HB", 0],
 				minlevel : 15,
-				description : "\n   After using a Deadeye attack, but before making the attack roll, I can spend 2 Luck Points to" +
-				"\n   guarantee a hit on my target, no matter its AC" + 
-				"\n   Attacks made with this feature have unlimited range, so long as I have vision of the target",
-				action : ["action", " [2 Luck Points] Yuyan of the West (as part of Deadeye)"],
+				description : desc([
+					"After using the Deadeye feature, but before making the attack roll, I can spend",
+					"one Luck Point to either give the attack unlimited range, or make it hit automatically." 
+				]),
+				action : ["action", " (with Deadeye) [1 "],
 			},
 		}
 	}
@@ -615,9 +759,9 @@ AddSubClass("gunslinger", "the marksman", {
 FeatsList["cqc expert"] = {
 	name: "CQC Expert",
 	source: [["HB", 0]],
-	descriptionFull : "Prequisite: Desperado \nYou develop a new fighting style for close-quarter fights based around revolvers, gaining these benefits whenever you use one: \n \u2022 Attacks made against enemies within 5ft of you gain a bonus to their damage equal to your charisma modifier if the revolver is sightless. \n \u2022 You ignore half and 3/4 cover when attacking with a firearm within normal range. \n \u2022 During your turn, if you hit a creature with an attack, that creature can't make opportunity attacks against you for the rest of your turn.",
-	description: "I gain bonus damage when attacking a target within 5 ft of me with a sightless revolver equal to my Charisma modifier. Additionally, I ignore 1/2 and 3/4 cover when attacking with a firearm within normal range, and if I hit a creature with an attack, it can't make opportunity attacks against me for the rest of my turn.",
-	
+	descriptionFull : "You develop a new fighting style for close-quarter fights based around revolvers, gaining these benefits whenever you use one: \n \u2022 Attacks made against enemies within 5ft of you gain a bonus to their damage equal to your charisma modifier if the revolver is sightless. \n \u2022 You ignore half and 3/4 cover when attacking with a firearm within normal range. \n \u2022 During your turn, if you hit a creature with an attack, that creature can't make opportunity attacks against you for the rest of your turn.",
+	description: "I gain bonus damage when attacking a target within 5 ft. of me with a sightless revolver equal to my Charisma modifier. Additionally, I ignore 1/2 and 3/4 cover when attacking with a firearm within normal range, and if I hit a creature with an attack, it can't make opportunity attacks against me for the rest of my turn.",
+	prerequisite : "Prerequisite: Desperado Gunslinger",
 	prereqeval : "classes.known.gunslinger.subclass === 'gunslinger-the desperado'"	
 	//look at checking for sightless revolvers?
 };
@@ -626,7 +770,7 @@ FeatsList["lucky shooter"] = {
 	name: "Lucky Shooter",
 	source: [["HB", 0]],
 	descriptionFull : "You learn how to better implement luck in your fighting style, gaining these benefits: \n \u2022 Before you make an attack with a ranged weapon that you are proficient with, you can choose to take a +5 bonus to the attack roll. If that attack hits, its damage takes a -10 penalty, to a minimum of 1 damage. \n \u2022 Your firearms' normal range is extended to be equal to their long range. \n \u2022 Your Luck Point maximum is increased by one and you gain one extra Luck Point whenever you roll for initiative, up to your maximum LP capacity. You only gain this benefit if you have the Fortune Favors the Bold feature.",
-	description: "With a ranged weapon that I am proficient with, I can choose to take a +5 bonus on the attack roll, taking a -10 penalty to damage, to a minimum of 1 if the attack hits. Additionally, my firearm\'s normal ranges are now equal to their long range. If I have the Fortune Favours the Brave feature from the Gunslinger class, my Luck Point maximum is also increased by one, and I gain an extra Luck Point whenever I roll for initiative, up to my max",
+	description: "With a ranged weapon that I am proficient with, I can choose to take a +5 bonus on the attack roll, taking a -10 penalty to damage, to a minimum of 1 if the attack hits. Additionally, my firearm\'s normal ranges are now equal to their long range. If I have the Fortune Favours the Bold feature from the Gunslinger class, my Luck Point maximum is also increased by one, and I gain an extra Luck Point whenever I roll for initiative, up to my max",
 	
 	calcChanges : {
 		atkAdd : [
@@ -651,16 +795,16 @@ FeatsList["powder ganger"] = {
 	defaultExcluded : true,
 	descriptionFull : "You become an expert in the use of explosives, gaining these benefits: \n \u2022 Whenever you take a short rest, you can tie up to 4 dynamite sticks together to make a dynamite pack, increasing the damage by 2d6 and how far objects and creatures are pushed away by 5ft each each. \n \u2022 You can throw dynamite sticks and packs as a bonus action and twice as far. \n \u2022 After you throw a dynamite stick or pack as a bonus action, you can target it at any point of its trajectory with a ranged firearm attack. When shot using this feature the dynamite has an AC of 20, exploding immediately if a shot lands, and you add your charisma modifier to the damage of the explosion. \n \u2022 You can set a precise timer to trigger the explosion of dynamite, which cannot be less than one round. You can link dynamite together to trigger multiple explosions at the same time.",
 	description: "I can tie up to 4 dynamite sticks together over the course of a short rest to make a dynamite pack, increasing the damage by 2d6 and how far objects and creatures are pushed back by 5ft per stick. Additionally, I can throw dynamite sticks and packs as a bonus action and twice as far. I can make a firearm attack against thrown dynamite sticks or packs at any point on their trajectory. The dynamite has an AC of 20, explodes as soon as it is hit, and I add my Charisma modifier to the explosion damage. I can also set a timer for dynamite with a length of between one round and two hours.",
-	action : ["bonus action", "Throw Dynamite/Pack"],
+	action : ["bonus action", " (Throw Dynamite/Pack)"],
 };
 
 FeatsList["twice as deadly"] = {
 	name: "Twice as Deadly",
 	source: [["HB", 0]],
-	descriptionFull : "Prequisite: Desperado \nYou are now so skilled in using revolvers that you can wield and shoot two of them at the same time, gaining these benefits when you do so: \n \u2022 You can make twice as many attacks whenever you take the Attack action. When you use this ability you don't add your dexterity modifier to the attack rolls nor damage of those attacks, even if you instead make Deadeye attacks. \n \u2022 You can reload every revolver you are wielding, even if you have no free hands, as a bonus action. \n \u2022 In addition, you can now draw or stow two revolvers when you would normally be able to draw or stow only one. \nIn addition, you can now draw or stow two revolvers when you would normally be able to draw or stow only one.",
+	descriptionFull : "You are now so skilled in using revolvers that you can wield and shoot two of them at the same time, gaining these benefits when you do so: \n \u2022 You can make twice as many attacks whenever you take the Attack action. When you use this ability you don't add your dexterity modifier to the attack rolls nor damage of those attacks, even if you instead make Deadeye attacks. \n \u2022 You can reload every revolver you are wielding, even if you have no free hands, as a bonus action. \n \u2022 In addition, you can now draw or stow two revolvers when you would normally be able to draw or stow only one. \nIn addition, you can now draw or stow two revolvers when you would normally be able to draw or stow only one.",
 	description: "I can now use two revolvers at once, and can make twice as many attacks when taking the Attack action. While attacking this way, I don't add my Dexterity modifier to the attack or damage rolls, even while making Deadeye attacks. I can reload every revolver I am wielding as a bonus action, and I can draw or stow two revolvers at once instead of one.",
-	action : ["bonus action", "Reload all revolvers"],
-	
+	action : ["bonus action", " (reload revolvers)"],
+	prerequisite : "Prerequisite: Desperado Gunslinger",
 	prereqeval : "classes.known.gunslinger.subclass === 'gunslinger-the desperado'"	
 };
 
